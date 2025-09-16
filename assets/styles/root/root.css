@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s linear, color 0.3s linear;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+}
+
+
+.btn-small-primary {
+    display: flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: var(--radius-round);
+    background: var(--color-primary);
+    width: max-content;
+    height: max-content;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.btn-medium-primary {
+    display: flex;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--radius-round);
+    background: var(--color-primary);
+    width: max-content;
+    height: max-content;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-big-primary {
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: var(--radius-round);
+    background: var(--color-primary);
+    width: max-content;
+    height: max-content;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+:root {
+    /* Brand */
+    --color-primary: #014EFF;
+    --color-primary-dark: #01194B;
+    --color-primary-light: rgba(1, 78, 255, 0.10);
+    --color-primary-white: #FFFFFF;
+    --gradient-primary: linear-gradient(90deg, #004EFF 0%, #01194B 100%);
+
+    /* Neutrals */
+    --color-neutral-900: #000000;
+    --color-neutral-700: #3C3C3C;
+    --color-neutral-300: #CECECE
+        /*#CECECE*/
+    ;
+
+    /* Light mode surfaces */
+    --color-bg: #F3F3F3;
+    --color-surface: #FFFFFF;
+
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-2xl: 16px;
+    --radius-3xl: 24px;
+    --radius-4xl: 32px;
+    --radius-round: 9999px;
+    --radius-oval: 50%;
+
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-md: 18px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 32px;
+    --font-size-4xl: 40px;
+    --font-size-5xl: 48px;
+    --font-size-6xl: 56px;
+    --font-size-7xl: 64px;
+
+
+    --spacing-1: 3px;
+    --spacing-2: 6px;
+    --spacing-3: 8px;
+    --spacing-4: 11px;
+    --spacing-5: 14px;
+    --spacing-6: 17px;
+    --spacing-7: 22px;
+    --spacing-8: 28px;
+    --spacing-9: 34px;
+    --spacing-10: 45px;
+    --spacing-main: 16px;
+    --spacing-11: 67px;
+
+}
+
+
+:root[data-theme="dark"] {
+    /* Brand override */
+    --gradient-primary: linear-gradient(90deg, #E9EDFF 0%, #004EFF 100%);
+    --color-primary-light: rgba(1, 77, 255, 0.14);
+
+    /* Neutrals */
+    --color-neutral-900: #F0F2F5;
+    --color-neutral-700: #A1A6B4;
+    --color-neutral-300: #262a44
+        /*1C1F32*/
+    ;
+
+    /* Dark mode surfaces */
+    --color-bg: #0B0E1B;
+    --color-surface: #14172B;
+}
+
+@media (min-width:430px) {
+    :root {
+        --font-size-xs: 11px;
+        --font-size-sm: 12px;
+        --font-size-base: 13px;
+        --font-size-md: 15px;
+        --font-size-lg: 17px;
+        --font-size-xl: 20px;
+        --font-size-2xl: 22px;
+        --font-size-3xl: 26px;
+        --font-size-4xl: 30px;
+        --font-size-5xl: 36px;
+        --font-size-6xl: 44px;
+        --font-size-7xl: 52px;
+
+
+        --spacing-1: 3px;
+        --spacing-2: 6px;
+        --spacing-3: 9px;
+        --spacing-4: 13px;
+        --spacing-5: 16px;
+        --spacing-6: 19px;
+        --spacing-7: 25px;
+        --spacing-8: 32px;
+        --spacing-9: 38px;
+        --spacing-10: 51px;
+        --spacing-main: 36px;
+        --spacing-11: 77px;
+    }
+}
+
+@media (min-width:768px) {
+    :root {
+        --font-size-xs: 11px;
+        --font-size-sm: 13px;
+        --font-size-base: 14px;
+        --font-size-md: 16px;
+        --font-size-lg: 18px;
+        --font-size-xl: 21px;
+        --font-size-2xl: 24px;
+        --font-size-3xl: 28px;
+        --font-size-4xl: 34px;
+        --font-size-5xl: 40px;
+        --font-size-6xl: 48px;
+        --font-size-7xl: 56px;
+
+        --spacing-1: 3px;
+        --spacing-2: 7px;
+        --spacing-3: 10px;
+        --spacing-4: 14px;
+        --spacing-5: 17px;
+        --spacing-6: 20px;
+        --spacing-7: 27px;
+        --spacing-8: 34px;
+        --spacing-9: 40px;
+        --spacing-10: 54px;
+        --spacing-main: 48px;
+        --spacing-11: 82px;
+    }
+}
+
+@media (min-width:1080px) {
+    :root {
+        --font-size-xs: 12px;
+        --font-size-sm: 13px;
+        --font-size-base: 15px;
+        --font-size-md: 17px;
+        --font-size-lg: 19px;
+        --font-size-xl: 22px;
+        --font-size-2xl: 26px;
+        --font-size-3xl: 30px;
+        --font-size-4xl: 38px;
+        --font-size-5xl: 44px;
+        --font-size-6xl: 52px;
+        --font-size-7xl: 60px;
+
+
+        --spacing-1: 4px;
+        --spacing-2: 7px;
+        --spacing-3: 11px;
+        --spacing-4: 15px;
+        --spacing-5: 18px;
+        --spacing-6: 22px;
+        --spacing-7: 29px;
+        --spacing-8: 36px;
+        --spacing-9: 43px;
+        --spacing-10: 58px;
+        --spacing-main: 68px;
+        --spacing-11: 86px;
+
+    }
+}
+
+@media (min-width:1280px) {
+    :root {
+        --font-size-xs: 12px;
+        --font-size-sm: 14px;
+        --font-size-base: 16px;
+        --font-size-md: 18px;
+        --font-size-lg: 20px;
+        --font-size-xl: 24px;
+        --font-size-2xl: 28px;
+        --font-size-3xl: 32px;
+        --font-size-4xl: 40px;
+        --font-size-5xl: 48px;
+        --font-size-6xl: 56px;
+        --font-size-7xl: 64px;
+
+
+        --spacing-1: 4px;
+        --spacing-2: 8px;
+        --spacing-3: 12px;
+        --spacing-4: 16px;
+        --spacing-5: 20px;
+        --spacing-6: 24px;
+        --spacing-7: 32px;
+        --spacing-8: 40px;
+        --spacing-9: 48px;
+        --spacing-10: 64px;
+        --spacing-main: 80px;
+        --spacing-11: 96px;
+    }
+}

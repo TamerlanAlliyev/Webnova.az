@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<!-- <button id="themeToggle">Toggle Theme</button> -->
+
+<head>
+    <script>
+        // Loading zamanı mövzunu təyin etmək üçün anında işə düşən funksiya
+        (function () {
+            // 1. İstifadəçinin daha əvvəl yadda saxladığı mövzunu yoxla
+            const savedTheme = localStorage.getItem("theme");
+
+            // 2. Cihazın sistem mövzusunu yoxla
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            // 3. Əgər yadda saxlanılan mövzu varsa, onu tətbiq et
+            if (savedTheme) {
+                document.documentElement.setAttribute("data-theme", savedTheme);
+            }
+            // 4. Əks halda, cihazın sistem mövzusunu tətbiq et
+            else if (prefersDark) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/styles/root/root.css">
+    <link rel="stylesheet" href="./assets/styles/root/DesktopRoot.css">
+    <link rel="stylesheet" href="./assets/styles/root/MiniDesktopRoot.css">
+    <link rel="stylesheet" href="./assets/styles/root/LaptopRoot.css">
+    <link rel="stylesheet" href="./assets/styles/root/TabletRoot.css">
+    <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css">
+
+    <link rel="stylesheet" href="./assets/styles/pages/layout.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <aside class="mobile-menu" aria-label="Mobile navigation">
+
+        <!-- Menu Header -->
+        <header class="menu-header">
+            <a href="/" class="logo" aria-label="Webnova Homepage">
+                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo light">
+                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo dark">
+            </a>
+            <a class="mobile-menu-btn-close"> <i class="bi bi-x-circle"></i> </a>
+        </header>
+
+        <!-- Main Content Wrapper -->
+        <div class="menu-content">
+
+            <!-- Navigation -->
+            <nav class="menu-nav" aria-label="Main navigation">
+                <ul class="menu-list">
+                    <li><a href="/" title="Go to Webnova Homepage">Home</a></li>
+                    <li><a href="/about" title="Learn more About Webnova">About Us</a></li>
+                    <li><a href="/projects" title="View our completed Projects">Projects</a></li>
+                    <li><a href="/services" title="Explore Webnova Services">Our Services</a></li>
+                    <li><a href="/contact" title="Get in touch with Webnova">Contact</a></li>
+                    <li><a href="/faq" title="Frequently Asked Questions about Webnova">Frequently Asked Questions</a>
+                    </li>
+                </ul>
+                <div class="cta">
+                    <a href="/qiymet-teklifi" class="btn-medium-primary">Qiymət təklifi al</a>
+                </div>
+            </nav>
+
+            <!-- Contact & Social Wrapper -->
+            <div class="menu-extra">
+
+                <!-- Contact Info -->
+                <section class="contact-info" aria-label="Contact Information">
+                    <p><span>Phone</span> <a href="tel:+994993779787">(+994) 99 377 97 87</a></p>
+                    <p><span>Email</span> <a href="mailto:info@webnova.az">info@webnova.az</a></p>
+                </section>
+
+                <!-- Social Links -->
+                <section class="social-links" aria-label="Social Media">
+                    <p>Follow us on social media to stay updated with the latest news</p>
+                    <ul class="social-list">
+                        <li><a href="#" aria-label="Webnova on Facebook" rel="noopener" target="_blank"><i
+                                    class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on Instagram" rel="noopener" target="_blank"><i
+                                    class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on WhatsApp" rel="noopener" target="_blank"><i
+                                    class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on LinkedIn" rel="noopener" target="_blank"><i
+                                    class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on YouTube" rel="noopener" target="_blank"><i
+                                    class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- Üst Header (üst panel) -->
+    <div class="topbar" role="banner">
+        <div class="container">
+            <!-- Tema dəyişmə -->
+
+            <div class="themebutton">
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="bi bi-moon-fill"></i>
+                    <i class="bi bi-sun-fill"></i>
+                    <span class="ball"></span>
+                </label>
+            </div>
+
+            <div class="language-picker">
+                <button class="selected-language" onclick="toggleDropdown()" aria-haspopup="listbox"
+                    aria-expanded="false">
+                    <div class="lang">
+                        <img src="https://flagcdn.com/gb.svg" alt="" class="flag" aria-hidden="true">
+                        <span>EN</span>
+                    </div>
+                    <div class="picker-arrow">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </button>
+
+                <div class="dropdown" role="listbox" style="display: none;">
+                    <a href="/en/Benefit/ChangeLanguage?returnUrl=%2Fen%2FBenefit" role="option" lang="en" hreflang="en"
+                        class="option">
+                        <img src="https://flagcdn.com/gb.svg" alt="" class="flag" aria-hidden="true">
+                        <span>EN</span>
+                    </a>
+                    <a href="/az/Benefit/ChangeLanguage?returnUrl=%2Fen%2FBenefit" role="option" lang="az" hreflang="az"
+                        class="option">
+                        <img src="https://flagcdn.com/az.svg" alt="" class="flag" aria-hidden="true">
+                        <span>AZ</span>
+                    </a>
+                    <a href="/ru/Benefit/ChangeLanguage?returnUrl=%2Fen%2FBenefit" role="option" lang="ru" hreflang="ru"
+                        class="option">
+                        <img src="https://flagcdn.com/ru.svg" alt="" class="flag" aria-hidden="true">
+                        <span>RU</span>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Əsas Header -->
+    <header class="header">
+        <aside class="container">
+
+            <a class="mobile-menu-btn-open">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+
+            <div class="logo-image">
+                <a class="logo" href="/" aria-label="Webnova Main Page">
+                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo">
+                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo">
+                </a>
+            </div>
+
+
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="/" class="active">Ana səhifə</a></li>
+                    <li><a href="/haqqimizda">Haqqımızda</a></li>
+                    <li><a href="/lahiyeler">Lahiyələr</a></li>
+                    <li><a href="/xidmetlerimiz">Xidmətlərimiz</a></li>
+                    <li><a href="/elaqe">Əlaqə</a></li>
+                </ul>
+            </nav>
+
+
+
+            <div class="cta">
+                <a href="/qiymet-teklifi" class="btn-medium-primary">Qiymət təklifi al</a>
+            </div>
+        </aside>
+    </header>
+
+
+    <main>
+        <section>Content</section>
+    </main>
+
+
+
+    <footer class="site-footer" role="contentinfo">
+
+        <div class="footer-container">
+
+            <a href="/" class="logo" aria-label="Webnova Homepage">
+                <img src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
+            </a>
+
+            <div class="container-grid">
+
+                <!-- Brand and Description -->
+                <section class="footer-brand" aria-labelledby="footer-brand-title">
+
+                    <p>
+                        Crafting intuitive, user-centric designs that bring ideas to life.
+                        With a passion for innovation and creativity, I help businesses and individuals.
+                    </p>
+
+                    <!-- Social Media Links -->
+                    <nav class="social-links" aria-label="Social Media">
+                        <ul>
+                            <li><a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Connect with us on LinkedIn"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Explore our X (Twitter) profile"><i
+                                        class="fab fa-x-twitter"></i></a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+                <!-- Contact Information -->
+                <address class="contact-info" aria-labelledby="footer-contact-title">
+                    <p><span>Phone</span> <a href="tel:+994993779787">(+994) 99 377 97 87</a></p>
+                    <p><span>Email</span> <a href="mailto:info@webnova.az">info@webnova.az</a></p>
+                </address>
+
+                <!-- Navigation Links -->
+                <nav class="footer-nav" aria-label="Footer Navigation">
+                    <ul>
+                        <li><a href="/" title="Go to homepage">Home</a></li>
+                        <li><a href="/about" title="Learn more about us">About</a></li>
+                        <li><a href="/projects" title="View our projects">Projects</a></li>
+                        <li><a href="/services" title="Explore our services">Services</a></li>
+                        <li><a href="/contact" title="Get in touch with us">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>© 2025 Webnova. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+<script src="./assets/scripts/layout.js"></script>
+
+</html>
