@@ -33,10 +33,12 @@
     <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css">
 
     <link rel="stylesheet" href="./assets/styles/pages/layout.css">
+    <link rel="stylesheet" href="./assets/styles/pages/home.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
+    <link rel="stylesheet" href="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +75,7 @@
                     </li>
                 </ul>
                 <div class="cta">
-                    <a href="/qiymet-teklifi" class="btn-medium-primary">Qiymət təklifi al</a>
+                    <a href="/qiymet-teklifi" class="btn-medium btn-primary">Qiymət təklifi al</a>
                 </div>
             </nav>
 
@@ -187,14 +189,44 @@
 
 
             <div class="cta">
-                <a href="/qiymet-teklifi" class="btn-medium-primary">Qiymət təklifi al</a>
+                <a href="/qiymet-teklifi" class="btn-medium btn-primary">Qiymət təklifi al</a>
             </div>
         </aside>
     </header>
 
 
     <main>
-        <section>Content</section>
+        <section class="main-hero" role="banner">
+            <div class="section-container">
+
+                <!-- Hero Content -->
+                <div class="hero-text">
+                    <div class="header-text">
+                        <h1>
+                            Biznesiniz rəqəmsal dünyada
+                            <br />
+                            <strong>Zirvələrə daşıyırıq !</strong>
+                        </h1>
+                    </div>
+                    <a href="/contact" class="btn-big" title="Get your free consultation"
+                        aria-label="Get a free consultation from Webnova">
+                        Get a Free Consultation →
+                    </a>
+                </div>
+
+                <!-- Hero Illustration -->
+                <figure class="hero-image">
+                    <dotlottie-wc class="hero-animation" src="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie"
+                        style="" speed="1" autoplay loop
+                        aria-label="Animated robot representing digital innovation">
+                    </dotlottie-wc>
+                </figure>
+
+
+            </div>
+        </section>
+
+
     </main>
 
 
@@ -264,5 +296,6 @@
 
 </body>
 <script src="./assets/scripts/layout.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
 
 </html>
