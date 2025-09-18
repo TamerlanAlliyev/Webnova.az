@@ -193,6 +193,10 @@ body {
         z-index: 1;
         transition: transform 0.3s linear;
 
+        // background: var(--bg-glass);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+
         &.hide {
             transform: translateY(-100%);
             /* gizlət */
@@ -450,7 +454,7 @@ body {
             justify-content: space-between;
             max-width: 1440px;
             width: 100%;
-            padding:var(--spacing-10) var(--spacing-main);
+            padding: var(--spacing-10) var(--spacing-main);
 
             .container-grid {
                 display: flex;

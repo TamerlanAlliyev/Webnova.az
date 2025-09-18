@@ -13,59 +13,59 @@ body {
     background-color: var(--color-bg);
 }
 
-
-.btn-small {
+.btn {
     display: flex;
-    padding: var(--spacing-2) var(--spacing-3);
     justify-content: center;
     align-items: center;
-    gap: 4px;
-    border-radius: var(--radius-round);
     width: max-content;
     height: max-content;
     text-decoration: none;
-    font-size: var(--font-size-sm);
     font-weight: 500;
+
+}
+
+
+
+.btn-small {
+    padding: var(--spacing-2) var(--spacing-3);
+    gap: var(--spacing-1);
+    border-radius: var(--radius-round);
+    font-size: var(--font-size-sm);
     background: var(--color-surface);
     color: var(--color-neutral-900);
     border: 1px solid var(--color-neutral-900);
+}
+
+.btn-small i {
+    font-size: var(--font-size-md);
 }
 
 .btn-medium {
-    display: flex;
-    padding: 12px 20px;
     padding: var(--spacing-3) var(--spacing-5);
-
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    gap: var(--spacing-2);
     border-radius: var(--radius-round);
-    width: max-content;
-    height: max-content;
-    text-decoration: none;
     font-size: var(--font-size-base);
-    font-weight: 500;
     background: var(--color-surface);
     color: var(--color-neutral-900);
     border: 1px solid var(--color-neutral-900);
 }
 
+.btn-medium i {
+    font-size: var(--font-size-lg);
+}
+
 .btn-big {
-    display: flex;
-    padding: 16px 24px;
     padding: var(--spacing-4) var(--spacing-6);
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    gap: var(--spacing-3);
     border-radius: var(--radius-round);
     background: var(--color-surface);
-    width: max-content;
-    height: max-content;
-    text-decoration: none;
     color: var(--color-neutral-900);
     border: 1px solid var(--color-neutral-900);
     font-size: var(--font-size-md);
-    font-weight: 500;
+}
+
+.btn-big i {
+    font-size: var(--font-size-xl);
 }
 
 .btn-big:hover {}
@@ -94,6 +94,10 @@ body {
     /* Light mode surfaces */
     --color-bg: #F3F3F3;
     --color-surface: #FFFFFF;
+
+    --bg-glass: linear-gradient(116deg,
+            rgba(var(--color-bg-rgb, 243, 243, 243), 0.60) 10.92%,
+            rgba(var(--color-surface-rgb, 255, 255, 255), 0.08) 96.4%);
 
     --radius-xs: 2px;
     --radius-sm: 4px;
@@ -176,6 +180,10 @@ body {
     /* Dark mode surfaces */
     --color-bg: #0B0E1B;
     --color-surface: #14172B;
+    --bg-glass: linear-gradient(116deg,
+            rgba(11, 14, 27, 0.75) 10.92%,
+            rgba(20, 23, 43, 0.35) 96.4%
+        );
 }
 
 @media (min-width:430px) {}

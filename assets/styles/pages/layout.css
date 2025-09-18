@@ -160,6 +160,8 @@ body header.header {
   top: 0;
   z-index: 1;
   transition: transform 0.3s linear;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 body header.header.hide {
   transform: translateY(-100%);

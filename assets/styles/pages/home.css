@@ -13,7 +13,12 @@ body .main-hero .section-container {
 body .main-hero .section-container .hero-text {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-6);
+  gap: var(--spacing-7);
+}
+body .main-hero .section-container .hero-text .header-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
 }
 body .main-hero .section-container .hero-text .header-text h1 {
   font-size: var(--font-size-4xl);
@@ -25,6 +30,11 @@ body .main-hero .section-container .hero-text .header-text h1 strong {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+body .main-hero .section-container .hero-text .header-text p {
+  line-height: 150%;
+  font-size: var(--font-size-base);
 }
 body .main-hero .section-container .hero-image {
   display: none;
