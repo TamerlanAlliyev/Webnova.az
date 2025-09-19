@@ -1,22 +1,22 @@
-  var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 2,
+  spaceBetween: 18,
+  autoplay: {
+      delay: 1500,
+      loop: true,
+  },
+  breakpoints: {
+   580: {
+          slidesPerView: 3,
+          spaceBetween: 18,
       },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        768: {
+      768: {
           slidesPerView: 4,
-          spaceBetween: 40,
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 50,
-        },
+          spaceBetween: 22,
       },
-    });
+      1080: {
+          slidesPerView: 5,
+          spaceBetween: 24,
+      },
+  },
+});
