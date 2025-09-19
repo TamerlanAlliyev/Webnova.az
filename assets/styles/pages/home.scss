@@ -1,4 +1,6 @@
 body {
+    position: relative;
+      height: 100%;
     .main-hero {
         display: flex;
         justify-content: center;
@@ -48,6 +50,10 @@ body {
             }
         }
     }
+
+
+
+
 }
 
 @media (min-width:430px) {}

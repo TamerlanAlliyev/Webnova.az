@@ -137,6 +137,7 @@ body {
     --spacing-main: 16px;
     --spacing-11: 48px; */
 
+    --font-size-xs: 10px;
     --font-size-sm: 12px;
     --font-size-base: 14px;
     --font-size-md: 15px;
@@ -182,11 +183,9 @@ body {
     --color-surface: #14172B;
     --bg-glass: linear-gradient(116deg,
             rgba(11, 14, 27, 0.75) 10.92%,
-            rgba(20, 23, 43, 0.35) 96.4%
-        );
+            rgba(20, 23, 43, 0.35) 96.4%);
 }
 
-@media (min-width:430px) {}
 
 @media (min-width:768px) {
     :root {
