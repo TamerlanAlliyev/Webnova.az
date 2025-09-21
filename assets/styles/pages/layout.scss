@@ -140,7 +140,7 @@ body {
                     border-radius: 13px;
                     margin-top: 4px;
                     display: none;
-                    z-index: 2;
+                    z-index: 3;
                     overflow: hidden;
 
                     .option {
@@ -190,7 +190,7 @@ body {
         position: sticky;
         width: 100%;
         top: 0;
-        z-index: 1;
+        z-index: 2;
         transition: transform 0.3s linear;
 
         // background: var(--bg-glass);
