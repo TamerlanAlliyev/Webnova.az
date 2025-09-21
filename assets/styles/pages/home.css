@@ -151,7 +151,7 @@ body .mySwiper.client-list .swiper-slide .swiper-slide img {
     width: 300px;
     height: 300px;
   }
-  body main .main-container section.section .advantages-grid {
+  body .main-container section.section .advantages-grid {
     grid-template-columns: 1fr 1fr;
   }
 }/*# sourceMappingURL=home.css.map */
