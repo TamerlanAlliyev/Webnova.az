@@ -1,43 +1,3 @@
-body .main-hero {
-  display: flex;
-  justify-content: center;
-}
-body .main-hero .section-container {
-  display: grid;
-  justify-content: space-between;
-  width: 100%;
-  gap: var(--spacing-8);
-  align-items: center;
-}
-body .main-hero .section-container .hero-text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-7);
-}
-body .main-hero .section-container .hero-text .header-text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-5);
-}
-body .main-hero .section-container .hero-text .header-text h1 {
-  font-size: var(--font-size-4xl);
-  text-transform: capitalize;
-  font-weight: 600;
-}
-body .main-hero .section-container .hero-text .header-text h1 strong {
-  background: var(--gradient-primary);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
-}
-body .main-hero .section-container .hero-text .header-text p {
-  line-height: 150%;
-  font-size: var(--font-size-base);
-}
-body .main-hero .section-container .hero-image {
-  display: none;
-}
 body main {
   min-width: 0;
   min-height: 0;
@@ -50,6 +10,69 @@ body main .main-container {
   width: 100%;
   margin: 0 auto;
   padding: var(--spacing-main);
+}
+body main .main-container .main-hero {
+  display: flex;
+  justify-content: center;
+}
+body main .main-container .main-hero .section-container {
+  display: grid;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+body main .main-container .main-hero .section-container .hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-7);
+}
+body main .main-container .main-hero .section-container .hero-text .header-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+}
+body main .main-container .main-hero .section-container .hero-text .header-text h1 {
+  font-size: var(--font-size-4xl);
+  text-transform: capitalize;
+  font-weight: 600;
+}
+body main .main-container .main-hero .section-container .hero-text .header-text h1 strong {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+body main .main-container .main-hero .section-container .hero-text .header-text p {
+  line-height: 150%;
+  font-size: var(--font-size-base);
+}
+body main .main-container .main-hero .section-container .hero-image {
+  display: none;
+}
+body main .main-container .mySwiper.client-list {
+  width: 100%;
+}
+body main .main-container .mySwiper.client-list .swiper-slide {
+  aspect-ratio: 5/3;
+  text-align: center;
+  font-size: 18px;
+  background: var(--color-surface);
+  display: flex;
+  padding: var(--spacing-8);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  overflow: hidden;
+}
+body main .main-container .mySwiper.client-list .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 body main .main-container section.section {
   display: flex;
@@ -114,44 +137,23 @@ body main .main-container section.section .advantages-grid .advantage-item .adva
   color: var(--color-neutral-700);
   line-height: 150%;
 }
-body .mySwiper.client-list {
-  width: 100%;
-}
-body .mySwiper.client-list .swiper-slide {
-  aspect-ratio: 5/3;
-  text-align: center;
-  font-size: 18px;
-  background: var(--color-surface);
-  display: flex;
-  padding: var(--spacing-8);
-  -o-object-fit: cover;
-     object-fit: cover;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--radius-xl);
-}
-body .mySwiper.client-list .swiper-slide .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 
 @media (min-width: 768px) {
-  body .main-hero .section-container {
+  body main .main-container .main-hero .section-container {
     display: grid;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
   }
-  body .main-hero .section-container .hero-image {
+  body main .main-container .main-hero .section-container .hero-image {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  body .main-hero .section-container .hero-image .hero-animation {
+  body main .main-container .main-hero .section-container .hero-image .hero-animation {
     width: 300px;
     height: 300px;
   }
-  body .main-container section.section .advantages-grid {
+  body main .main-container section.section .advantages-grid {
     grid-template-columns: 1fr 1fr;
   }
 }/*# sourceMappingURL=home.css.map */
