@@ -228,7 +228,11 @@ body {
                                 .service-title {
                                     font-size: var(--font-size-3xl);
                                     font-weight: 700;
-                                    color: var(--color-neutral-900);
+
+                                    a {
+                                        text-decoration: none;
+                                        color: var(--color-neutral-900);
+                                    }
 
                                 }
 
@@ -253,6 +257,43 @@ body {
     }
 }
 
+/* Accessibility: az hərəkət istəyənlər üçün animasiyanı söndür */
+@media (prefers-reduced-motion: reduce) {
+  .services-list .service-item .service-visual .service-image,
+  .services-list .service-item .service-visual .service-text .service-description {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Default: image + description gizli */
+.services-list .service-item .service-visual .service-image,
+.services-list .service-item .service-visual .service-text .service-description {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .5s ease-out, transform .6s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Viewport-a daxil olduqda açılır */
+.services-list .service-item.in-view .service-visual .service-image {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .05s; /* kiçik gecikmə */
+}
+
+.services-list .service-item.in-view .service-visual .service-text .service-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .15s; /* bir az daha gec – zərif “stagger” */
+}
+
+/* İstəsən: mobil və masaüstündə gecikməni az fərqləndirə bilərsən */
+@media (min-width:768px) {
+  .services-list .service-item.in-view .service-visual .service-image { transition-delay: .1s; }
+  .services-list .service-item.in-view .service-visual .service-text .service-description { transition-delay: .2s; }
+}
 
 
 
@@ -296,6 +337,9 @@ body {
                         .service-number {}
 
                         .service-content {
+                            align-items: center;
+                            flex-direction: row;
+
                             .service-visual {
                                 width: 90%;
                                 flex-direction: row;

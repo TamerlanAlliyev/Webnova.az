@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body main {
   min-width: 0;
   min-height: 0;
@@ -196,6 +197,9 @@ body main .main-container .services-list .service-item .service-content .service
 body main .main-container .services-list .service-item .service-content .service-visual .service-text .service-title {
   font-size: var(--font-size-3xl);
   font-weight: 700;
+}
+body main .main-container .services-list .service-item .service-content .service-visual .service-text .service-title a {
+  text-decoration: none;
   color: var(--color-neutral-900);
 }
 body main .main-container .services-list .service-item .service-content .service-visual .service-text .service-description {
@@ -207,6 +211,46 @@ body main .main-container .services-list .service-item .service-content .service
   display: none;
 }
 
+/* Accessibility: az hərəkət istəyənlər üçün animasiyanı söndür */
+@media (prefers-reduced-motion: reduce) {
+  .services-list .service-item .service-visual .service-image,
+  .services-list .service-item .service-visual .service-text .service-description {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+/* Default: image + description gizli */
+.services-list .service-item .service-visual .service-image,
+.services-list .service-item .service-visual .service-text .service-description {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.5s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Viewport-a daxil olduqda açılır */
+.services-list .service-item.in-view .service-visual .service-image {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.05s; /* kiçik gecikmə */
+}
+
+.services-list .service-item.in-view .service-visual .service-text .service-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s; /* bir az daha gec – zərif “stagger” */
+}
+
+/* İstəsən: mobil və masaüstündə gecikməni az fərqləndirə bilərsən */
+@media (min-width: 768px) {
+  .services-list .service-item.in-view .service-visual .service-image {
+    transition-delay: 0.1s;
+  }
+  .services-list .service-item.in-view .service-visual .service-text .service-description {
+    transition-delay: 0.2s;
+  }
+}
 @media (min-width: 768px) {
   body main .main-container .main-hero .section-container {
     display: grid;
@@ -224,6 +268,10 @@ body main .main-container .services-list .service-item .service-content .service
   }
   body main .main-container section.section .advantages-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  body main .main-container .services-list .service-item .service-content {
+    align-items: center;
+    flex-direction: row;
   }
   body main .main-container .services-list .service-item .service-content .service-visual {
     width: 90%;
