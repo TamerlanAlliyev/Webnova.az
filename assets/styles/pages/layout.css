@@ -282,7 +282,7 @@ body .mobile-menu .menu-content nav.menu-nav ul li a {
   color: var(--color-neutral-700);
   font-weight: 500;
   transition: all 0.3s linear;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
 }
 body .mobile-menu .menu-content nav.menu-nav ul li a:hover {
   color: var(--color-primary);
