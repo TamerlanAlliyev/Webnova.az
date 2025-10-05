@@ -21,33 +21,92 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-  (function () {
-    const items = document.querySelectorAll(".services-list .service-item");
 
-    // Scroll istiqamətini izləyək (isteğe bağlı – yalnız diaqnostika/inkişaf üçün)
-    let lastY = window.scrollY;
-    let scrollDir = 'down';
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      scrollDir = y > lastY ? 'down' : 'up';
-      lastY = y;
-    }, { passive: true });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const el = entry.target;
-    if (entry.isIntersecting) {
-      el.classList.add("in-view");
-    } else {
-      el.classList.remove("in-view");
+(() => {
+  const SELECTOR = '.card-animation';
+
+  // İlk render + sonradan DOM-a əlavə olunanlar üçün MutationObserver dəstəyi
+  const observeCards = (root = document) => {
+    const cards = Array.from(root.querySelectorAll(SELECTOR));
+    cards.forEach(setupObserverForEl);
+  };
+
+  // parent üzrə index xəritəsi (stagger üçün)
+  const groupIndex = new WeakMap();
+
+  function setupObserverForEl(el){
+    if (el.__saObserved) return; // təkrarı önlə
+    el.__saObserved = true;
+
+    const thr = parseFloat(el.getAttribute('data-sa-threshold'));
+    const margin = el.getAttribute('data-sa-margin');
+    const opts = {
+      threshold: Number.isFinite(thr) ? clamp01(thr) : 0.15,
+      rootMargin: margin || '0px 0px -5% 0px'
+    };
+
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.target !== el) return;
+
+        const once = (el.getAttribute('data-sa-once') ?? 'true') !== 'false';
+
+        if (entry.isIntersecting){
+          const baseDelay = parseInt(el.getAttribute('data-sa-delay') || '0', 10);
+          const stagger = parseInt(el.getAttribute('data-sa-stagger') || '0', 10);
+
+          const parent = el.parentElement;
+          const idx = getIndexInGroup(parent, el);
+          const totalDelay = baseDelay + (stagger * idx);
+
+          el.style.transitionDelay = totalDelay ? `${totalDelay}ms` : '';
+          el.classList.add('sa-active');
+
+          if (once) observer.unobserve(el);
+        } else {
+          // repeat mode
+          if ((el.getAttribute('data-sa-once') ?? 'true') === 'false'){
+            el.classList.remove('sa-active');
+            el.style.transitionDelay = '';
+          }
+        }
+      });
+    }, opts);
+
+    io.observe(el);
+  }
+
+  function getIndexInGroup(parent, el){
+    if (!parent) return 0;
+    if (!groupIndex.has(parent)){
+      const children = Array.from(parent.querySelectorAll(SELECTOR));
+      const map = new Map(children.map((node, i) => [node, i]));
+      groupIndex.set(parent, map);
     }
-  });
-}, {
-  root: null,
-  threshold: 0.2,   // 50% göründükdə açılacaq
-  rootMargin: "0px" // əlavə margin olmadan
-});
+    return groupIndex.get(parent).get(el) ?? 0;
+  }
 
+  function clamp01(v){ return Math.max(0, Math.min(1, v)); }
 
-    items.forEach(el => observer.observe(el));
-  })();
+  // İlk yükləmə
+  if (!('IntersectionObserver' in window)){
+    // Fallback: animasiyasız göstər
+    document.querySelectorAll(SELECTOR).forEach(el => el.classList.add('sa-active'));
+  } else {
+    observeCards();
+
+    // Dinamik kontent üçün MutationObserver
+    const mo = new MutationObserver(muts => {
+      muts.forEach(m => {
+        m.addedNodes.forEach(node => {
+          if (!(node instanceof Element)) return;
+          if (node.matches?.(SELECTOR)) setupObserverForEl(node);
+          // iç-içə yeni kartlar
+          node.querySelectorAll?.(SELECTOR).forEach(setupObserverForEl);
+        });
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+})();
