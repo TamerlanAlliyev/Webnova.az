@@ -258,10 +258,14 @@
 
             <section class="section advantages card-animation" id="advantages" aria-labelledby="advantages-title"
                 itemscope itemtype="https://schema.org/Service">
-                <header>
-                    <span>/</span>
-                    <h2 id="advantages-title section-title" itemprop="name">Üstünlüklərimiz</h2>
+
+
+                <header class="advantages-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="services-title" class="section-title" itemprop="name"><a href="#">Üstünlüklərimiz</a></h2>
                     <meta itemprop="provider" content="Webnova Agency">
+                    <meta itemprop="description"
+                        content="Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar">
                 </header>
 
                 <div class="advantages-grid">
@@ -334,11 +338,13 @@
             <!-- Services Section -->
             <section class="section services card-animation" id="services" aria-labelledby="services-title" itemscope
                 itemtype="https://schema.org/Service">
-                <!-- Section Header -->
-                <header class="services-header">
+
+                <header class="services-header section-header">
                     <span class="section-prefix" aria-hidden="true">/</span>
-                    <h2 id="services-title" class="section-title" itemprop="name">Xidmətlərimiz</h2>
+                    <h2 id="services-title" class="section-title" itemprop="name"><a href="#">Xidmətlərimiz</a></h2>
                     <meta itemprop="provider" content="Webnova Agency">
+                    <meta itemprop="description"
+                        content="Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar">
                 </header>
 
                 <!-- Services List -->
@@ -472,211 +478,229 @@
             <section class="section projects-section card-animation" id="projects" aria-labelledby="projects-title"
                 itemscope itemtype="https://schema.org/ItemList">
 
-                <!-- Section Header -->
-                <header class="projects-header">
-                    <h2 id="projects-title" class="section-title" itemprop="name">
-                        <span class="section-prefix" aria-hidden="true">/</span>Son Lahiyyələr
-                    </h2>
+
+                <header class="project-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="services-title" class="section-title" itemprop="name"><a href="#">Son Lahiyyələr</a></h2>
                     <meta itemprop="provider" content="Webnova Agency">
                     <meta itemprop="description"
                         content="Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar">
-
-                    <!-- View All Projects Button -->
-                    <a href="/lahiyeler" class="btn btn-medium btn-primary projects-cta"
-                        title="Bütün layihələri görüntülə" aria-label="Bütün Webnova layihələrini görüntülə">
-                        Bütün Lahiyyələr <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
                 </header>
+                <div class="section-container">
 
-                <!-- Projects Grid -->
-                <div class="projects-grid" role="list" aria-label="Webnova Layihələri" itemprop="itemListElement">
+                    <!-- Projects Grid -->
+                    <div class="projects-grid" role="list" aria-label="Webnova Layihələri" itemprop="itemListElement">
 
-                    <!-- Project 1: Azerbaijan.com -->
-                    <article class="project-item card-animation" role="listitem" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
-                        <figure class="project-image">
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
                                 <img src="./assets/images/projects/image.png"
                                     alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
-                        </figure>
+                            </figure>
 
-                        <div class="project-content">
-                            <h3 class="project-title" itemprop="name">
-                                <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
-                            </h3>
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
 
-                            <div class="project-description hidden" itemprop="description">
-                                <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı.
-                                    Responsive dizayn və yüksək performans.</p>
-                                <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
-                                    <span class="project-tag badge" role="listitem" itemprop="keywords">Koperativ</span>
-                                    <span class="project-tag badge" role="listitem"
-                                        itemprop="keywords">E-commerce</span>
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
 
-                        <meta itemprop="author" content="Webnova Agency">
-                        <meta itemprop="dateCreated" content="2024-12-01">
-                        <meta itemprop="genre" content="Web Development">
-                    </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/image.png"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
 
-                    <!-- Project 1: Azerbaijan.com -->
-                    <article class="project-item card-animation" role="listitem" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
-                        <figure class="project-image">
-                            <a href="#">
-                                <img src="./assets/images/projects/image.png"
-                                    alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
-                            </a>
-                        </figure>
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
 
-                        <div class="project-content">
-                            <h3 class="project-title" itemprop="name">
-                                <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
-                            </h3>
-
-                            <div class="project-description hidden" itemprop="description">
-                                <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı.
-                                    Responsive dizayn və yüksək performans.</p>
-                                <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
-                                    <span class="project-tag badge" role="listitem" itemprop="keywords">Koperativ</span>
-                                    <span class="project-tag badge" role="listitem"
-                                        itemprop="keywords">E-commerce</span>
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/image.png"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
 
-                        <meta itemprop="author" content="Webnova Agency">
-                        <meta itemprop="dateCreated" content="2024-12-01">
-                        <meta itemprop="genre" content="Web Development">
-                    </article>
-                    <!-- Project 1: Azerbaijan.com -->
-                    <article class="project-item card-animation" role="listitem" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
-                        <figure class="project-image">
-                            <a href="#">
-                                <img src="./assets/images/projects/image.png"
-                                    alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
-                            </a>
-                        </figure>
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
 
-                        <div class="project-content">
-                            <h3 class="project-title" itemprop="name">
-                                <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
-                            </h3>
-
-                            <div class="project-description hidden" itemprop="description">
-                                <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı.
-                                    Responsive dizayn və yüksək performans.</p>
-                                <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
-                                    <span class="project-tag badge" role="listitem" itemprop="keywords">Koperativ</span>
-                                    <span class="project-tag badge" role="listitem"
-                                        itemprop="keywords">E-commerce</span>
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/image.png"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
 
-                        <meta itemprop="author" content="Webnova Agency">
-                        <meta itemprop="dateCreated" content="2024-12-01">
-                        <meta itemprop="genre" content="Web Development">
-                    </article>
-                    <!-- Project 1: Azerbaijan.com -->
-                    <article class="project-item card-animation" role="listitem" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
-                        <figure class="project-image">
-                            <a href="#">
-                                <img src="./assets/images/projects/image.png"
-                                    alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
-                            </a>
-                        </figure>
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
 
-                        <div class="project-content">
-                            <h3 class="project-title" itemprop="name">
-                                <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
-                            </h3>
-
-                            <div class="project-description hidden" itemprop="description">
-                                <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı.
-                                    Responsive dizayn və yüksək performans.</p>
-                                <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
-                                    <span class="project-tag badge" role="listitem" itemprop="keywords">Koperativ</span>
-                                    <span class="project-tag badge" role="listitem"
-                                        itemprop="keywords">E-commerce</span>
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/image.png"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
 
-                        <meta itemprop="author" content="Webnova Agency">
-                        <meta itemprop="dateCreated" content="2024-12-01">
-                        <meta itemprop="genre" content="Web Development">
-                    </article>
-                    <!-- Project 1: Azerbaijan.com -->
-                    <article class="project-item card-animation" role="listitem" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
-                        <figure class="project-image">
-                            <a href="#">
-                                <img src="./assets/images/projects/image.png"
-                                    alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
-                            </a>
-                        </figure>
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
 
-                        <div class="project-content">
-                            <h3 class="project-title" itemprop="name">
-                                <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
-                            </h3>
-
-                            <div class="project-description hidden" itemprop="description">
-                                <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı.
-                                    Responsive dizayn və yüksək performans.</p>
-                                <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
-                                    <span class="project-tag badge" role="listitem" itemprop="keywords">Koperativ</span>
-                                    <span class="project-tag badge" role="listitem"
-                                        itemprop="keywords">E-commerce</span>
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/image.png"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
 
-                        <meta itemprop="author" content="Webnova Agency">
-                        <meta itemprop="dateCreated" content="2024-12-01">
-                        <meta itemprop="genre" content="Web Development">
-                    </article>
-                    <!-- Project 1: Azerbaijan.com -->
-                    <article class="project-item card-animation" role="listitem" itemprop="itemListElement" itemscope
-                        itemtype="https://schema.org/CreativeWork">
-                        <figure class="project-image">
-                            <a href="#">
-                                <img src="./assets/images/projects/image.png"
-                                    alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
-                            </a>
-                        </figure>
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
 
-                        <div class="project-content">
-                            <h3 class="project-title" itemprop="name">
-                                <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
-                            </h3>
-
-                            <div class="project-description hidden" itemprop="description">
-                                <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı.
-                                    Responsive dizayn və yüksək performans.</p>
-                                <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
-                                    <span class="project-tag badge" role="listitem" itemprop="keywords">Koperativ</span>
-                                    <span class="project-tag badge" role="listitem"
-                                        itemprop="keywords">E-commerce</span>
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
                                 </div>
+
                             </div>
 
-                        </div>
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
 
-                        <meta itemprop="author" content="Webnova Agency">
-                        <meta itemprop="dateCreated" content="2024-12-01">
-                        <meta itemprop="genre" content="Web Development">
-                    </article>
-
+                    </div>
+                 
+                   
+                     <a href="/lahiyeler" class="contact-btn btn btn-medium" title="Bütün layihələri görüntülə"
+                        aria-label="Bütün Webnova layihələrini görüntülə">
+                        Bütün Lahiyyələr <i class="arrow fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
 
                 <!-- Schema.org structured data -->
@@ -744,8 +768,6 @@
                     }
                 </script>
             </section>
-
-
 
         </div>
     </main>

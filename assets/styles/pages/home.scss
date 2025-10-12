@@ -20,7 +20,7 @@ body {
                 flex-direction: column;
                 gap: var(--spacing-9);
 
-                header {
+                .section-header {
                     display: flex;
                     align-items: center;
                     flex-direction: row;
@@ -33,11 +33,11 @@ body {
                         font-weight: 700;
                     }
 
-                    h2 {
+                    a {
                         font-size: var(--font-size-2xl);
-
                         font-weight: 600;
                         color: var(--color-neutral-900);
+                        text-decoration: none;
                     }
                 }
             }
@@ -83,22 +83,18 @@ body {
                             }
                         }
 
-                        .contact-btn {
-                            i {
+                        // .contact-btn {
 
-                                font-size: var();
-                            }
+                        //     &:hover {
 
-                            &:hover {
-
-                                i {
-                                    background: var(--color-primary);
-                                    color: #ffffff;
-                                    border-color: var(--color-primary);
-                                    transform: rotate(-45deg);
-                                }
-                            }
-                        }
+                        //         i {
+                        //             background: var(--color-primary);
+                        //             color: #ffffff;
+                        //             border-color: var(--color-primary);
+                        //             transform: rotate(-45deg);
+                        //         }
+                        //     }
+                        // }
 
 
                     }
@@ -296,42 +292,50 @@ body {
                     }
                 }
 
-                .projects-grid {
-                    display: grid;
-                    grid-template-columns: 1fr;
+                .section-container {
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     gap: var(--spacing-8);
 
-                    .project-item {
-                        display: flex;
-                        flex-direction: column;
-                        gap: var(--spacing-5);
+                    .projects-grid {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: var(--spacing-8);
 
-                        .project-image {
-                            width: 100%;
+                        .project-item {
                             display: flex;
-                            aspect-ratio: 16/9;
-                            overflow: hidden;
-                            border-radius: var(--radius-2xl);
+                            flex-direction: column;
+                            gap: var(--spacing-5);
 
-                            a {
+                            .project-image {
+                                width: 100%;
                                 display: flex;
-                                width: 100%;
-                            }
+                                aspect-ratio: 16/9;
+                                overflow: hidden;
+                                border-radius: var(--radius-2xl);
 
-                            img {
-                                width: 100%;
-                                object-fit: cover;
-                                object-position: top center;
-                                transition: object-position 2s ease; // Hover bitince (normal duruma geçerken) 3s
-                              
-                                &:hover {
-                                  object-position: bottom center;
-                                  transition: object-position 5s ease; // Hover olunca 7s
+                                a {
+                                    display: flex;
+                                    width: 100%;
                                 }
-                              }
-                              
+
+                                img {
+                                    width: 100%;
+                                    object-fit: cover;
+                                    object-position: top center;
+                                    transition: object-position 2s ease; // Hover bitince (normal duruma geçerken) 3s
+
+                                    &:hover {
+                                        object-position: bottom center;
+                                        transition: object-position 5s ease; // Hover olunca 7s
+                                    }
+                                }
 
 
+
+                            }
                         }
 
                         .project-content {
@@ -513,9 +517,12 @@ body {
                 }
 
                 .projects-section {
-                    .projects-grid {
-                        grid-template-columns: 1fr 1fr;
+                    .section-container {
 
+                        .projects-grid {
+                            grid-template-columns: 1fr 1fr;
+
+                        }
                     }
                 }
             }

@@ -17,21 +17,22 @@ body main .main-container section.section {
   flex-direction: column;
   gap: var(--spacing-9);
 }
-body main .main-container section.section header {
+body main .main-container section.section .section-header {
   display: flex;
   align-items: center;
   flex-direction: row;
   gap: var(--spacing-2);
 }
-body main .main-container section.section header span {
+body main .main-container section.section .section-header span {
   font-size: var(--font-size-2xl);
   color: var(--color-primary);
   font-weight: 700;
 }
-body main .main-container section.section header h2 {
+body main .main-container section.section .section-header a {
   font-size: var(--font-size-2xl);
   font-weight: 600;
   color: var(--color-neutral-900);
+  text-decoration: none;
 }
 body main .main-container .main-hero {
   display: flex;
@@ -69,15 +70,6 @@ body main .main-container .main-hero .section-container .hero-text .header-text 
 body main .main-container .main-hero .section-container .hero-text .header-text p {
   line-height: 150%;
   font-size: var(--font-size-base);
-}
-body main .main-container .main-hero .section-container .hero-text .contact-btn i {
-  font-size: var();
-}
-body main .main-container .main-hero .section-container .hero-text .contact-btn:hover i {
-  background: var(--color-primary);
-  color: #ffffff;
-  border-color: var(--color-primary);
-  transform: rotate(-45deg);
 }
 body main .main-container .main-hero .section-container .hero-image {
   display: none;
@@ -237,28 +229,34 @@ body main .main-container .projects-section .projects-header .btn:hover i {
   transform: rotate(-45deg);
   transition: all 0.3s linear;
 }
-body main .main-container .projects-section .projects-grid {
+body main .main-container .projects-section .section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+body main .main-container .projects-section .section-container .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-8);
 }
-body main .main-container .projects-section .projects-grid .project-item {
+body main .main-container .projects-section .section-container .projects-grid .project-item {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-5);
 }
-body main .main-container .projects-section .projects-grid .project-item .project-image {
+body main .main-container .projects-section .section-container .projects-grid .project-item .project-image {
   width: 100%;
   display: flex;
   aspect-ratio: 16/9;
   overflow: hidden;
   border-radius: var(--radius-2xl);
 }
-body main .main-container .projects-section .projects-grid .project-item .project-image a {
+body main .main-container .projects-section .section-container .projects-grid .project-item .project-image a {
   display: flex;
   width: 100%;
 }
-body main .main-container .projects-section .projects-grid .project-item .project-image img {
+body main .main-container .projects-section .section-container .projects-grid .project-item .project-image img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -267,34 +265,34 @@ body main .main-container .projects-section .projects-grid .project-item .projec
   transition: object-position 2s ease;
   transition: object-position 2s ease, -o-object-position 2s ease;
 }
-body main .main-container .projects-section .projects-grid .project-item .project-image img:hover {
+body main .main-container .projects-section .section-container .projects-grid .project-item .project-image img:hover {
   -o-object-position: bottom center;
      object-position: bottom center;
   transition: object-position 5s ease;
   transition: object-position 5s ease, -o-object-position 5s ease;
 }
-body main .main-container .projects-section .projects-grid .project-item .project-content {
+body main .main-container .projects-section .section-container .projects-grid .project-content {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3);
 }
-body main .main-container .projects-section .projects-grid .project-item .project-content .project-title a {
+body main .main-container .projects-section .section-container .projects-grid .project-content .project-title a {
   text-decoration: none;
   color: var(--color-neutral-900);
   font-size: var(--font-size-lg);
   font-weight: 600;
 }
-body main .main-container .projects-section .projects-grid .project-item .project-content .project-description {
+body main .main-container .projects-section .section-container .projects-grid .project-content .project-description {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-3);
 }
-body main .main-container .projects-section .projects-grid .project-item .project-content .project-description p {
+body main .main-container .projects-section .section-container .projects-grid .project-content .project-description p {
   font-size: var(--font-size-base);
   color: var(--color-neutral-700);
   line-height: 150%;
 }
-body main .main-container .projects-section .projects-grid .project-item .project-content .project-description .project-tags {
+body main .main-container .projects-section .section-container .projects-grid .project-content .project-description .project-tags {
   display: flex;
   gap: var(--spacing-2);
 }
@@ -388,7 +386,7 @@ body main .main-container .projects-section .projects-grid .project-item .projec
   body main .main-container .services-list .service-item .service-content .service-icon i {
     font-size: var(--font-size-2xl);
   }
-  body main .main-container .projects-section .projects-grid {
+  body main .main-container .projects-section .section-container .projects-grid {
     grid-template-columns: 1fr 1fr;
   }
 }/*# sourceMappingURL=home.css.map */
