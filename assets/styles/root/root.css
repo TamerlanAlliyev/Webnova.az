@@ -38,7 +38,7 @@ body {
     font-weight: 500;
     background: var(--color-surface);
     color: var(--color-neutral-900);
-    border: 1px solid var(--color-neutral-900);
+    border: 1.5px solid var(--color-neutral-900);
 }
 
 .btn i.arrow {
@@ -57,17 +57,17 @@ body {
 }
 
 .btn-small i.arrow {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     padding: var(--spacing-1);
 }
 
 .btn-medium i.arrow {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     padding: var(--spacing-2);
 }
 
 .btn-big i.arrow {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-base);
     padding: var(--spacing-2);
 }
 

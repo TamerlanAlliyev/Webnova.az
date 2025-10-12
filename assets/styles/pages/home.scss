@@ -83,19 +83,6 @@ body {
                             }
                         }
 
-                        // .contact-btn {
-
-                        //     &:hover {
-
-                        //         i {
-                        //             background: var(--color-primary);
-                        //             color: #ffffff;
-                        //             border-color: var(--color-primary);
-                        //             transform: rotate(-45deg);
-                        //         }
-                        //     }
-                        // }
-
 
                     }
 
@@ -114,7 +101,6 @@ body {
                     font-size: 18px;
                     background: var(--color-surface);
                     display: flex;
-                    padding: var(--spacing-8);
                     justify-content: center;
                     align-items: center;
                     border-radius: var(--radius-xl);
@@ -125,7 +111,7 @@ body {
                         display: block;
                         width: 100%;
                         height: 100%;
-                        object-fit: contain;
+                        object-fit: cover;
                     }
                 }
             }
@@ -325,11 +311,10 @@ body {
                                     width: 100%;
                                     object-fit: cover;
                                     object-position: top center;
-                                    transition: object-position 2s ease; // Hover bitince (normal duruma geçerken) 3s
-
+                                    transition: object-position 2s ease; 
                                     &:hover {
                                         object-position: bottom center;
-                                        transition: object-position 5s ease; // Hover olunca 7s
+                                        transition: object-position 5s ease; 
                                     }
                                 }
 
@@ -374,6 +359,66 @@ body {
                 }
 
             }
+
+            .promo-slider {
+                overflow: hidden;
+                position: relative;
+
+                .wrapper {
+                    display: flex;
+                    list-style: none;
+                    gap: var(--spacing-10);
+                    padding: 0;
+                    margin: 0;
+                    width: max-content;
+                    animation: scroll-marquee linear infinite;
+                    animation-duration: calc(var(--slide-count) * 4s);
+                    will-change: transform;
+
+                    &:hover {
+                        animation-play-state: paused;
+                    }
+
+                    .slide {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: var(--spacing-3);
+                        flex-shrink: 0;
+
+                        .promo-index {
+                            font-size: var(--font-size-md);
+                            font-weight: 700;
+                            color: var(--color-neutral-700);
+                        }
+
+                        .promo-title {
+                            display: flex;
+                            width: max-content;
+                            font-size: var(--font-size-3xl);
+                            font-weight: 500;
+                            color: var(--color-primary);
+                            white-space: nowrap;
+                        }
+                    }
+                }
+
+                // Sonsuz tekrar efekti için JS veya SCSS değişkeni ile slide sayısı alınır
+                // Örneğin:
+                &[data-slides="10"] {
+                    --slide-count: 10;
+                }
+
+                @keyframes scroll-marquee {
+                    0% {
+                        transform: translateX(0);
+                    }
+
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
 
         }
 

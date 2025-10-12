@@ -1,6 +1,7 @@
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
   spaceBetween: 18,
+  lazy:true,
   autoplay: {
       delay: 1500,
       loop: true,
@@ -20,6 +21,7 @@ var swiper = new Swiper(".mySwiper", {
       },
   },
 });
+
 
 
 
@@ -110,3 +112,21 @@ var swiper = new Swiper(".mySwiper", {
     mo.observe(document.body, { childList: true, subtree: true });
   }
 })();
+
+
+
+
+/* =============================
+🎬 SLIDER — Infinite Flow Setup
+=============================== */
+
+
+document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector(".promo-slider .wrapper");
+        if (wrapper) {
+            const clone = wrapper.innerHTML;
+            wrapper.insertAdjacentHTML("beforeend", clone);
+            const slides = wrapper.querySelectorAll(".slide").length / 2;
+            wrapper.parentElement.dataset.slides = slides;
+        }
+    });
