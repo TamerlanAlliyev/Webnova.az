@@ -13,6 +13,24 @@ body {
     background-color: var(--color-bg);
 }
 
+.badge {
+    display: flex;
+    padding: var(--spacing-2) var(--spacing-4);
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border-radius: var(--radius-round);
+    width: max-content;
+    cursor: default ;
+}
+
+
+
+
 .btn {
     display: flex;
     justify-content: center;
@@ -21,8 +39,11 @@ body {
     height: max-content;
     text-decoration: none;
     font-weight: 500;
-
+    background: var(--color-surface);
+    color: var(--color-neutral-900);
+    border: 1px solid var(--color-neutral-900);
 }
+
 
 
 
@@ -31,13 +52,22 @@ body {
     gap: var(--spacing-1);
     border-radius: var(--radius-round);
     font-size: var(--font-size-sm);
-    background: var(--color-surface);
-    color: var(--color-neutral-900);
-    border: 1px solid var(--color-neutral-900);
 }
 
-.btn-small i {
+.btn i.arrow {
     font-size: var(--font-size-md);
+    width: max-content;
+    display: grid;
+    aspect-ratio: 1/1;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2);
+    border: 2.5px solid var(--color-neutral-900);
+    color: var(--color-neutral-900);
+    border-radius: var(--radius-round);
+    text-decoration: none;
+    transition: all 0.3s linear;
+    transform: scale(0.8);
 }
 
 .btn-medium {
@@ -45,29 +75,17 @@ body {
     gap: var(--spacing-2);
     border-radius: var(--radius-round);
     font-size: var(--font-size-base);
-    background: var(--color-surface);
-    color: var(--color-neutral-900);
-    border: 1px solid var(--color-neutral-900);
 }
 
-.btn-medium i {
-    font-size: var(--font-size-lg);
-}
+
 
 .btn-big {
     padding: var(--spacing-4) var(--spacing-6);
     gap: var(--spacing-3);
     border-radius: var(--radius-round);
-    background: var(--color-surface);
-    color: var(--color-neutral-900);
-    border: 1px solid var(--color-neutral-900);
     font-size: var(--font-size-md);
-    
 }
 
-.btn-big i {
-    font-size: var(--font-size-xl);
-}
 
 /* .btn-big:hover {} */
 
@@ -94,6 +112,8 @@ body {
 
     /* Light mode surfaces */
     --color-bg: #F3F3F3;
+    --color-glass: #f3f3f350;
+
     --color-surface: #FFFFFF;
 
     --bg-glass: linear-gradient(116deg,
@@ -181,6 +201,7 @@ body {
 
     /* Dark mode surfaces */
     --color-bg: #0B0E1B;
+    --color-glass: #0b0e1b50;
     --color-surface: #14172B;
     --bg-glass: linear-gradient(116deg,
             rgba(11, 14, 27, 0.75) 10.92%,

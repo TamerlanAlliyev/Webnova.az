@@ -82,6 +82,25 @@ body {
                                 font-size: var(--font-size-base);
                             }
                         }
+
+                        .contact-btn {
+                            i {
+
+                                font-size: var();
+                            }
+
+                            &:hover {
+
+                                i {
+                                    background: var(--color-primary);
+                                    color: #ffffff;
+                                    border-color: var(--color-primary);
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                        }
+
+
                     }
 
                     .hero-image {
@@ -251,6 +270,107 @@ body {
                 }
             }
 
+            .projects-section {
+
+                .projects-header {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--spacing-2);
+                    justify-content: space-between;
+
+                    h2 {
+                        display: flex;
+                        align-items: center;
+                        gap: var(--spacing-2);
+                    }
+
+                    .btn i {
+                        transition: all 0.3s linear;
+
+                    }
+
+                    .btn:hover i {
+                        transform: rotate(-45deg);
+                        transition: all 0.3s linear;
+
+                    }
+                }
+
+                .projects-grid {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: var(--spacing-8);
+
+                    .project-item {
+                        display: flex;
+                        flex-direction: column;
+                        gap: var(--spacing-5);
+
+                        .project-image {
+                            width: 100%;
+                            display: flex;
+                            aspect-ratio: 16/9;
+                            overflow: hidden;
+                            border-radius: var(--radius-2xl);
+
+                            a {
+                                display: flex;
+                                width: 100%;
+                            }
+
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                                object-position: top center;
+                                transition: object-position 2s ease; // Hover bitince (normal duruma geçerken) 3s
+                              
+                                &:hover {
+                                  object-position: bottom center;
+                                  transition: object-position 5s ease; // Hover olunca 7s
+                                }
+                              }
+                              
+
+
+                        }
+
+                        .project-content {
+                            display: flex;
+                            flex-direction: column;
+                            gap: var(--spacing-3);
+
+                            .project-title {
+                                a {
+                                    text-decoration: none;
+                                    color: var(--color-neutral-900);
+                                    font-size: var(--font-size-lg);
+                                    font-weight: 600;
+                                }
+                            }
+
+                            .project-description {
+                                display: flex;
+                                flex-direction: column;
+                                gap: var(--spacing-3);
+
+                                p {
+
+                                    font-size: var(--font-size-base);
+                                    color: var(--color-neutral-700);
+                                    line-height: 150%;
+                                }
+
+                                .project-tags {
+                                    display: flex;
+                                    gap: var(--spacing-2);
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
         }
 
 
@@ -392,6 +512,12 @@ body {
                     }
                 }
 
+                .projects-section {
+                    .projects-grid {
+                        grid-template-columns: 1fr 1fr;
+
+                    }
+                }
             }
         }
 
