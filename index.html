@@ -3,57 +3,303 @@
 <!-- <button id="themeToggle">Toggle Theme</button> -->
 
 <head>
-    <script>
-        // Loading zamanı mövzunu təyin etmək üçün anında işə düşən funksiya
-        (function () {
-            // 1. İstifadəçinin daha əvvəl yadda saxladığı mövzunu yoxla
-            const savedTheme = localStorage.getItem("theme");
-
-            // 2. Cihazın sistem mövzusunu yoxla
-            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-            // 3. Əgər yadda saxlanılan mövzu varsa, onu tətbiq et
-            if (savedTheme) {
-                document.documentElement.setAttribute("data-theme", savedTheme);
-            }
-            // 4. Əks halda, cihazın sistem mövzusunu tətbiq et
-            else if (prefersDark) {
-                document.documentElement.setAttribute("data-theme", "dark");
-            }
-        })();
-    </script>
+    <!-- Critical Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary SEO Tags -->
+    <title>Veb Sayt Hazırlanması Azərbaycanda | Webnova - Peşəkar Digital Agentlik</title>
+    <meta name="description" content="Webnova Agency - Azərbaycanda peşəkar veb sayt hazırlanması, SEO optimizasiyası, digital marketinq və UI/UX dizayn xidmətləri. 5+ illik təcrübə, 200+ uğurlu layihə. ☎ +994 99 377 97 87">
+    <meta name="keywords" content="veb sayt hazırlanması, veb sayt hazırlanması Bakı, SEO Azərbaycan, digital marketinq Bakı, UI/UX dizayn, e-ticarət sayt hazırlanması, mobil tətbiq dizaynı, branding xidmətləri, veb dizayn Azərbaycan, sayt hazırlayan şirkət">
+    <link rel="canonical" href="https://webnova.az/">
+    
+    <!-- Alternate Languages -->
+    <link rel="alternate" hreflang="az" href="https://webnova.az/">
+    <link rel="alternate" hreflang="en" href="https://webnova.az/en/">
+    <link rel="alternate" hreflang="ru" href="https://webnova.az/ru/">
+    <link rel="alternate" hreflang="x-default" href="https://webnova.az/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webnova.az/">
+    <meta property="og:site_name" content="Webnova Agency">
+    <meta property="og:title" content="Veb Sayt Hazırlanması və Digital Marketinq Xidmətləri | Webnova">
+    <meta property="og:description" content="Azərbaycanda ən yaxşı veb sayt hazırlanması və digital marketinq agentliyi. Peşəkar komanda, müasir texnologiyalar və sərfəli qiymətlər.">
+    <meta property="og:image" content="https://webnova.az/assets/images/og-image-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Webnova Agency - Veb Sayt Hazırlanması">
+    <meta property="og:locale" content="az_AZ">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://webnova.az/">
+    <meta name="twitter:title" content="Veb Sayt Hazırlanması Azərbaycanda | Webnova Agency">
+    <meta name="twitter:description" content="Peşəkar veb sayt hazırlanması, SEO və digital marketinq xidmətləri. 200+ uğurlu layihə, 5+ illik təcrübə.">
+    <meta name="twitter:image" content="https://webnova.az/assets/images/twitter-card-1200x600.jpg">
+    <meta name="twitter:image:alt" content="Webnova Agency Logo və Xidmətlər">
+    <meta name="twitter:creator" content="@webnovaagency">
+    <meta name="twitter:site" content="@webnovaagency">
+    
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#010C31" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0A1628" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Webnova">
+    <meta name="format-detection" content="telephone=yes">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#010C31">
+    
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://lottie.host">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./assets/styles/root/root.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./assets/styles/root/root.css">
-    <link rel="stylesheet" href="./assets/styles/root/DesktopRoot.css">
-    <link rel="stylesheet" href="./assets/styles/root/MiniDesktopRoot.css">
-    <link rel="stylesheet" href="./assets/styles/root/LaptopRoot.css">
-    <link rel="stylesheet" href="./assets/styles/root/TabletRoot.css">
-    <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css">
-
+    <link rel="stylesheet" href="./assets/styles/root/DesktopRoot.css" media="(min-width: 1200px)">
+    <link rel="stylesheet" href="./assets/styles/root/MiniDesktopRoot.css" media="(min-width: 992px) and (max-width: 1199px)">
+    <link rel="stylesheet" href="./assets/styles/root/LaptopRoot.css" media="(min-width: 768px) and (max-width: 991px)">
+    <link rel="stylesheet" href="./assets/styles/root/TabletRoot.css" media="(min-width: 576px) and (max-width: 767px)">
+    <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css" media="(max-width: 575px)">
     <link rel="stylesheet" href="./assets/styles/pages/layout.css">
     <link rel="stylesheet" href="./assets/styles/pages/home.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
-    <link rel="stylesheet" href="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-    <title>Document</title>
+    
+    <!-- Deferred Stylesheets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    </noscript>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Robots & Crawling -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="AZ-BA">
+    <meta name="geo.placename" content="Bakı">
+    <meta name="geo.position" content="40.4093;49.8671">
+    <meta name="ICBM" content="40.4093, 49.8671">
+    
+    <!-- Business Information -->
+    <meta name="author" content="Webnova Agency">
+    <meta name="copyright" content="© 2025 Webnova Agency. Bütün hüquqlar qorunur.">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Critical Inline CSS for Performance -->
+    <style>
+        /* Critical CSS - Above the fold content */
+        body { margin: 0; font-family: 'Montserrat', sans-serif; }
+        .header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .main-hero { min-height: 100vh; display: flex; align-items: center; }
+        /* Prevent FOUC */
+        html { visibility: visible; opacity: 1; }
+    </style>
+    
+    <!-- Theme Script - Optimized -->
+    <script>
+        (function() {
+            const html = document.documentElement;
+            const savedTheme = sessionStorage.getItem('theme') || 
+                             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            html.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Webnova Agency",
+        "alternateName": "Webnova",
+        "url": "https://webnova.az",
+        "logo": "https://webnova.az/assets/images/logo-structured.png",
+        "image": "https://webnova.az/assets/images/webnova-office.jpg",
+        "description": "Azərbaycanda peşəkar veb sayt hazırlanması, SEO optimizasiyası və digital marketinq xidmətləri təqdim edən agentlik",
+        "foundingDate": "2020",
+        "slogan": "Biznesinizi rəqəmsal dünyada zirvələrə daşıyırıq",
+        "email": "info@webnova.az",
+        "telephone": "+994993779787",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Nizami küçəsi 203",
+            "addressLocality": "Bakı",
+            "addressRegion": "Bakı",
+            "postalCode": "AZ1000",
+            "addressCountry": "AZ"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.4093",
+            "longitude": "49.8671"
+        },
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+994-99-377-97-87",
+            "contactType": "customer service",
+            "email": "info@webnova.az",
+            "areaServed": "AZ",
+            "availableLanguage": ["Azerbaijani", "English", "Russian"],
+            "contactOption": ["TollFree", "HearingImpairedSupported"],
+            "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        }],
+        "sameAs": [
+            "https://www.facebook.com/webnovaagency",
+            "https://www.instagram.com/webnovaagency",
+            "https://www.linkedin.com/company/webnova-agency",
+            "https://www.youtube.com/@webnovaagency",
+            "https://twitter.com/webnovaagency"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": "15"
+        },
+        "knowsAbout": [
+            "Web Development",
+            "SEO",
+            "Digital Marketing",
+            "UI/UX Design",
+            "E-commerce",
+            "Branding"
+        ]
+    }
+    </script>
+    
+    <!-- Structured Data - Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Webnova Agency",
+        "url": "https://webnova.az",
+        "description": "Azərbaycanda veb sayt hazırlanması və digital marketinq xidmətləri",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Webnova Agency",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://webnova.az/assets/images/logo-structured.png"
+            }
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://webnova.az/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "inLanguage": ["az", "en", "ru"]
+    }
+    </script>
+    
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Webnova Agency - Veb Sayt Hazırlanması",
+        "image": "https://webnova.az/assets/images/webnova-office.jpg",
+        "@id": "https://webnova.az",
+        "url": "https://webnova.az",
+        "telephone": "+994993779787",
+        "priceRange": "₼₼",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Nizami küçəsi 203",
+            "addressLocality": "Bakı",
+            "postalCode": "AZ1000",
+            "addressCountry": "AZ"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.4093,
+            "longitude": 49.8671
+        },
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        }],
+        "areaServed": {
+            "@type": "City",
+            "name": "Bakı"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Digital Xidmətlər",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Veb Sayt Hazırlanması",
+                        "description": "Peşəkar və müasir veb saytların hazırlanması xidməti"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO Optimizasiyası",
+                        "description": "Axtarış sistemlərində görünmənizi artıran SEO xidmətləri"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <!-- Structured Data - Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Ana Səhifə",
+            "item": "https://webnova.az/"
+        }]
+    }
+    </script>
 </head>
 
 <body>
@@ -706,70 +952,6 @@
                     </a>
                 </div>
 
-                <!-- Schema.org structured data -->
-                <script type="application/ld+json">
-                    {
-                        "@context": "https://schema.org",
-                        "@type": "ItemList",
-                        "name": "Webnova Agency Layihələri",
-                        "description": "Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar",
-                        "url": "https://webnova.az/lahiyeler",
-                        "numberOfItems": 4,
-                        "itemListElement": [{
-                                "@type": "CreativeWork",
-                                "position": 1,
-                                "name": "Azerbaijan.com",
-                                "description": "Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət saytı",
-                                "url": "https://webnova.az/lahiyeler/azerbaijan-com",
-                                "author": {
-                                    "@type": "Organization",
-                                    "name": "Webnova Agency"
-                                },
-                                "genre": "Web Development",
-                                "keywords": ["Koperativ", "E-commerce"]
-                            },
-                            {
-                                "@type": "CreativeWork",
-                                "position": 2,
-                                "name": "Banking Platform",
-                                "description": "Müasir bank xidmətləri üçün hazırlanmış mobil platforma",
-                                "url": "https://webnova.az/lahiyeler/banking-platform",
-                                "author": {
-                                    "@type": "Organization",
-                                    "name": "Webnova Agency"
-                                },
-                                "genre": "Mobile Development",
-                                "keywords": ["Fintech", "Mobile App"]
-                            },
-                            {
-                                "@type": "CreativeWork",
-                                "position": 3,
-                                "name": "E-Learning Platform",
-                                "description": "Onlayn təhsil üçün hazırlanmış interaktiv platforma",
-                                "url": "https://webnova.az/lahiyeler/elearning-platform",
-                                "author": {
-                                    "@type": "Organization",
-                                    "name": "Webnova Agency"
-                                },
-                                "genre": "Web Development",
-                                "keywords": ["Education", "LMS"]
-                            },
-                            {
-                                "@type": "CreativeWork",
-                                "position": 4,
-                                "name": "Healthcare Management",
-                                "description": "Xəstəxanalar üçün hazırlanmış idarəetmə sistemi",
-                                "url": "https://webnova.az/lahiyeler/healthcare-system",
-                                "author": {
-                                    "@type": "Organization",
-                                    "name": "Webnova Agency"
-                                },
-                                "genre": "Web Development",
-                                "keywords": ["Healthcare", "Management"]
-                            }
-                        ]
-                    }
-                </script>
             </section>
         </div>
     </main>
@@ -989,91 +1171,7 @@
                     <div class="swiper-pagination"></div>
                 </div>
 
-                <!-- Schema.org structured data -->
-                <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Webnova Agency Müştəri Rəyləri",
-        "description": "Webnova Agency müştərilərinin rəy və təcrübələri",
-        "url": "https://webnova.az#testimonials",
-        "numberOfItems": 3,
-        "itemListElement": [
-            {
-                "@type": "Review",
-                "position": 1,
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Əli Məmmədov",
-                    "jobTitle": "CEO, TechStart Azerbaijan"
-                },
-                "reviewBody": "Webnova komandası ilə işləmək çox rahat idi. Onlar qısa zamanda peşəkar həllər təqdim etdilər və nəticə gözləntilərimizi aşdı.",
-                "itemReviewed": {
-                    "@type": "Service",
-                    "name": "Web Development Services",
-                    "provider": {
-                        "@type": "Organization",
-                        "name": "Webnova Agency"
-                    }
-                },
-                "datePublished": "2024-10-15"
-            },
-            {
-                "@type": "Review",
-                "position": 2,
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Leyla Həsənova",
-                    "jobTitle": "Marketinq Direktoru, BakuMall"
-                },
-                "reviewBody": "Layihəmizin inkişafı zamanı Webnova peşəkarlıq və yaradıcılıq nümayiş etdirdi. Müasir həlləri və innovativ yanaşması ilə fərqlənirlər.",
-                "itemReviewed": {
-                    "@type": "Service",
-                    "name": "E-commerce Development",
-                    "provider": {
-                        "@type": "Organization",
-                        "name": "Webnova Agency"
-                    }
-                },
-                "datePublished": "2024-09-20"
-            },
-            {
-                "@type": "Review",
-                "position": 3,
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                },
-                "author": {
-                    "@type": "Person",
-                    "name": "Rəşad Əliyev",
-                    "jobTitle": "Direktor, Digital Solutions"
-                },
-                "reviewBody": "Saytımızın yenidən dizaynı və performans optimallaşdırılması böyük uğur qazandırdı. İstifadəçi təcrübəsi əhəmiyyətli dərəcədə yaxşılaşdı.",
-                "itemReviewed": {
-                    "@type": "Service",
-                    "name": "Website Redesign",
-                    "provider": {
-                        "@type": "Organization",
-                        "name": "Webnova Agency"
-                    }
-                },
-                "datePublished": "2024-08-10"
-            }
-        ]
-    }
-    </script>
+
             </section>
 
       <!-- Call to Action Section -->
@@ -1111,24 +1209,7 @@
 
                 </div>
 
-                <!-- Schema.org Structured Data -->
-                <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Offer",
-        "name": "Pulsuz Konsultasiya",
-        "description": "Webnova Agency tərəfindən təklif olunan pulsuz rəqəmsal konsultasiya xidməti",
-        "provider": {
-            "@type": "Organization",
-            "name": "Webnova Agency",
-            "url": "https://webnova.az"
-        },
-        "price": "0",
-        "priceCurrency": "AZN",
-        "availability": "https://schema.org/InStock",
-        "url": "https://webnova.az/contact"
-    }
-    </script>
+
 
             </section>
 
@@ -1304,63 +1385,7 @@
                     </div>
 
                 </div>
-                <!-- Schema.org structured data -->
-                <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Mobil uyğunluq nədir və niyə vacibdir?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Mobil uyğunluq, veb saytınızın mobil cihazlarda da düzgün işləməsi və gözəl görünməsi deməkdir. Mobil uyğunluq, istifadəçi təcrübəsini artırır və saytın daha geniş auditoriyaya çatmasını təmin edir."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Veb sayt hazırlanması nə qədər vaxt aparır?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Veb saytın hazırlanma müddəti layihənin mürəkkəbliyindən asılıdır. Sadə bir veb sayt 2-4 həftə, daha mürəkkəb layihələr isə 2-3 ay ərzində tamamlana bilər. Biz hər layihə üçün aydın timeline təqdim edirik."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "SEO xidmətləri nəyi əhatə edir?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "SEO xidmətlərimiz açar söz araşdırması, on-page optimizasiya, texniki SEO, məzmun strategiyası, link building və performans izləməsini əhatə edir. Məqsədimiz saytınızın axtarış sistemlərində görünməsini artırmaqdır."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Sayt hazırlandıqdan sonra texniki dəstək təqdim olunurmu?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Bəli, biz bütün layihələr üçün texniki dəstək təqdim edirik. İlk 3 ay ərzində pulsuz texniki dəstək, sonra isə müxtəlif dəstək paketləri mövcuddur. Saytınızın daim aktiv və yenilənmiş qalmasını təmin edirik."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "E-ticarət saytı hazırlamaq üçün nə lazımdır?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "E-ticarət saytı üçün məhsul kataloqu, ödəniş sistemi inteqrasiyası, SSL sertifikatı, çatdırılma idarəetmə sistemi və təhlükəsiz hosting lazımdır. Biz tam həll təqdim edirik və bütün bu proseslərdə sizə kömək edirik."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Qiymətlər hansı amillərdən asılıdır?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Qiymətlər layihənin mürəkkəbliyi, səhifə sayı, funksionallıq, dizayn tələbləri və inteqrasiyalardan asılıdır. Hər layihə üçün fərdi qiymət təklifi hazırlayırıq. Ətraflı məlumat üçün bizimlə əlaqə saxlayın."
-                }
-            }
-        ]
-    }
-    </script>
+    
 
             </section>
 
