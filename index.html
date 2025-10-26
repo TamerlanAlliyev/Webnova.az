@@ -91,7 +91,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Robots & Crawling -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -109,25 +109,9 @@
     <meta name="rating" content="general">
     <meta name="revisit-after" content="7 days">
     
-    <!-- Critical Inline CSS for Performance -->
-    <style>
-        /* Critical CSS - Above the fold content */
-        body { margin: 0; font-family: 'Montserrat', sans-serif; }
-        .header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .main-hero { min-height: 100vh; display: flex; align-items: center; }
-        /* Prevent FOUC */
-        html { visibility: visible; opacity: 1; }
-    </style>
+
     
-    <!-- Theme Script - Optimized -->
-    <script>
-        (function() {
-            const html = document.documentElement;
-            const savedTheme = sessionStorage.getItem('theme') || 
-                             (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            html.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
+
     
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
