@@ -1,24 +1,24 @@
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 2,
   spaceBetween: 18,
-  lazy:true,
+  lazy: true,
   autoplay: {
-      delay: 1500,
-      loop: true,
+    delay: 1500,
+    loop: true,
   },
   breakpoints: {
-   580: {
-          slidesPerView: 3,
-          spaceBetween: 18,
-      },
-      768: {
-          slidesPerView: 4,
-          spaceBetween: 22,
-      },
-      1080: {
-          slidesPerView: 5,
-          spaceBetween: 24,
-      },
+    580: {
+      slidesPerView: 3,
+      spaceBetween: 18,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 22,
+    },
+    1080: {
+      slidesPerView: 5,
+      spaceBetween: 24,
+    },
   },
 });
 
@@ -37,7 +37,7 @@ var swiper = new Swiper(".mySwiper", {
   // parent üzrə index xəritəsi (stagger üçün)
   const groupIndex = new WeakMap();
 
-  function setupObserverForEl(el){
+  function setupObserverForEl(el) {
     if (el.__saObserved) return; // təkrarı önlə
     el.__saObserved = true;
 
@@ -54,7 +54,7 @@ var swiper = new Swiper(".mySwiper", {
 
         const once = (el.getAttribute('data-sa-once') ?? 'true') !== 'false';
 
-        if (entry.isIntersecting){
+        if (entry.isIntersecting) {
           const baseDelay = parseInt(el.getAttribute('data-sa-delay') || '0', 10);
           const stagger = parseInt(el.getAttribute('data-sa-stagger') || '0', 10);
 
@@ -68,7 +68,7 @@ var swiper = new Swiper(".mySwiper", {
           if (once) observer.unobserve(el);
         } else {
           // repeat mode
-          if ((el.getAttribute('data-sa-once') ?? 'true') === 'false'){
+          if ((el.getAttribute('data-sa-once') ?? 'true') === 'false') {
             el.classList.remove('sa-active');
             el.style.transitionDelay = '';
           }
@@ -79,9 +79,9 @@ var swiper = new Swiper(".mySwiper", {
     io.observe(el);
   }
 
-  function getIndexInGroup(parent, el){
+  function getIndexInGroup(parent, el) {
     if (!parent) return 0;
-    if (!groupIndex.has(parent)){
+    if (!groupIndex.has(parent)) {
       const children = Array.from(parent.querySelectorAll(SELECTOR));
       const map = new Map(children.map((node, i) => [node, i]));
       groupIndex.set(parent, map);
@@ -89,10 +89,12 @@ var swiper = new Swiper(".mySwiper", {
     return groupIndex.get(parent).get(el) ?? 0;
   }
 
-  function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+  function clamp01(v) {
+    return Math.max(0, Math.min(1, v));
+  }
 
   // İlk yükləmə
-  if (!('IntersectionObserver' in window)){
+  if (!('IntersectionObserver' in window)) {
     // Fallback: animasiyasız göstər
     document.querySelectorAll(SELECTOR).forEach(el => el.classList.add('sa-active'));
   } else {
@@ -109,7 +111,10 @@ var swiper = new Swiper(".mySwiper", {
         });
       });
     });
-    mo.observe(document.body, { childList: true, subtree: true });
+    mo.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 })();
 
@@ -122,11 +127,134 @@ var swiper = new Swiper(".mySwiper", {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-        const wrapper = document.querySelector(".promo-slider .wrapper");
-        if (wrapper) {
-            const clone = wrapper.innerHTML;
-            wrapper.insertAdjacentHTML("beforeend", clone);
-            const slides = wrapper.querySelectorAll(".slide").length / 2;
-            wrapper.parentElement.dataset.slides = slides;
+  const container = document.querySelector(".promo-slider");
+  const wrapper = container?.querySelector(".wrapper");
+  if (!container || !wrapper) return;
+
+  // 1) Indexləri avtomatik 01, 02, ... formatla (HTML-də yazmağa ehtiyac qalmasın)
+  const slides = Array.from(wrapper.querySelectorAll(".slide"));
+  slides.forEach((li, i) => {
+    const idxEl = li.querySelector(".promo-index");
+    if (idxEl) idxEl.textContent = String(i + 1).padStart(2, "0");
+  });
+
+  // 2) Sonsuz axın üçün kontenti ən azı 2x genişliyə çatana qədər klonla
+  const initialHTML = wrapper.innerHTML;
+  let safety = 0;
+  while (wrapper.scrollWidth < container.clientWidth * 2 && safety < 10) {
+    wrapper.insertAdjacentHTML("beforeend", initialHTML);
+    safety++;
+  }
+
+  // 3) Marquee sürətini dinamik hesabla:
+  //    Piksel/saniyə sabiti -> nə qədər böyükdürsə, o qədər sürətli hərəkət.
+  const PX_PER_SEC = 80; // İstəyə görə 60–120 arası oynada bilərsən
+  // Hədəf məsafə: [-50%] hərəkət edəcəyik (çünki 2x content var)
+  const distancePx = wrapper.scrollWidth / 2;
+  const durationSec = Math.max(12, distancePx / PX_PER_SEC); // min 12s
+  container.style.setProperty("--marquee-duration", `${durationSec}s`);
+
+  // 4) Resize zamanı yenidən ölç (responsivlik)
+  let rAF;
+  const onResize = () => {
+    cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(() => {
+      // content artıq ikiqatdır; yenidən hesablamaq üçün yalnız duration güncəlləyirik
+      const newDistance = wrapper.scrollWidth / 2;
+      const newDuration = Math.max(12, newDistance / PX_PER_SEC);
+      container.style.setProperty("--marquee-duration", `${newDuration}s`);
+    });
+  };
+  window.addEventListener("resize", onResize, {
+    passive: true
+  });
+});
+
+
+/* =============================
+🎬 SLIDER — Testimoniols
+=============================== */
+var swiper = new Swiper(".testimonials-section  .mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 22,
+  lazy: true,
+  autoplay: {
+    delay: 2500,
+    loop: true,
+  },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 26,
+    },
+    1080: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+  },
+});
+
+/* =============================
+🎬 FAQ Accordion Functionality
+=============================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (faqItems.length === 0) return;
+    
+    faqItems.forEach((item, index) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (!question || !answer) return;
+        
+        question.addEventListener('click', function() {
+            const isActive = item.classList.contains('active');
+            
+            // Bütün FAQ itemləri bağla (accordion mode - yalnız biri açıq qalar)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    closeItem(otherItem);
+                }
+            });
+            
+            // Cari item-i toggle et
+            if (isActive) {
+                closeItem(item);
+            } else {
+                openItem(item);
+            }
+        });
+        
+        // İlk FAQ item-i avtomatik aç
+        if (index === 0) {
+            openItem(item);
         }
     });
+    
+    // FAQ item-i açan funksiya
+    function openItem(item) {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (!question || !answer) return;
+        
+        item.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+    }
+    
+    // FAQ item-i bağlayan funksiya
+    function closeItem(item) {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (!question || !answer) return;
+        
+        item.classList.remove('active');
+        question.setAttribute('aria-expanded', 'false');
+    }
+});
