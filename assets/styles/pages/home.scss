@@ -1,4 +1,70 @@
 body {
+    .promo-slider {
+        overflow: hidden;
+        --marquee-duration: 10s;
+
+        margin: var(--spacing-10)0;
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-10);
+            list-style: none;
+            padding: var(--spacing-4) 0;
+            width: max-content;
+            will-change: transform;
+            animation: scroll-marquee var(--marquee-duration) linear infinite;
+            // performance
+            transform: translate3d(0, 0, 0);
+            background: var(--color-primary);
+
+
+            .slide {
+                display: flex;
+                align-items: flex-start;
+                gap: var(--spacing-3);
+                flex-shrink: 0;
+                white-space: nowrap;
+
+                .promo-index {
+                    font-size: var(--font-size-md);
+                    font-weight: 900;
+                    color: var(--color-primary-dark);
+                    min-width: 2ch;
+                    text-align: right;
+                }
+
+                .promo-title {
+                    display: inline-flex;
+                    width: max-content;
+                    font-size: var(--font-size-3xl);
+                    font-weight: 600;
+                    color: #fff;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        @keyframes scroll-marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+            // ikiqat content olduqda naxışsız keçid
+        }
+
+        // Accessibility: animasiyanı söndür
+        @media (prefers-reduced-motion: reduce) {
+            .wrapper {
+                animation: none !important;
+                transform: none !important;
+            }
+        }
+    }
 
     main {
 
@@ -123,6 +189,7 @@ body {
 
                 .advantage-item {
                     display: flex;
+                    flex-direction: column;
                     align-items: start;
                     gap: var(--spacing-6);
                     background: var(--color-surface);
@@ -360,71 +427,7 @@ body {
 
             }
 
-            .promo-slider {
-                overflow: hidden;
-                --marquee-duration: 10s;
 
-
-                .wrapper {
-                    display: flex;
-                    align-items: center;
-                    gap: var(--spacing-10);
-                    list-style: none;
-                    padding: var(--spacing-4) 0;
-                    width: max-content;
-                    will-change: transform;
-                    animation: scroll-marquee var(--marquee-duration) linear infinite;
-                    // performance
-                    transform: translate3d(0, 0, 0);
-                    background: var(--color-primary);
-
-
-                    .slide {
-                        display: flex;
-                        align-items: flex-start;
-                        gap: var(--spacing-3);
-                        flex-shrink: 0;
-                        white-space: nowrap;
-
-                        .promo-index {
-                            font-size: var(--font-size-md);
-                            font-weight: 900;
-                            color: var(--color-primary-dark);
-                            min-width: 2ch;
-                            text-align: right;
-                        }
-
-                        .promo-title {
-                            display: inline-flex;
-                            width: max-content;
-                            font-size: var(--font-size-3xl);
-                            font-weight: 600;
-                            color: #fff;
-                            white-space: nowrap;
-                        }
-                    }
-                }
-
-                @keyframes scroll-marquee {
-                    from {
-                        transform: translateX(0);
-                    }
-
-                    to {
-                        transform: translateX(-50%);
-                    }
-
-                    // ikiqat content olduqda naxışsız keçid
-                }
-
-                // Accessibility: animasiyanı söndür
-                @media (prefers-reduced-motion: reduce) {
-                    .wrapper {
-                        animation: none !important;
-                        transform: none !important;
-                    }
-                }
-            }
 
             .testimonials-section {
                 .section-container.swiper {
@@ -543,7 +546,7 @@ body {
                         justify-content: center;
 
                         .category-list {
-                            width: 70%;
+                            width: 100%;
                             display: flex;
                             flex-wrap: wrap;
                             justify-content: center;
@@ -702,7 +705,7 @@ body {
                                         .faq-icon {
                                             transform: rotate(45deg);
                                             color: var(--color-primary);
-                                            
+
                                         }
                                     }
                                 }
@@ -778,6 +781,21 @@ body {
                                 width: 300px;
                                 height: 300px;
                             }
+                        }
+                    }
+                }
+
+                .advantages-grid {
+                    .advantage-item {
+                        flex-direction: row;
+
+                        .advantage-icon {
+                            width: 15%;
+                        }
+
+                        .advantage-content {
+                            width: 85%;
+
                         }
                     }
                 }
@@ -868,6 +886,16 @@ body {
                         .projects-grid {
                             grid-template-columns: 1fr 1fr;
 
+                        }
+                    }
+                }
+
+                .faqs-section {
+                    .section-container {
+                        .faq-categories {
+                            .category-list {
+                                width: 70%;
+                            }
                         }
                     }
                 }

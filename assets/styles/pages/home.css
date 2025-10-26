@@ -1,4 +1,59 @@
 @charset "UTF-8";
+body .promo-slider {
+  overflow: hidden;
+  --marquee-duration: 10s;
+  margin: var(--spacing-10) 0;
+}
+body .promo-slider .wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-10);
+  list-style: none;
+  padding: var(--spacing-4) 0;
+  width: -moz-max-content;
+  width: max-content;
+  will-change: transform;
+  animation: scroll-marquee var(--marquee-duration) linear infinite;
+  transform: translate3d(0, 0, 0);
+  background: var(--color-primary);
+}
+body .promo-slider .wrapper .slide {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+body .promo-slider .wrapper .slide .promo-index {
+  font-size: var(--font-size-md);
+  font-weight: 900;
+  color: var(--color-primary-dark);
+  min-width: 2ch;
+  text-align: right;
+}
+body .promo-slider .wrapper .slide .promo-title {
+  display: inline-flex;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+@keyframes scroll-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .promo-slider .wrapper {
+    animation: none !important;
+    transform: none !important;
+  }
+}
 body main {
   min-width: 0;
   min-height: 0;
@@ -103,6 +158,7 @@ body main .main-container .advantages-grid {
 }
 body main .main-container .advantages-grid .advantage-item {
   display: flex;
+  flex-direction: column;
   align-items: start;
   gap: var(--spacing-6);
   background: var(--color-surface);
@@ -295,60 +351,6 @@ body main .main-container .projects-section .section-container .projects-grid .p
   display: flex;
   gap: var(--spacing-2);
 }
-body main .main-container .promo-slider {
-  overflow: hidden;
-  --marquee-duration: 10s;
-}
-body main .main-container .promo-slider .wrapper {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-10);
-  list-style: none;
-  padding: var(--spacing-4) 0;
-  width: -moz-max-content;
-  width: max-content;
-  will-change: transform;
-  animation: scroll-marquee var(--marquee-duration) linear infinite;
-  transform: translate3d(0, 0, 0);
-  background: var(--color-primary);
-}
-body main .main-container .promo-slider .wrapper .slide {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-3);
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-body main .main-container .promo-slider .wrapper .slide .promo-index {
-  font-size: var(--font-size-md);
-  font-weight: 900;
-  color: var(--color-primary-dark);
-  min-width: 2ch;
-  text-align: right;
-}
-body main .main-container .promo-slider .wrapper .slide .promo-title {
-  display: inline-flex;
-  width: -moz-max-content;
-  width: max-content;
-  font-size: var(--font-size-3xl);
-  font-weight: 600;
-  color: #fff;
-  white-space: nowrap;
-}
-@keyframes scroll-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  body main .main-container .promo-slider .wrapper {
-    animation: none !important;
-    transform: none !important;
-  }
-}
 body main .main-container .testimonials-section .section-container.swiper {
   width: 100%;
   height: 100%;
@@ -447,7 +449,7 @@ body main .main-container .faqs-section .section-container .faq-categories {
   justify-content: center;
 }
 body main .main-container .faqs-section .section-container .faq-categories .category-list {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -626,6 +628,15 @@ body main .main-container .faqs-section .section-container .faq-accordion .faq-i
     width: 300px;
     height: 300px;
   }
+  body main .main-container .advantages-grid .advantage-item {
+    flex-direction: row;
+  }
+  body main .main-container .advantages-grid .advantage-item .advantage-icon {
+    width: 15%;
+  }
+  body main .main-container .advantages-grid .advantage-item .advantage-content {
+    width: 85%;
+  }
   body main .main-container section.section .advantages-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -678,5 +689,8 @@ body main .main-container .faqs-section .section-container .faq-accordion .faq-i
   }
   body main .main-container .projects-section .section-container .projects-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  body main .main-container .faqs-section .section-container .faq-categories .category-list {
+    width: 70%;
   }
 }/*# sourceMappingURL=home.css.map */
