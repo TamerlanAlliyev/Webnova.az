@@ -2,7 +2,6 @@ body {
     .promo-slider {
         overflow: hidden;
         --marquee-duration: 10s;
-
         margin: var(--spacing-10)0;
 
         .wrapper {
@@ -427,6 +426,53 @@ body {
 
             }
 
+            .cta-container {
+                display: flex;
+                flex-direction: column;
+                background-size: cover;
+                /* şəkil bütün sahəni doldurur */
+                background-repeat: no-repeat;
+                /* təkrar olmasın */
+                background-position: top center;
+                /* sənin istədiyin mövqe */
+                background-attachment: fixed;
+                /* parallax effekti üçün (isteğe bağlı) */
+                image-rendering: -webkit-optimize-contrast;
+                padding: var(--spacing-10);
+                border-radius: var(--radius-3xl);
+                gap: var(--spacing-7);
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                .cta-content {
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--spacing-4);
+                    justify-content: center;
+                    text-align: center;
+                    color: #ffffff;
+
+                    h2 {
+                        font-size: var(--font-size-3xl);
+                        font-weight: 700;
+                    }
+
+                    .cta-description {
+                        font-size: var(--font-size-md);
+                        font-weight: 400;
+                        line-height: 150%;
+                        color: #CECECE;
+                    }
+
+                }
+
+                .cta-action {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
 
 
             .testimonials-section {
