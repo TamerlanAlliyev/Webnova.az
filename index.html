@@ -311,26 +311,32 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
             {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Ana Səhifə",
-            "item": "https://webnovaaz.netlify.app/"
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Səhifə",
+                "item": "https://webnovaaz.netlify.app/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
+                "name": "Haqqımızda",
+                "item": "https://webnovaaz.netlify.app/#about"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
                 "name": "Xidmətlərimiz",
                 "item": "https://webnovaaz.netlify.app/#services"
             },
             {
                 "@type": "ListItem",
-                "position": 3,
+                "position": 4,
                 "name": "Layihələr",
                 "item": "https://webnovaaz.netlify.app/#projects"
             },
             {
                 "@type": "ListItem",
-                "position": 4,
+                "position": 5,
                 "name": "Əlaqə",
                 "item": "https://webnovaaz.netlify.app/#contact"
             }
@@ -346,8 +352,8 @@
         <!-- Menu Header -->
         <header class="menu-header">
             <a href="/" class="logo" aria-label="Webnova Homepage">
-                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40">
-                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
+                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40" loading="eager">
+                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" loading="eager">
             </a>
             <button class="mobile-menu-btn-close" aria-label="Menyunu bağla"> 
                 <i class="bi bi-x-circle" aria-hidden="true"></i> 
@@ -360,16 +366,15 @@
             <!-- Navigation -->
             <nav class="menu-nav" aria-label="Main navigation">
                 <ul class="menu-list">
-                    <li><a href="/" title="Go to Webnova Homepage">Home</a></li>
-                    <li><a href="/about" title="Learn more About Webnova">About Us</a></li>
-                    <li><a href="/projects" title="View our completed Projects">Projects</a></li>
-                    <li><a href="/services" title="Explore Webnova Services">Our Services</a></li>
-                    <li><a href="/contact" title="Get in touch with Webnova">Contact</a></li>
-                    <li><a href="/faq" title="Frequently Asked Questions about Webnova">Frequently Asked Questions</a>
-                    </li>
+                    <li><a href="/" title="Webnova Ana Səhifə">Ana səhifə</a></li>
+                    <li><a href="#about" title="Webnova haqqında məlumat">Haqqımızda</a></li>
+                    <li><a href="#services" title="Xidmətlərimiz haqqında">Xidmətlər</a></li>
+                    <li><a href="#projects" title="Tamamlanmış layihələr">Layihələr</a></li>
+                    <li><a href="#contact" title="Bizimlə əlaqə">Əlaqə</a></li>
+                    <li><a href="#faqs" title="Tez-tez verilən suallar">FAQ</a></li>
                 </ul>
                 <div class="cta">
-                    <a href="/qiymet-teklifi" class="btn btn-big btn-primary">Qiymət təklifi al</a>
+                    <a href="#contact" class="btn btn-big btn-primary">Qiymət təklifi al</a>
                 </div>
             </nav>
 
@@ -464,14 +469,15 @@
 
             <div class="logo-image">
                 <a class="logo" href="/" aria-label="Webnova Ana Səhifə" title="Webnova Ana Səhifə">
-                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40">
-                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
+                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
+                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
                 </a>
             </div>
 
             <nav aria-label="Əsas naviqasiya">
                 <ul>
                     <li><a href="/" class="active" title="Ana səhifəyə keçid">Ana səhifə</a></li>
+                    <li><a href="#about" title="Haqqımızda məlumat">Haqqımızda</a></li>
                     <li><a href="#services" title="Xidmətlərimiz haqqında məlumat">Xidmətlər</a></li>
                     <li><a href="#projects" title="Tamamlanmış layihələrimiz">Layihələr</a></li>
                     <li><a href="#contact" title="Bizimlə əlaqə saxlayın">Əlaqə</a></li>
@@ -630,6 +636,135 @@
                             <p itemprop="description">Texnoloji yenilikləri izləyərək və təcrübəmizi daim
                                 təkmilləşdirərək, müştərilərimizə daha dəyərli həllər təqdim edirik.</p>
                         </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- About Section -->
+            <section class="section about-section card-animation" id="about" aria-labelledby="about-title"
+                     itemscope itemtype="https://schema.org/AboutPage">
+
+                <header class="about-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="about-title" class="section-title">
+                        <a href="#about">Haqqımızda</a>
+                    </h2>
+                    <p class="section-description">
+                        .NET + React texnologiyalarında ixtisaslaşmış, performans və nəticə yönümlü veb həllər komandası.
+                    </p>
+                </header>
+
+                <div class="section-container" style="max-width: 1200px; margin: 0 auto;">
+                    
+                    <!-- About Content -->
+                    <article class="about-content" style="line-height: 1.8; font-size: 1.125rem;">
+                        
+                        <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem; color: #010C31;">
+                            Dəyər Təklifimiz
+                        </h3>
+                        
+                        <p style="margin-bottom: 1.5rem;">
+                            <strong>Webnova</strong> — .NET + React əsasında sürətli, təhlükəsiz və SEO-optimallaşdırılmış 
+                            veb həllər təqdim edən Azərbaycan komandası. Bizim missiyamız: biznesinizin rəqəmsal transformasiyasını 
+                            <strong>Core Web Vitals 90+</strong> performans hədəfi ilə reallaşdırmaq.
+                        </p>
+
+                        <h3 style="font-size: 1.75rem; margin: 2.5rem 0 1.5rem; color: #010C31;">
+                            Nəyə Görə Biz?
+                        </h3>
+
+                        <div style="display: grid; gap: 2rem; margin-bottom: 2rem;">
+                            
+                            <div style="padding: 1.5rem; background: #f5f7fa; border-radius: 12px; border-left: 4px solid #0066cc;">
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #010C31;">
+                                    🚀 Performans Obsesiyası
+                                </h4>
+                                <p>
+                                    Hər layihədə <strong>Core Web Vitals 90+</strong> hədəfi. LCP ≤2.5s, CLS ≤0.1, INP ≤200ms. 
+                                    Kod bölünməsi, lazy loading, kritik CSS inline, CDN konfiqurasiyası - hər detal optimaldır.
+                                </p>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: #f5f7fa; border-radius: 12px; border-left: 4px solid #0066cc;">
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #010C31;">
+                                    🔐 Təhlükəsizlik və Etibarlılıq
+                                </h4>
+                                <p>
+                                    Azure Cloud infrastrukturu, CI/CD pipeline, avtomatik backup, SSL/TLS sertifikatları. 
+                                    GDPR/KVKK uyğunluq, penetration testing, 24/7 monitoring.
+                                </p>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: #f5f7fa; border-radius: 12px; border-left: 4px solid #0066cc;">
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #010C31;">
+                                    📊 Ölçülə Bilən Nəticələr
+                                </h4>
+                                <p>
+                                    SKN Group: <strong>%55 performans artımı</strong>. Mont-Royal: <strong>CWV 90+</strong>, 
+                                    orqanik trafikdə <strong>%42 artım</strong>. Buta Group: operativ proseslərdə vaxt qənaəti. 
+                                    Biz rəqəmlərlə danışırıq.
+                                </p>
+                            </div>
+
+                            <div style="padding: 1.5rem; background: #f5f7fa; border-radius: 12px; border-left: 4px solid #0066cc;">
+                                <h4 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #010C31;">
+                                    🤖 AI və İnnovasiya
+                                </h4>
+                                <p>
+                                    OpenAI API inteqrasiyası, AI chatbot, mətn/səs/görüntü generasiyası. Avtomatlaşdırma, 
+                                    müştəri dəstəyi botları, məzmun yaradılması - gələcək texnologiyaları bu gün.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <h3 style="font-size: 1.75rem; margin: 2.5rem 0 1.5rem; color: #010C31;">
+                            Texnologiya Stackimiz
+                        </h3>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                            
+                            <div style="text-align: center; padding: 1.5rem;">
+                                <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚙️</p>
+                                <h4 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;">Backend</h4>
+                                <p style="color: #555;">.NET Core, ASP.NET, Entity Framework, SQL Server</p>
+                            </div>
+
+                            <div style="text-align: center; padding: 1.5rem;">
+                                <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚛️</p>
+                                <h4 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;">Frontend</h4>
+                                <p style="color: #555;">React, Next.js, TypeScript, Tailwind CSS</p>
+                            </div>
+
+                            <div style="text-align: center; padding: 1.5rem;">
+                                <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">☁️</p>
+                                <h4 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;">Cloud & DevOps</h4>
+                                <p style="color: #555;">Azure, GitHub Actions, Docker, CI/CD</p>
+                            </div>
+
+                            <div style="text-align: center; padding: 1.5rem;">
+                                <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</p>
+                                <h4 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem;">SEO & Analytics</h4>
+                                <p style="color: #555;">GA4, Search Console, Power BI, SEMrush</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Client Logos -->
+                        <h3 style="font-size: 1.75rem; margin: 2.5rem 0 1.5rem; color: #010C31; text-align: center;">
+                            Etibar Edən Müştərilər
+                        </h3>
+
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; align-items: center; margin: 2rem 0;">
+                            <img src="./assets/images/clients/SKNGroup.webp" alt="SKN Group" width="120" height="40" loading="lazy" decoding="async" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;">
+                            <img src="./assets/images/clients/Mont-Royal Canada.webp" alt="Mont-Royal Canada" width="120" height="40" loading="lazy" decoding="async" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;">
+                            <img src="./assets/images/clients/Modern Solutions.webp" alt="Modern Solutions" width="120" height="40" loading="lazy" decoding="async" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;">
+                            <img src="./assets/images/clients/Modern Leasing.webp" alt="Modern Leasing" width="120" height="40" loading="lazy" decoding="async" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;">
+                            <img src="./assets/images/clients/NextGEN Growth.webp" alt="NextGEN Growth" width="120" height="40" loading="lazy" decoding="async" style="filter: grayscale(100%); opacity: 0.7; transition: all 0.3s;">
+                        </div>
+
                     </article>
 
                 </div>
@@ -1161,62 +1296,54 @@
     <section class="section promo-slider card-animation" id="promo" aria-label="Xidmətlər siyahısı">
 
         <ul class="wrapper">
-            <li class="slide" role="group" aria-roledescription="slayd" aria-label="01 — Veb saytların hazırlanması">
+            <li class="slide" aria-label="Veb saytların hazırlanması">
                 <span class="promo-index" aria-hidden="true">01</span>
-                <span class="promo-title" role="text">VEB SAYTLARIN HAZIRLANMASI</span>
+                <span class="promo-title">VEB SAYTLARIN HAZIRLANMASI</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd" aria-label="02 — UI/UX dizayn və prototipləmə">
+            <li class="slide" aria-label="UI/UX dizayn və prototipləmə">
                 <span class="promo-index" aria-hidden="true">02</span>
-                <span class="promo-title" role="text">UI/UX DİZAYN VƏ PROTOTİPLƏMƏ</span>
+                <span class="promo-title">UI/UX DİZAYN VƏ PROTOTİPLƏMƏ</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="03 — SEO və performans optimizasiyası">
+            <li class="slide" aria-label="SEO və performans optimizasiyası">
                 <span class="promo-index" aria-hidden="true">03</span>
-                <span class="promo-title" role="text">SEO VƏ PERFORMANS OPTİMİZASİYASI</span>
+                <span class="promo-title">SEO VƏ PERFORMANS OPTİMİZASİYASI</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="04 — Brendinq və korporativ kimlik dizaynı">
+            <li class="slide" aria-label="Brendinq və korporativ kimlik dizaynı">
                 <span class="promo-index" aria-hidden="true">04</span>
-                <span class="promo-title" role="text">BRENDİNQ VƏ KORPORATİV KİMLİK</span>
+                <span class="promo-title">BRENDİNQ VƏ KORPORATİV KİMLİK</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="05 — E-ticarət sistemlərinin hazırlanması">
+            <li class="slide" aria-label="E-ticarət sistemlərinin hazırlanması">
                 <span class="promo-index" aria-hidden="true">05</span>
-                <span class="promo-title" role="text">E-TİCARƏT SİSTEMLƏRİ</span>
+                <span class="promo-title">E-TİCARƏT SİSTEMLƏRİ</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="06 — CRM və ERP sistem inteqrasiyası">
+            <li class="slide" aria-label="CRM və ERP sistem inteqrasiyası">
                 <span class="promo-index" aria-hidden="true">06</span>
-                <span class="promo-title" role="text">CRM / ERP İNTEQRASİYASI</span>
+                <span class="promo-title">CRM / ERP İNTEQRASİYASI</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="07 — Mobil tətbiq interfeyslərinin hazırlanması">
+            <li class="slide" aria-label="Mobil tətbiq interfeyslərinin hazırlanması">
                 <span class="promo-index" aria-hidden="true">07</span>
-                <span class="promo-title" role="text">MOBİL TƏTBİQ İNTERFEYSLƏRİ</span>
+                <span class="promo-title">MOBİL TƏTBİQ İNTERFEYSLƏRİ</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="08 — Rəqəmsal marketinq və brend strategiyası">
+            <li class="slide" aria-label="Rəqəmsal marketinq və brend strategiyası">
                 <span class="promo-index" aria-hidden="true">08</span>
-                <span class="promo-title" role="text">RƏQƏMSAL MARKETİNQ STRATEGİYASI</span>
+                <span class="promo-title">RƏQƏMSAL MARKETİNQ STRATEGİYASI</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="09 — Hosting, domen və texniki dəstək xidmətləri">
+            <li class="slide" aria-label="Hosting, domen və texniki dəstək xidmətləri">
                 <span class="promo-index" aria-hidden="true">09</span>
-                <span class="promo-title" role="text">HOSTİNG VƏ TEXNİKİ DƏSTƏK</span>
+                <span class="promo-title">HOSTİNG VƏ TEXNİKİ DƏSTƏK</span>
             </li>
 
-            <li class="slide" role="group" aria-roledescription="slayd"
-                aria-label="10 — Analitika və məlumat əsaslı inkişaf">
+            <li class="slide" aria-label="Analitika və məlumat əsaslı inkişaf">
                 <span class="promo-index" aria-hidden="true">10</span>
-                <span class="promo-title" role="text">ANALİTİKA VƏ MƏLUMAT ƏSASLI İNKİŞAF</span>
+                <span class="promo-title">ANALİTİKA VƏ MƏLUMAT ƏSASLI İNKİŞAF</span>
             </li>
         </ul>
 
@@ -1721,7 +1848,7 @@
         <div class="footer-container">
 
             <a href="/" class="logo" aria-label="Webnova Ana səhifə">
-                <img src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" loading="lazy">
+                <img src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" loading="lazy" decoding="async">
             </a>
 
             <div class="container-grid">
@@ -1770,10 +1897,11 @@
                 <nav class="footer-nav" aria-label="Footer Naviqasiya">
                     <ul>
                         <li><a href="/" title="Ana səhifə">Ana səhifə</a></li>
-                        <li><a href="#services" title="Xidmətlərimiz haqqında">Xidmətlər</a></li>
-                        <li><a href="#projects" title="Layihələrimizi görün">Layihələr</a></li>
-                        <li><a href="#contact" title="Bizimlə əlaqə saxlayın">Əlaqə</a></li>
-                        <li><a href="/privacy" title="Məxfilik siyasəti">Məxfilik</a></li>
+                        <li><a href="#about" title="Haqqımızda">Haqqımızda</a></li>
+                        <li><a href="#services" title="Xidmətlərimiz">Xidmətlər</a></li>
+                        <li><a href="#projects" title="Layihələr">Layihələr</a></li>
+                        <li><a href="#contact" title="Əlaqə">Əlaqə</a></li>
+                        <li><a href="#faqs" title="FAQ">FAQ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -1782,9 +1910,9 @@
 
         <!-- Copyright -->
         <div class="footer-bottom">
-            <p>© 2025 Webnova. Bütün hüquqlar qorunur. 
-               <a href="/sitemap.xml" style="margin-left: 1rem; color: #0066cc;">Sitemap</a> | 
-               <a href="/robots.txt" style="margin-left: 0.5rem; color: #0066cc;">Robots.txt</a>
+            <p style="color: #333;">© 2025 Webnova. Bütün hüquqlar qorunur. 
+               <a href="/sitemap.xml" style="margin-left: 1rem; color: #010C31; font-weight: 600;">Sitemap</a> | 
+               <a href="/robots.txt" style="margin-left: 0.5rem; color: #010C31; font-weight: 600;">Robots.txt</a>
             </p>
         </div>
     </footer>

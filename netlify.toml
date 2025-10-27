@@ -1,0 +1,81 @@
+# Netlify Configuration - Webnova
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Publish directory
+  publish = "."
+  
+  # Command (if needed)
+  # command = "npm run build"
+
+# Redirect rules
+[[redirects]]
+  # Force HTTPS (www to non-www)
+  from = "https://www.webnovaaz.netlify.app/*"
+  to = "https://webnovaaz.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # Force HTTPS (HTTP to HTTPS)
+  from = "http://webnovaaz.netlify.app/*"
+  to = "https://webnovaaz.netlify.app/:splat"
+  status = 301
+  force = true
+
+# Headers configuration
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security Headers
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com https://lottie.host https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net data:; img-src 'self' data: https:; connect-src 'self' https://lottie.host https://fonts.googleapis.com https://fonts.gstatic.com https://cdn.jsdelivr.net https://unpkg.com https://www.google-analytics.com; frame-ancestors 'self'; worker-src 'self' blob:; child-src 'self' blob:"
+    
+    # HSTS
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Cache Control
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Static assets cache (1 year)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images cache (1 month)
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+# CSS cache (1 week)
+[[headers]]
+  for = "/assets/styles/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+# JS cache (1 week)
+[[headers]]
+  for = "/assets/scripts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+# HTML no cache
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Fonts cache (1 year)
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+

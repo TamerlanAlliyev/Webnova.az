@@ -14,6 +14,14 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://webnovaaz.netlify.app/ru/"/>
   </url>
 
+  <!-- About Section -->
+  <url>
+    <loc>https://webnovaaz.netlify.app/#about</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Services Section -->
   <url>
     <loc>https://webnovaaz.netlify.app/#services</loc>

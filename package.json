@@ -1,0 +1,32 @@
+{
+  "name": "webnova-website",
+  "version": "2.0.0",
+  "description": "Webnova - Performans yönümlü veb həllər. .NET + React ilə sürətli, SEO-dostu veb saytlar.",
+  "main": "index.html",
+  "scripts": {
+    "optimize": "node optimize-images.js",
+    "test": "echo \"Run: npm run optimize\" && exit 0",
+    "lighthouse": "echo \"Open: https://pagespeed.web.dev/?url=https://webnovaaz.netlify.app/\""
+  },
+  "keywords": [
+    "veb sayt hazırlanması",
+    "sayt hazırlanması bakı",
+    "web development",
+    "seo optimization",
+    "react",
+    ".net core",
+    "azerbaijan",
+    "bakı"
+  ],
+  "author": "Webnova <hello@webnova.az>",
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webnova/webnova.az.git"
+  },
+  "homepage": "https://webnovaaz.netlify.app"
+}
+
