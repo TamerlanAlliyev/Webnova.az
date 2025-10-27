@@ -1,136 +1,273 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en" data-theme="light">
+<!-- <button id="themeToggle">Toggle Theme</button> -->
+
 <head>
+    <!-- Critical Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Primary SEO -->
-    <title>Webnova — Veb Sayt Hazırlanması & SEO Bakı | .NET+React</title>
-    <meta name="description" content="Sürətli, təhlükəsiz, SEO-optimallaşdırılmış veb həllər. E-ticarət, xüsusi tətbiqlər, AI chatbot. CWV 90+ hədəfi. Bakı.">
-    <meta name="keywords" content="veb sayt hazırlanması, sayt hazırlanması Bakı, veb dizayn, e-ticarət saytı, SEO optimizasiya, .NET developer, React developer Bakı">
-    <link rel="canonical" href="https://webnova.az/">
+    <!-- Primary SEO Tags -->
+    <title>Veb Sayt Hazırlanması Azərbaycanda | Webnova - Peşəkar Digital Agentlik</title>
+    <meta name="description" content="Webnova Agency - Azərbaycanda peşəkar veb sayt hazırlanması, SEO optimizasiyası, digital marketinq və UI/UX dizayn xidmətləri. 5+ illik təcrübə, 200+ uğurlu layihə. ☎ +994 99 377 97 87">
+    <meta name="keywords" content="veb sayt hazırlanması, veb sayt hazırlanması Bakı, SEO Azərbaycan, digital marketinq Bakı, UI/UX dizayn, e-ticarət sayt hazırlanması, mobil tətbiq dizaynı, branding xidmətləri, veb dizayn Azərbaycan, sayt hazırlayan şirkət">
+    <link rel="canonical" href="https://webnovaaz.netlify.app/">
     
-    <!-- Open Graph -->
+    <!-- Alternate Languages -->
+    <link rel="alternate" hreflang="az" href="https://webnovaaz.netlify.app/">
+    <link rel="alternate" hreflang="en" href="https://webnovaaz.netlify.app/en/">
+    <link rel="alternate" hreflang="ru" href="https://webnovaaz.netlify.app/ru/">
+    <link rel="alternate" hreflang="x-default" href="https://webnovaaz.netlify.app/">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://webnova.az/">
-    <meta property="og:title" content="Webnova — Veb Sayt Hazırlanması & SEO Bakı">
-    <meta property="og:description" content="Sürətli, təhlükəsiz, SEO-optimallaşdırılmış veb həllər. CWV 90+ hədəfi.">
-    <meta property="og:image" content="https://webnova.az/og-image.jpg">
+    <meta property="og:url" content="https://webnovaaz.netlify.app/">
+    <meta property="og:site_name" content="Webnova Agency">
+    <meta property="og:title" content="Veb Sayt Hazırlanması və Digital Marketinq Xidmətləri | Webnova">
+    <meta property="og:description" content="Azərbaycanda ən yaxşı veb sayt hazırlanması və digital marketinq agentliyi. Peşəkar komanda, müasir texnologiyalar və sərfəli qiymətlər.">
+    <meta property="og:image" content="https://webnovaaz.netlify.app/assets/images/og-image-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Webnova Agency - Veb Sayt Hazırlanması">
     <meta property="og:locale" content="az_AZ">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Webnova — Veb Sayt Hazırlanması Bakı">
-    <meta name="twitter:description" content="CWV 90+ hədəfli peşəkar veb həllər. .NET + React texnologiyaları.">
-    <meta name="twitter:image" content="https://webnova.az/twitter-card.jpg">
+    <meta name="twitter:url" content="https://webnovaaz.netlify.app/">
+    <meta name="twitter:title" content="Veb Sayt Hazırlanması Azərbaycanda | Webnova Agency">
+    <meta name="twitter:description" content="Peşəkar veb sayt hazırlanması, SEO və digital marketinq xidmətləri. 200+ uğurlu layihə, 5+ illik təcrübə.">
+    <meta name="twitter:image" content="https://webnovaaz.netlify.app/assets/images/twitter-card-1200x600.jpg">
+    <meta name="twitter:image:alt" content="Webnova Agency Logo və Xidmətlər">
+    <meta name="twitter:creator" content="@webnovaagency">
+    <meta name="twitter:site" content="@webnovaagency">
     
-    <!-- Robots & Geo -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta name="geo.region" content="AZ-BA">
-    <meta name="geo.placename" content="Bakı">
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#010C31" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0A1628" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Webnova">
+    <meta name="format-detection" content="telephone=yes">
     
-    <!-- Theme & Mobile -->
-    <meta name="theme-color" content="#0066FF">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#010C31">
     
-    <!-- Preconnect -->
+    <!-- DNS Prefetch & Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://lottie.host">
     
-    <!-- Preload Critical Font -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./assets/styles/root/root.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
     
-    <!-- Critical CSS (Inline for LCP) -->
-    <style>
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        html{font-size:16px;scroll-behavior:smooth}
-        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#fff;overflow-x:hidden}
-        img{max-width:100%;height:auto;display:block}
-        a{text-decoration:none;color:inherit}
-        button{font-family:inherit;cursor:pointer;border:none;background:none}
-        
-        /* Header */
-        .header{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;z-index:100;padding:1rem 0}
-        .header-container{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
-        .logo{font-size:1.5rem;font-weight:700;color:#0066FF}
-        .nav-menu{display:flex;gap:2rem;list-style:none}
-        .nav-link{font-weight:500;transition:color 0.2s;position:relative}
-        .nav-link:hover{color:#0066FF}
-        .cta-btn{background:#0066FF;color:#fff;padding:0.75rem 1.5rem;border-radius:8px;font-weight:600;transition:transform 0.2s,box-shadow 0.2s}
-        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,102,255,0.3)}
-        
-        /* Hero */
-        .hero{min-height:90vh;display:flex;align-items:center;padding:3rem 1.5rem;background:linear-gradient(135deg,#f8faff 0%,#fff 100%)}
-        .hero-container{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-        .hero-content h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.2;margin-bottom:1.5rem;color:#1a1a1a}
-        .hero-content h1 strong{color:#0066FF}
-        .hero-content p{font-size:1.125rem;color:#4b5563;margin-bottom:2rem;max-width:540px}
-        .hero-image{width:100%;aspect-ratio:1;background:#f3f4f6;border-radius:16px;overflow:hidden}
-        .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:#0066FF;color:#fff;padding:1rem 2rem;border-radius:8px;font-weight:600;font-size:1.125rem;transition:all 0.3s}
-        .btn-primary:hover{background:#0052cc;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,102,255,0.3)}
-        
-        /* Section Utilities */
-        .section{padding:5rem 1.5rem}
-        .container{max-width:1280px;margin:0 auto}
-        .section-header{text-align:center;margin-bottom:4rem}
-        .section-prefix{color:#0066FF;font-weight:600;font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em}
-        .section-title{font-size:clamp(2rem,4vw,2.5rem);margin-top:0.5rem;color:#1a1a1a}
-        
-        @media(max-width:768px){
-            .nav-menu{display:none}
-            .hero-container{grid-template-columns:1fr}
-            .hero-image{aspect-ratio:4/3}
-        }
-    </style>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./assets/styles/root/root.css">
+    <link rel="stylesheet" href="./assets/styles/root/DesktopRoot.css" media="(min-width: 1200px)">
+    <link rel="stylesheet" href="./assets/styles/root/MiniDesktopRoot.css" media="(min-width: 992px) and (max-width: 1199px)">
+    <link rel="stylesheet" href="./assets/styles/root/LaptopRoot.css" media="(min-width: 768px) and (max-width: 991px)">
+    <link rel="stylesheet" href="./assets/styles/root/TabletRoot.css" media="(min-width: 576px) and (max-width: 767px)">
+    <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css" media="(max-width: 575px)">
+    <link rel="stylesheet" href="./assets/styles/pages/layout.css">
+    <link rel="stylesheet" href="./assets/styles/pages/home.css">
     
-    <!-- JSON-LD: Organization -->
+    <!-- Deferred Stylesheets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    </noscript>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
+    <!-- Robots & Crawling -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="AZ-BA">
+    <meta name="geo.placename" content="Bakı">
+    <meta name="geo.position" content="40.4093;49.8671">
+    <meta name="ICBM" content="40.4093, 49.8671">
+    
+    <!-- Business Information -->
+    <meta name="author" content="Webnova Agency">
+    <meta name="copyright" content="© 2025 Webnova Agency. Bütün hüquqlar qorunur.">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Webnova",
-        "url": "https://webnova.az",
-        "logo": "https://webnova.az/logo.svg",
-        "description": ".NET + React əsasında sürətli, təhlükəsiz, SEO-optimallaşdırılmış veb həllər. CWV 90+ hədəfli, biznes nəticəsinə fokuslanan komanda.",
+        "name": "Webnova Agency",
+        "alternateName": "Webnova",
+        "url": "https://webnovaaz.netlify.app",
+        "logo": "https://webnovaaz.netlify.app/assets/images/logo-structured.png",
+        "image": "https://webnovaaz.netlify.app/assets/images/webnova-office.jpg",
+        "description": "Azərbaycanda peşəkar veb sayt hazırlanması, SEO optimizasiyası və digital marketinq xidmətləri təqdim edən agentlik",
+        "foundingDate": "2020",
+        "slogan": "Biznesinizi rəqəmsal dünyada zirvələrə daşıyırıq",
+        "email": "info@webnovaaz.netlify.app",
+        "telephone": "+994993779787",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Nizami küçəsi 203",
             "addressLocality": "Bakı",
+            "addressRegion": "Bakı",
+            "postalCode": "AZ1000",
             "addressCountry": "AZ"
         },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+994-XX-XXX-XX-XX",
-            "contactType": "customer service",
-            "email": "hello@webnova.az",
-            "areaServed": "AZ",
-            "availableLanguage": ["az", "en", "ru"]
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.4093",
+            "longitude": "49.8671"
         },
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "telephone": "+994-99-377-97-87",
+            "contactType": "customer service",
+            "email": "info@webnovaaz.netlify.app",
+            "areaServed": "AZ",
+            "availableLanguage": ["Azerbaijani", "English", "Russian"],
+            "contactOption": ["TollFree", "HearingImpairedSupported"],
+            "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        }],
         "sameAs": [
-            "https://www.linkedin.com/company/webnova",
-            "https://github.com/webnova",
-            "https://www.instagram.com/webnova.az"
+            "https://www.facebook.com/webnovaagency",
+            "https://www.instagram.com/webnovaagency",
+            "https://www.linkedin.com/company/webnova-agency",
+            "https://www.youtube.com/@webnovaagency",
+            "https://twitter.com/webnovaagency"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "value": "15"
+        },
+        "knowsAbout": [
+            "Web Development",
+            "SEO",
+            "Digital Marketing",
+            "UI/UX Design",
+            "E-commerce",
+            "Branding"
         ]
     }
     </script>
     
-    <!-- JSON-LD: WebSite -->
+    <!-- Structured Data - Website -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Webnova",
-        "url": "https://webnova.az",
+        "name": "Webnova Agency",
+        "url": "https://webnovaaz.netlify.app",
+        "description": "Azərbaycanda veb sayt hazırlanması və digital marketinq xidmətləri",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Webnova Agency",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://webnovaaz.netlify.app/assets/images/logo-structured.png"
+            }
+        },
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://webnova.az/axtaris?q={search_term_string}",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://webnovaaz.netlify.app/search?q={search_term_string}"
+            },
             "query-input": "required name=search_term_string"
+        },
+        "inLanguage": ["az", "en", "ru"]
+    }
+    </script>
+    
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Webnova Agency - Veb Sayt Hazırlanması",
+        "image": "https://webnovaaz.netlify.app/assets/images/webnova-office.jpg",
+        "@id": "https://webnovaaz.netlify.app",
+        "url": "https://webnovaaz.netlify.app",
+        "telephone": "+994993779787",
+        "priceRange": "₼₼",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Nizami küçəsi 203",
+            "addressLocality": "Bakı",
+            "postalCode": "AZ1000",
+            "addressCountry": "AZ"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.4093,
+            "longitude": 49.8671
+        },
+        "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        }],
+        "areaServed": {
+            "@type": "City",
+            "name": "Bakı"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Digital Xidmətlər",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Veb Sayt Hazırlanması",
+                        "description": "Peşəkar və müasir veb saytların hazırlanması xidməti"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO Optimizasiyası",
+                        "description": "Axtarış sistemlərində görünmənizi artıran SEO xidmətləri"
+                    }
+                }
+            ]
         }
     }
     </script>
     
-    <!-- JSON-LD: BreadcrumbList -->
+    <!-- Structured Data - Breadcrumb -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -139,1185 +276,1179 @@
             "@type": "ListItem",
             "position": 1,
             "name": "Ana Səhifə",
-            "item": "https://webnova.az/"
+            "item": "https://webnovaaz.netlify.app/"
         }]
     }
     </script>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header" role="banner">
-        <div class="header-container">
-            <a href="/" class="logo" aria-label="Webnova Ana Səhifə">Webnova</a>
-            <nav aria-label="Əsas naviqasiya">
-                <ul class="nav-menu">
-                    <li><a href="#xidmetler" class="nav-link">Xidmətlər</a></li>
-                    <li><a href="#layiheler" class="nav-link">Layihələr</a></li>
-                    <li><a href="#haqqimizda" class="nav-link">Haqqımızda</a></li>
-                    <li><a href="#elaqe" class="nav-link">Əlaqə</a></li>
-                </ul>
-            </nav>
-            <a href="#elaqe" class="cta-btn">Təklif Al</a>
-        </div>
-    </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 id="hero-title">
-                        Biznesinizi rəqəmsal dünyada <strong>zirvələrə daşıyırıq</strong>
-                    </h1>
-                    <p>
-                        .NET + React ilə sürətli, təhlükəsiz və SEO-optimallaşdırılmış veb həllər. 
-                        E-ticarət, xüsusi tətbiqlər, AI chatbot və daha çoxu. Core Web Vitals 90+ hədəfi ilə biznesiniz üçün ölçülə bilən nəticələr.
-                    </p>
-                    <a href="#elaqe" class="btn-primary">
-                        Ödənişsiz Konsultasiya
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+    <aside class="mobile-menu" aria-label="Mobile navigation">
+
+        <!-- Menu Header -->
+        <header class="menu-header">
+            <a href="/" class="logo" aria-label="Webnova Homepage">
+                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo light">
+                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo dark">
+            </a>
+            <a class="mobile-menu-btn-close"> <i class="bi bi-x-circle"></i> </a>
+        </header>
+
+        <!-- Main Content Wrapper -->
+        <div class="menu-content">
+
+            <!-- Navigation -->
+            <nav class="menu-nav" aria-label="Main navigation">
+                <ul class="menu-list">
+                    <li><a href="/" title="Go to Webnova Homepage">Home</a></li>
+                    <li><a href="/about" title="Learn more About Webnova">About Us</a></li>
+                    <li><a href="/projects" title="View our completed Projects">Projects</a></li>
+                    <li><a href="/services" title="Explore Webnova Services">Our Services</a></li>
+                    <li><a href="/contact" title="Get in touch with Webnova">Contact</a></li>
+                    <li><a href="/faq" title="Frequently Asked Questions about Webnova">Frequently Asked Questions</a>
+                    </li>
+                </ul>
+                <div class="cta">
+                    <a href="/qiymet-teklifi" class="btn btn-big btn-primary">Qiymət təklifi al</a>
+                </div>
+            </nav>
+
+            <!-- Contact & Social Wrapper -->
+            <div class="menu-extra">
+
+                <!-- Contact Info -->
+                <section class="contact-info" aria-label="Contact Information">
+                    <p><span>Phone</span> <a href="tel:+994993779787">(+994) 99 377 97 87</a></p>
+                    <p><span>Email</span> <a href="mailto:info@webnovaaz.netlify.app">info@webnovaaz.netlify.app</a></p>
+                </section>
+
+                <!-- Social Links -->
+                <section class="social-links" aria-label="Social Media">
+                    <p>Follow us on social media to stay updated with the latest news</p>
+                    <ul class="social-list">
+                        <li><a href="#" aria-label="Webnova on Facebook" rel="noopener" target="_blank"><i
+                                    class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on Instagram" rel="noopener" target="_blank"><i
+                                    class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on WhatsApp" rel="noopener" target="_blank"><i
+                                    class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on LinkedIn" rel="noopener" target="_blank"><i
+                                    class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" aria-label="Webnova on YouTube" rel="noopener" target="_blank"><i
+                                    class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- Üst Header (üst panel) -->
+    <div class="topbar" role="banner">
+        <div class="container">
+            <!-- Tema dəyişmə -->
+
+            <div class="themebutton">
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="bi bi-moon-fill"></i>
+                    <i class="bi bi-sun-fill"></i>
+                    <span class="ball"></span>
+                </label>
+            </div>
+
+            <div class="language-picker">
+                <button class="selected-language" onclick="toggleDropdown()" aria-haspopup="listbox"
+                    aria-expanded="false">
+                    <div class="lang">
+                        <img src="https://flagcdn.com/gb.svg" alt="" class="flag" aria-hidden="true">
+                        <span>EN</span>
+                    </div>
+                    <div class="picker-arrow">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </button>
+
+                <div class="dropdown" role="listbox" style="display: none;">
+                    <a href="/en/Benefit/ChangeLanguage?returnUrl=%2Fen%2FBenefit" role="option" lang="en" hreflang="en"
+                        class="option">
+                        <img src="https://flagcdn.com/gb.svg" alt="" class="flag" aria-hidden="true">
+                        <span>EN</span>
+                    </a>
+                    <a href="/az/Benefit/ChangeLanguage?returnUrl=%2Fen%2FBenefit" role="option" lang="az" hreflang="az"
+                        class="option">
+                        <img src="https://flagcdn.com/az.svg" alt="" class="flag" aria-hidden="true">
+                        <span>AZ</span>
+                    </a>
+                    <a href="/ru/Benefit/ChangeLanguage?returnUrl=%2Fen%2FBenefit" role="option" lang="ru" hreflang="ru"
+                        class="option">
+                        <img src="https://flagcdn.com/ru.svg" alt="" class="flag" aria-hidden="true">
+                        <span>RU</span>
                     </a>
                 </div>
-                <div class="hero-image" role="img" aria-label="Veb həllər vizualizasiyası">
-                    <!-- LCP image with optimization -->
-                    <img src="hero-visual.webp" 
-                         alt="Webnova veb sayt hazırlanması və digital həllər" 
-                         width="600" 
-                         height="600"
-                         fetchpriority="high"
-                         decoding="async">
-                </div>
             </div>
-        </section>
 
-        <!-- Services Section -->
-        <section id="xidmetler" class="section" aria-labelledby="services-title" itemscope itemtype="https://schema.org/ItemList">
-            <div class="container">
-                <header class="section-header">
-                    <span class="section-prefix">/ Xidmətlərimiz</span>
-                    <h2 id="services-title" class="section-title">Hərtərəfli Veb Həllər</h2>
-                </header>
-                
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/korporativ-veb-sayt" itemprop="url">Korporativ Veb Sayt Hazırlanması</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Köhnə, yavaş, mobil-uyğunsuz saytlar müştəri itkisinə səbəb olur.<br>
-                            <strong>Həll:</strong> Sürətli (LCP &lt;2s), SEO-dostu, mobil-öncəlikli korporativ saytlar.<br>
-                            <strong>Fayda:</strong> Orqanik trafik +42%, konversiya +28% artımı. CWV 90+ təmin.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="Web Development">
-                    </article>
 
-                    <!-- Service 2 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/e-ticaret-saytlari" itemprop="url">E-ticarət Saytları</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Mürəkkəb səbət prosesi, yavaş yüklənmə, ödəniş təhlükəsizliyi narahatlığı.<br>
-                            <strong>Həll:</strong> Səbət, ödəniş, stok, kampaniya modulları ilə tam inteqrasiya. SSL, PCI DSS uyğunluğu.<br>
-                            <strong>Fayda:</strong> Səbəti tərk etmə -35%, ortalama sifariş dəyəri +18%.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="E-commerce Development">
-                    </article>
+        </div>
+    </div>
 
-                    <!-- Service 3 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20m0-20l-4 4m4-4l4 4m-4 16l-4-4m4 4l4-4"/><path d="M22 12H2m20 0l-4-4m4 4l-4 4M2 12l4-4m-4 4l4 4"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/xususi-tetbiqler" itemprop="url">Xüsusi Veb Tətbiqlər / SaaS & MVP</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Hazır həllər biznes proseslərinə uyğun gəlmir, lisenslər bahadır.<br>
-                            <strong>Həll:</strong> .NET Core + React ilə miqyaslanabilir, təhlükəsiz, xüsusi tətbiqlər. Azure/Cloud inteqrasiyası.<br>
-                            <strong>Fayda:</strong> Proses vaxtı -60%, əməliyyat xərcləri -40%. MVP 6-8 həftədə.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="Custom Web Application Development">
-                    </article>
+    <!-- Əsas Header -->
+    <header class="header">
+        <aside class="container">
 
-                    <!-- Service 4 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19l-7-7 3-3 4 4 9-9 3 3z"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/ui-ux-dizayn" itemprop="url">UI/UX Dizayn</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Zəif istifadəçi təcrübəsi, qarışıq interfeys, aşağı konversiya.<br>
-                            <strong>Həll:</strong> İstifadəçi araşdırması, informasiya memarlığı, prototipləşdirmə, dizayn sistemləri.<br>
-                            <strong>Fayda:</strong> İstifadəçi məmnuniyyəti +45%, task tamamlama müddəti -32%.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="UI/UX Design">
-                    </article>
+            <a class="mobile-menu-btn-open">
+                <i class="fa-solid fa-bars"></i>
+            </a>
 
-                    <!-- Service 5 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/seo-optimizasiya" itemprop="url">SEO & Axtarış Performansı</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Google-da görünməzlik, texniki SEO problemləri, yavaş indeksləşmə.<br>
-                            <strong>Həll:</strong> Texniki SEO audit, məzmun strukturlaşdırması, daxili linkləmə, schema markup.<br>
-                            <strong>Fayda:</strong> Orqanik trafik +68%, 1-ci səhifə açar sözlər +120%, CWV 95+.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="SEO Optimization">
-                    </article>
-
-                    <!-- Service 6 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/ai-xidmetleri" itemprop="url">AI Xidmətləri</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Müştəri dəstəyi yükü, təkrarlanan suallar, yavaş cavab vaxtı.<br>
-                            <strong>Həll:</strong> AI chatbot (OpenAI API), avtomatlaşdırma, mətn/səs/görüntü generasiyası inteqrasiyaları.<br>
-                            <strong>Fayda:</strong> Dəstək biletləri -72%, cavab vaxtı &lt;2 saniyə, müştəri məmnuniyyəti +38%.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="AI Integration Services">
-                    </article>
-
-                    <!-- Service 7 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18m6-18v18M3 9h18M3 15h18"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/analitika-dashboard" itemprop="url">Analitika & Dashboardlar</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Data analizində çətinlik, çoxsaylı alət, aydın olmayan metrikalar.<br>
-                            <strong>Həll:</strong> GA4, Search Console, Power BI/SQL inteqrasiyası. Real-time dashboard və avtomatik hesabatlar.<br>
-                            <strong>Fayda:</strong> Qərar verme sürəti +55%, data-driven strategiya, ROI şəffaflığı.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="Analytics & Reporting">
-                    </article>
-
-                    <!-- Service 8 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/azure-devops" itemprop="url">Azure/Cloud & DevOps</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Serverdə dayanma, miqyaslama çətinliyi, əllə deployment, təhlükəsizlik riskləri.<br>
-                            <strong>Həll:</strong> Azure/AWS hosting, CI/CD pipeline, avtomatik miqyaslama, monitorinq, backup.<br>
-                            <strong>Fayda:</strong> Uptime 99.9%, deployment vaxtı -85%, təhlükəsizlik təhdidləri -90%.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="Cloud & DevOps">
-                    </article>
-
-                    <!-- Service 9 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/suret-optimizasiyasi" itemprop="url">Sürət Optimallaşdırması</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Yavaş yüklənmə (LCP &gt;4s), aşağı Google sıralaması, yüksək bounce rate.<br>
-                            <strong>Həll:</strong> Şəkil optim. (WebP), kod bölünməsi, kritik CSS, lazy loading, CDN inteqrasiyası.<br>
-                            <strong>Fayda:</strong> Yüklənmə vaxtı -68%, CWV 95+, bounce rate -42%, konversiya +31%.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="Performance Optimization">
-                    </article>
-
-                    <!-- Service 10 -->
-                    <article class="service-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
-                        <div class="service-icon" aria-hidden="true">
-                            <svg width="48" height="48" fill="none" stroke="#0066FF" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <h3 class="service-title" itemprop="name">
-                            <a href="#xidmetler/texniki-destek" itemprop="url">Davamlı Texniki Dəstək</a>
-                        </h3>
-                        <p class="service-description" itemprop="description">
-                            <strong>Problem:</strong> Texniki problemlərdə gecikmə, təhlükəsizlik boşluqları, köhnəlmiş texnologiyalar.<br>
-                            <strong>Həll:</strong> SLA əsaslı dəstək (4h/24h), təhlükəsizlik güncəlləmələri, avtomatik ehtiyat nüsxə, monitorinq.<br>
-                            <strong>Fayda:</strong> Problem həlli &lt;4 saat, downtime -92%, təhlükəsizlik insidentləri 0.
-                        </p>
-                        <a href="#elaqe" class="service-cta">Təklif al →</a>
-                        <meta itemprop="provider" content="Webnova">
-                        <meta itemprop="serviceType" content="Technical Support">
-                    </article>
-                </div>
+            <div class="logo-image">
+                <a class="logo" href="/" aria-label="Webnova Main Page">
+                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo">
+                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo">
+                </a>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="layiheler" class="section section-alt" aria-labelledby="projects-title" itemscope itemtype="https://schema.org/ItemList">
-            <div class="container">
-                <header class="section-header">
-                    <span class="section-prefix">/ Layihələr</span>
-                    <h2 id="projects-title" class="section-title">Uğur Hekayələrimiz</h2>
-                </header>
-                
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/CreativeWork">
-                        <div class="project-image">
-                            <img src="project-skn.webp" 
-                                 alt="SKN Group Portalı ekran görüntüsü" 
-                                 width="400" 
-                                 height="300"
-                                 loading="lazy"
-                                 decoding="async"
-                                 itemprop="image">
-                        </div>
-                        <div class="project-content">
-                            <span class="project-tag">E-ticarət</span>
-                            <h3 class="project-title" itemprop="name">
-                                <a href="#layiheler/skn-group-portali" itemprop="url">SKN Group Portalı</a>
-                            </h3>
-                            <p class="project-description" itemprop="description">
-                                .NET + React ilə hazırlanmış korporativ e-ticarət platforması. 10,000+ məhsul, 5 dil dəstəyi.
-                            </p>
-                            <div class="project-meta">
-                                <strong>Texnologiya:</strong> .NET 8, React 18, PostgreSQL, Azure<br>
-                                <strong>Nəticə:</strong> Yüklənmə vaxtı -55% (4.2s → 1.9s LCP), konversiya +28%, CWV 92
-                            </div>
-                        </div>
-                        <meta itemprop="author" content="Webnova">
-                        <meta itemprop="datePublished" content="2024-09">
-                    </article>
 
-                    <!-- Project 2 -->
-                    <article class="project-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/CreativeWork">
-                        <div class="project-image">
-                            <img src="project-buta.webp" 
-                                 alt="Buta Group ERP ekran görüntüsü" 
-                                 width="400" 
-                                 height="300"
-                                 loading="lazy"
-                                 decoding="async"
-                                 itemprop="image">
-                        </div>
-                        <div class="project-content">
-                            <span class="project-tag">SaaS / ERP</span>
-                            <h3 class="project-title" itemprop="name">
-                                <a href="#layiheler/buta-group-erp" itemprop="url">Buta Group ERP/CRM</a>
-                            </h3>
-                            <p class="project-description" itemprop="description">
-                                Xüsusi ERP/CRM sistemi. İnventory, CRM, finance, HR modulları. Real-time dashboard və avtomatlaşdırma.
-                            </p>
-                            <div class="project-meta">
-                                <strong>Texnologiya:</strong> .NET Core, React, SignalR, MS SQL, Power BI<br>
-                                <strong>Nəticə:</strong> Proses vaxtı -60%, əməliyyat xərcləri -40%, dəqiq hesabatlar real-time
-                            </div>
-                        </div>
-                        <meta itemprop="author" content="Webnova">
-                        <meta itemprop="datePublished" content="2024-06">
-                    </article>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="/" class="active">Ana səhifə</a></li>
+                    <li><a href="/haqqimizda">Haqqımızda</a></li>
+                    <li><a href="/lahiyeler">Lahiyələr</a></li>
+                    <li><a href="/xidmetlerimiz">Xidmətlərimiz</a></li>
+                    <li><a href="/elaqe">Əlaqə</a></li>
+                </ul>
+            </nav>
 
-                    <!-- Project 3 -->
-                    <article class="project-card" itemprop="itemListElement" itemscope itemtype="https://schema.org/CreativeWork">
-                        <div class="project-image">
-                            <img src="project-montroyal.webp" 
-                                 alt="Mont-Royal Canada veb saytı ekran görüntüsü" 
-                                 width="400" 
-                                 height="300"
-                                 loading="lazy"
-                                 decoding="async"
-                                 itemprop="image">
-                        </div>
-                        <div class="project-content">
-                            <span class="project-tag">Korporativ</span>
-                            <h3 class="project-title" itemprop="name">
-                                <a href="#layiheler/mont-royal-canada" itemprop="url">Mont-Royal Canada</a>
-                            </h3>
-                            <p class="project-description" itemprop="description">
-                                Beynəlxalq korporativ vitrin saytı. Çoxdilli (3 dil), SEO-optimallaşdırılmış, CWV 90+.
-                            </p>
-                            <div class="project-meta">
-                                <strong>Texnologiya:</strong> Next.js, TypeScript, Headless CMS, Vercel<br>
-                                <strong>Nəticə:</strong> Orqanik trafik +42%, 1-ci səhifə açar sözlər +85, CWV 96, LCP 1.8s
-                            </div>
-                        </div>
-                        <meta itemprop="author" content="Webnova">
-                        <meta itemprop="datePublished" content="2024-03">
-                    </article>
-                </div>
-                
-                <div style="text-align:center;margin-top:3rem">
-                    <a href="#layiheler" class="btn-secondary">Bütün Layihələr →</a>
-                </div>
+
+
+            <div class="cta">
+                <a href="/qiymet-teklifi" class="btn btn-medium btn-primary">Qiymət təklifi al</a>
             </div>
-        </section>
+        </aside>
+    </header>
 
-        <!-- About Section -->
-        <section id="haqqimizda" class="section" aria-labelledby="about-title">
-            <div class="container">
-                <header class="section-header">
-                    <span class="section-prefix">/ Haqqımızda</span>
-                    <h2 id="about-title" class="section-title">Niyə Webnova?</h2>
-                </header>
-                
-                <div class="about-content">
-                    <div class="value-proposition">
-                        <h3>Bizim Dəyər Təklifimiz</h3>
-                        <p>
-                            <strong>.NET + React əsasında sürətli, təhlükəsiz, SEO-optimallaşdırılmış veb həllər.</strong>
-                            Core Web Vitals 90+ hədəfli, biznes nəticəsinə fokuslanan komanda.
-                        </p>
-                        <p>
-                            5+ illik təcrübə, 50+ uğurlu layihə, 30+ məmnun müştəri. Bakıda yerli bazar anlayışı 
-                            ilə beynəlxalq standartlar. Müştərilərimiz ortalama 6 ay ərzində 40%+ performans artımı 
-                            qazanır.
-                        </p>
+
+    <main>
+        <div class="main-container">
+
+            <section class="main-hero card-animation" role="banner">
+                <div class="section-container">
+
+                    <!-- Hero Content -->
+                    <div class="hero-text">
+                        <div class="header-text">
+                            
+                            <h1>
+                                Biznesiniz rəqəmsal dünyada
+                                <br />
+                                <strong>Zirvələrə daşıyırıq !</strong>
+                            </h1>
+
+                            <p>Beynəlxalq səviyyədə texnologiya və yerli bazar anlayışını birləşdirərək, Azərbaycanın
+                                aparıcı şirkətləri üçün dünya səviyyəli rəqəmsal həllər təqdim edirik.
+                            </p>
+                        </div>
+
+
+
+                        <a href="/contact" class="contact-btn btn btn-big" title="Get your free consultation"
+                            aria-label="Get a free consultation from Webnova">
+                            Ödənişsiz konsultasiya al <i class="arrow fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
-                    
-                    <div class="differentiators">
-                        <h3>Fərqləndiricilərimiz</h3>
-                        <ul class="feature-list">
-                            <li>
-                                <strong>Performance-First:</strong> CWV 90+ hədəfi, Lighthouse audit hər layihədə. 
-                                LCP ≤2s, CLS ≤0.1, INP ≤200ms təmin.
-                            </li>
-                            <li>
-                                <strong>SEO-Native:</strong> Semantik HTML, schema markup, daxili linkləmə, texniki audit. 
-                                Layihələrimiz ortalama 60+ orqanik trafik artımı.
-                            </li>
-                            <li>
-                                <strong>.NET + React Stack:</strong> Enterprise-level təhlükəsizlik, miqyaslama, maintainability. 
-                                Azure-native, DevOps-ready.
-                            </li>
-                            <li>
-                                <strong>Data-Driven:</strong> GA4, Search Console, heatmap analitika. Hər qərar data əsasında.
-                            </li>
-                            <li>
-                                <strong>Accessibility-First:</strong> WCAG 2.2 AA standartı. Hər istifadəçi üçün əlçatan interfeys.
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="client-logos">
-                        <h3>İşbirliklər</h3>
-                        <div class="logo-grid">
-                            <img src="logo-skn.svg" alt="SKN Group loqosu" width="120" height="40" loading="lazy">
-                            <img src="logo-buta.svg" alt="Buta Group loqosu" width="120" height="40" loading="lazy">
-                            <img src="logo-montroyal.svg" alt="Mont-Royal loqosu" width="120" height="40" loading="lazy">
-                            <img src="logo-nextgen.svg" alt="NextGen Growth loqosu" width="120" height="40" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section id="elaqe" class="section section-alt" aria-labelledby="contact-title" itemscope itemtype="https://schema.org/ContactPage">
-            <div class="container">
-                <header class="section-header">
-                    <span class="section-prefix">/ Əlaqə</span>
-                    <h2 id="contact-title" class="section-title">Gəlin Danışaq</h2>
-                    <p>Layihənizi müzakirə etmək və pulsuz konsultasiya almaq üçün bizimlə əlaqə saxlayın.</p>
+                    <!-- Hero Illustration -->
+                    <figure class="hero-image">
+                        <dotlottie-wc class="hero-animation"
+                            src="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie" speed="1"
+                            autoplay loop aria-label="Animated robot representing digital innovation">
+                        </dotlottie-wc>
+                    </figure>
+
+
+                </div>
+
+
+            </section>
+
+            <section class="swiper mySwiper client-list card-animation">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./assets/images/clients/NextGEN Growth.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/Modern Leasing.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/Modern Solutions.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/SKNGroup.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/Mont-Royal Canada.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/Modern Leasing.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/Modern Solutions.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/SKNGroup.webp" alt=""></div>
+                    <div class="swiper-slide"><img src="./assets/images/clients/Mont-Royal Canada.webp" alt=""></div>
+                </div>
+            </section>
+
+            <section class="section advantages card-animation" id="advantages" aria-labelledby="advantages-title"
+                itemscope itemtype="https://schema.org/Service">
+
+
+                <header class="advantages-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="services-title" class="section-title" itemprop="name"><a href="#">Üstünlüklərimiz</a></h2>
+                    <meta itemprop="provider" content="Webnova Agency">
+                    <meta itemprop="description"
+                        content="Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar">
                 </header>
-                
-                <div class="contact-wrapper">
-                    <form class="contact-form" aria-label="Əlaqə forması">
-                        <div class="form-group">
-                            <label for="name">Ad Soyad <span aria-label="tələb olunur">*</span></label>
-                            <input type="text" id="name" name="name" required aria-required="true">
+
+                <div class="advantages-grid">
+
+                    <!-- 1. Dürüst kommunikasiya -->
+                    <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
+                        itemtype="https://schema.org/OfferCatalog">
+                        <figure class="advantage-icon">
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/ce005638-8a35-4702-9ca0-c42db2ce543d/dJWSBjdB0C.lottie"
+                                autoplay loop></dotlottie-wc>
+                        </figure>
+                        <div class="advantage-content">
+                            <h3 itemprop="name">Dürüst kommunikasiya</h3>
+                            <p itemprop="description">Müştərilərimizlə qarşılıqlı etimad üzərində qurulmuş şəffaf və
+                                açıq ünsiyyətə üstünlük veririk.</p>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email <span aria-label="tələb olunur">*</span></label>
-                            <input type="email" id="email" name="email" required aria-required="true">
+                    </article>
+
+                    <!-- 2. Operativ xidmət -->
+                    <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
+                        itemtype="https://schema.org/OfferCatalog">
+                        <figure class="advantage-icon">
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/fce6a98c-6e17-41cc-99a8-43f8f1b6dc7f/Yp8W9vZ9yG.lottie"
+                                autoplay loop></dotlottie-wc>
+                        </figure>
+                        <div class="advantage-content">
+                            <h3 itemprop="name">Operativ xidmət</h3>
+                            <p itemprop="description">Sorğulara və layihələrə ən qısa zamanda reaksiya verərək,
+                                nəticəyönümlü yanaşma sərgiləyirik.</p>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" name="phone">
+                    </article>
+
+                    <!-- 3. Peşəkar komanda -->
+                    <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
+                        itemtype="https://schema.org/OfferCatalog">
+                        <figure class="advantage-icon">
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/44f463f8-2df9-4c65-8b6a-15d7392a4e03/0W1HUMuR6O.lottie"
+                                autoplay loop></dotlottie-wc>
+                        </figure>
+                        <div class="advantage-content">
+                            <h3 itemprop="name">Peşəkar komanda</h3>
+                            <p itemprop="description">Müxtəlif sahələr üzrə ixtisaslaşmış mütəxəssislərdən ibarət
+                                komandamız hər detalda keyfiyyətə önəm verir.</p>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Xidmət növü</label>
-                            <select id="service" name="service">
-                                <option value="">Seçin...</option>
-                                <option value="korporativ">Korporativ Veb Sayt</option>
-                                <option value="ecommerce">E-ticarət</option>
-                                <option value="custom">Xüsusi Tətbiq</option>
-                                <option value="seo">SEO Optimizasiya</option>
-                                <option value="ai">AI Xidmətləri</option>
-                                <option value="other">Digər</option>
-                            </select>
+                    </article>
+
+                    <!-- 4. Davamlı inkişaf -->
+                    <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
+                        itemtype="https://schema.org/OfferCatalog">
+                        <figure class="advantage-icon">
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/184ec790-1cfb-4a1b-aef5-047e7b6c50cc/0qJ9Fplc1h.lottie"
+                                autoplay loop></dotlottie-wc>
+                        </figure>
+                        <div class="advantage-content">
+                            <h3 itemprop="name">Davamlı inkişaf</h3>
+                            <p itemprop="description">Texnoloji yenilikləri izləyərək və təcrübəmizi daim
+                                təkmilləşdirərək, müştərilərimizə daha dəyərli həllər təqdim edirik.</p>
                         </div>
-                        
-                        <div class="form-group form-group-full">
-                            <label for="message">Mesaj <span aria-label="tələb olunur">*</span></label>
-                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                        </div>
-                        
-                        <div class="form-group form-group-full">
-                            <p class="privacy-note">
-                                <small>
-                                    Formu göndərməklə, <a href="/gizlilik-siyaseti">Gizlilik Siyasətimizi</a> qəbul etmiş olursunuz. 
-                                    Məlumatlarınız KVKK/GDPR uyğun qorunur və yalnız sizinlə əlaqə üçün istifadə edilir.
-                                </small>
-                            </p>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary">Göndər</button>
-                    </form>
-                    
-                    <div class="contact-info-box" itemprop="provider" itemscope itemtype="https://schema.org/Organization">
-                        <h3>Əlaqə Məlumatları</h3>
-                        <address>
-                            <p>
-                                <strong>Ünvan:</strong><br>
-                                <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                    <span itemprop="addressLocality">Bakı</span>, 
-                                    <span itemprop="addressCountry">Azərbaycan</span>
-                                </span>
-                            </p>
-                            <p>
-                                <strong>Telefon:</strong><br>
-                                <a href="tel:+994XXXXXXXXX" itemprop="telephone">+994 (XX) XXX XX XX</a>
-                            </p>
-                            <p>
-                                <strong>Email:</strong><br>
-                                <a href="mailto:hello@webnova.az" itemprop="email">hello@webnova.az</a>
-                            </p>
-                            <p>
-                                <strong>İş saatları:</strong><br>
-                                Bazar ertəsi - Cümə: 09:00 - 18:00<br>
-                                Şənbə: 10:00 - 14:00
-                            </p>
-                        </address>
-                        
-                        <div class="social-links">
-                            <h4>Bizi izləyin</h4>
-                            <div class="social-icons">
-                                <a href="https://www.linkedin.com/company/webnova" aria-label="LinkedIn" target="_blank" rel="noopener">
-                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- Services Section -->
+            <section class="section services card-animation" id="services" aria-labelledby="services-title" itemscope
+                itemtype="https://schema.org/Service">
+
+                <header class="services-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="services-title" class="section-title" itemprop="name"><a href="#">Xidmətlərimiz</a></h2>
+                    <meta itemprop="provider" content="Webnova Agency">
+                    <meta itemprop="description"
+                        content="Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar">
+                </header>
+
+                <!-- Services List -->
+                <div class="services-list" role="list" aria-label="Webnova Services">
+
+                    <!-- Service 1: Web Development -->
+                    <article class="service-item card-animation" data-service="2" role="listitem"
+                        itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+                        <div class="service-number" aria-label="Service 2">02</div>
+                        <div class="service-content">
+
+                            <div class="service-visual">
+                                <a href="#" class="service-image" aria-hidden="true">
+                                    <img src="img/digital-marketing.jpg" alt="VEB SITE DEVELOPMENT" loading="lazy">
                                 </a>
-                                <a href="https://github.com/webnova" aria-label="GitHub" target="_blank" rel="noopener">
-                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                </a>
-                                <a href="https://www.instagram.com/webnova.az" aria-label="Instagram" target="_blank" rel="noopener">
-                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                </a>
+                                <div class="service-text">
+                                    <h3 class="service-title" itemprop="name">
+                                        <a href="#">
+                                            VEB SAYTLARIN HAZIRLANMASI
+                                        </a>
+                                    </h3>
+                                    <div class="service-description hidden" itemprop="description">
+                                        <p>Müasir texnologiyalar və ən yaxşı təcrübələrdən istifadə edərək,
+                                            sizin biznesiniz üçün funksional, sürətli və SEO-optimallaşdırılmış
+                                            veb saytlar hazırlayırıq. Responsive dizayn, yüksək performans və
+                                            istifadəçi dostu interfeys bizim prioritetlərimizdir.</p>
+                                    </div>
+                                </div>
                             </div>
+                            <a href="#" class="service-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a class="service-button btn btn-big">
+                                Daha ətraflı bax
+                            </a>
                         </div>
-                    </div>
+                    </article>
+
+                    <!-- Service 2: Digital Marketing -->
+                    <article class="service-item card-animation" data-service="2" role="listitem"
+                        itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+                        <div class="service-number" aria-label="Service 2">02</div>
+                        <div class="service-content">
+
+                            <div class="service-visual">
+                                <a href="#" class="service-image hidden" aria-hidden="true">
+                                    <img src="img/digital-marketing.jpg" alt="Digital Marketing Services"
+                                        loading="lazy">
+                                </a>
+                                <div class="service-text">
+                                    <h3 class="service-title" itemprop="name"><a href="#"> DIGITAL MARKETING</a></h3>
+                                    <div class="service-description hidden" itemprop="description">
+                                        <p>Rəqəmsal marketinq strategiyaları ilə biznesinizi onlayn mühitdə
+                                            gücləndiririk. Sosial media marketinqi, Google Ads, SEO və content
+                                            marketinqi xidmətlərimizlə müştərilərinizi artırın.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="service-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a class="service-button btn btn-big">
+                                Daha ətraflı bax
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Service 3: UI/UX Design -->
+                    <article class="service-item card-animation" data-service="3" role="listitem"
+                        itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+                        <div class="service-number" aria-label="Service 3">03</div>
+                        <div class="service-content">
+
+                            <div class="service-visual">
+                                <a href="#" class="service-image hidden" aria-hidden="true">
+                                    <img src="img/ui-ux-design.jpg" alt="UI/UX Design Services" loading="lazy">
+                                </a>
+                                <div class="service-text">
+                                    <h3 class="service-title" itemprop="name"><a href="#">UI-UX DESIGN</a></h3>
+                                    <div class="service-description hidden" itemprop="description">
+                                        <p>İstifadəçi təcrübəsini mərkəzə alaraq, funksional və estetik
+                                            dizaynlar yaradırıq. İstifadəçi araşdırmaları, prototipləşdirmə və
+                                            interaktiv dizaynlar ilə mükəmməl istifadəçi təcrübəsi təmin edirik.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="service-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a class="service-button btn btn-big">
+                                Daha ətraflı bax
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Service 4: Branding -->
+                    <article class="service-item card-animation" data-service="4" role="listitem"
+                        itemprop="hasOfferCatalog" itemscope itemtype="https://schema.org/OfferCatalog">
+                        <div class="service-number" aria-label="Service 4">04</div>
+                        <div class="service-content">
+
+                            <div class="service-visual">
+                                <a href="#" class="service-image hidden" aria-hidden="true">
+                                    <img src="img/branding.jpg" alt="Branding Services" loading="lazy">
+                                </a>
+                                <div class="service-text">
+                                    <h3 class="service-title" itemprop="name"><a href="#">BRANDING</a></h3>
+                                    <div class="service-description hidden" itemprop="description">
+                                        <p>Güclü və tanınan brend yaratmaq üçün hərtərəfli brend strategiyası
+                                            hazırlayırıq. Logo dizaynı, korporativ identitet, brend qaydaları və
+                                            marketinq materialları ilə biznesinizi fərqləndiririk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="service-icon">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a class="service-button btn btn-big">
+                                Daha ətraflı bax
+                            </a>
+                        </div>
+                    </article>
+
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section projects-section card-animation" id="projects" aria-labelledby="projects-title"
+                itemscope itemtype="https://schema.org/ItemList">
+
+
+                <header class="project-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="services-title" class="section-title" itemprop="name"><a href="#">Son Lahiyyələr</a></h2>
+                    <meta itemprop="provider" content="Webnova Agency">
+                    <meta itemprop="description"
+                        content="Webnova Agency tərəfindən hazırlanmış son layihələr və veb saytlar">
+                </header>
+                <div class="section-container">
+
+                    <!-- Projects Grid -->
+                    <div class="projects-grid" role="list" aria-label="Webnova Layihələri" itemprop="itemListElement">
+
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <img src="./assets/images/projects/80ee0e19facf595ac6db0ff4160925f9.jpg"
+                                    alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy" itemprop="image">
+                            </figure>
+
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
+
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/80ee0e19facf595ac6db0ff4160925f9.jpg"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
+
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
+
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/80ee0e19facf595ac6db0ff4160925f9.jpg"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
+
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
+
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/80ee0e19facf595ac6db0ff4160925f9.jpg"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
+
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
+
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/80ee0e19facf595ac6db0ff4160925f9.jpg"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
+
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
+
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+                        <!-- Project 1: Azerbaijan.com -->
+                        <article class="project-item card-animation" role="listitem" itemprop="itemListElement"
+                            itemscope itemtype="https://schema.org/CreativeWork">
+                            <figure class="project-image">
+                                <a href="#">
+                                    <img src="./assets/images/projects/80ee0e19facf595ac6db0ff4160925f9.jpg"
+                                        alt="Azerbaijan.com veb saytının ekran görüntüsü" loading="lazy"
+                                        itemprop="image">
+                                </a>
+                            </figure>
+
+                            <div class="project-content">
+                                <h3 class="project-title" itemprop="name">
+                                    <a href="/lahiyeler/azerbaijan-com" itemprop="url">Azerbaijan.com</a>
+                                </h3>
+
+                                <div class="project-description hidden" itemprop="description">
+                                    <p>Azərbaycanın aparıcı koperativ platforması üçün hazırlanmış müasir e-ticarət
+                                        saytı.
+                                        Responsive dizayn və yüksək performans.</p>
+                                    <div class="project-tags" role="list" aria-label="Layihə kateqoriyaları">
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">Koperativ</span>
+                                        <span class="project-tag badge" role="listitem"
+                                            itemprop="keywords">E-commerce</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <meta itemprop="author" content="Webnova Agency">
+                            <meta itemprop="dateCreated" content="2024-12-01">
+                            <meta itemprop="genre" content="Web Development">
+                        </article>
+
+                    </div>
+
+
+                    <a href="/lahiyeler" class="contact-btn btn btn-medium" title="Bütün layihələri görüntülə"
+                        aria-label="Bütün Webnova layihələrini görüntülə">
+                        Bütün Lahiyyələr <i class="arrow fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </section>
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="footer-logo" aria-label="Webnova Ana Səhifə">Webnova</a>
+    <!-- Promo Section -->
+    <section class="section promo-slider card-animation" id="promo" aria-labelledby="promo-title">
+
+        <ul class="wrapper" role="list">
+            <li class="slide" role="group" aria-roledescription="slayd" aria-label="01 — Veb saytların hazırlanması">
+                <span class="promo-index" aria-hidden="true">01</span>
+                <span class="promo-title" role="text">VEB SAYTLARIN HAZIRLANMASI</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd" aria-label="02 — UI/UX dizayn və prototipləmə">
+                <span class="promo-index" aria-hidden="true">02</span>
+                <span class="promo-title" role="text">UI/UX DİZAYN VƏ PROTOTİPLƏMƏ</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="03 — SEO və performans optimizasiyası">
+                <span class="promo-index" aria-hidden="true">03</span>
+                <span class="promo-title" role="text">SEO VƏ PERFORMANS OPTİMİZASİYASI</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="04 — Brendinq və korporativ kimlik dizaynı">
+                <span class="promo-index" aria-hidden="true">04</span>
+                <span class="promo-title" role="text">BRENDİNQ VƏ KORPORATİV KİMLİK</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="05 — E-ticarət sistemlərinin hazırlanması">
+                <span class="promo-index" aria-hidden="true">05</span>
+                <span class="promo-title" role="text">E-TİCARƏT SİSTEMLƏRİ</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="06 — CRM və ERP sistem inteqrasiyası">
+                <span class="promo-index" aria-hidden="true">06</span>
+                <span class="promo-title" role="text">CRM / ERP İNTEQRASİYASI</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="07 — Mobil tətbiq interfeyslərinin hazırlanması">
+                <span class="promo-index" aria-hidden="true">07</span>
+                <span class="promo-title" role="text">MOBİL TƏTBİQ İNTERFEYSLƏRİ</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="08 — Rəqəmsal marketinq və brend strategiyası">
+                <span class="promo-index" aria-hidden="true">08</span>
+                <span class="promo-title" role="text">RƏQƏMSAL MARKETİNQ STRATEGİYASI</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="09 — Hosting, domen və texniki dəstək xidmətləri">
+                <span class="promo-index" aria-hidden="true">09</span>
+                <span class="promo-title" role="text">HOSTİNG VƏ TEXNİKİ DƏSTƏK</span>
+            </li>
+
+            <li class="slide" role="group" aria-roledescription="slayd"
+                aria-label="10 — Analitika və məlumat əsaslı inkişaf">
+                <span class="promo-index" aria-hidden="true">10</span>
+                <span class="promo-title" role="text">ANALİTİKA VƏ MƏLUMAT ƏSASLI İNKİŞAF</span>
+            </li>
+        </ul>
+
+    </section>
+    <main>
+        <div class="main-container">
+      
+
+            <!-- Testimoniols Section -->
+            <section class="section testimonials-section card-animation" id="testimonials"
+                aria-labelledby="testimonials-title" itemscope itemtype="https://schema.org/ItemList">
+
+                <header class="testimonials-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="testimonials-title" class="section-title" itemprop="name"><a href="#">Müştəri rəyləri</a>
+                    </h2>
+                    <meta itemprop="provider" content="Webnova Agency">
+                    <meta itemprop="description" content="Webnova Agency müştərilərinin rəy və təcrübələri">
+                </header>
+
+                <div class="section-container swiper mySwiper">
+                    <div class="swiper-wrapper" role="list" aria-label="Webnova müştəri rəyləri"
+                        itemprop="itemListElement">
+
+                        <!-- Testimonial 1 -->
+                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                            itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+                            <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="testimonial-content">
+                                <blockquote class="testimonial-description" itemprop="reviewBody">
+                                    <p>Webnova komandası ilə işləmək çox rahat idi. Onlar qısa zamanda peşəkar həllər
+                                        təqdim etdilər və nəticə gözləntilərimizi aşdı.</p>
+                                </blockquote>
+
+                                <footer class="commentator" itemprop="author" itemscope
+                                    itemtype="https://schema.org/Person">
+                                    <figure class="profile-image">
+                                        <img src="https://image.gala.de/22889352/t/wX/v15/w1440/r1/-/elon-musk.jpg"
+                                            alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
+                                    </figure>
+                                    <div class="fullname">
+                                        <h4 itemprop="name">Əli Məmmədov</h4>
+                                        <span itemprop="jobTitle">CEO, TechStart Azerbaijan</span>
+                                    </div>
+                                </footer>
+                            </div>
+
+                            <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service">
+                            <meta itemprop="name" content="Web Development Services">
+                            <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5">
+                            <meta itemprop="bestRating" content="5">
+                            <meta itemprop="datePublished" content="2024-10-15">
+                        </article>
+
+                        <!-- Testimonial 2 -->
+                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                            itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+                            <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="testimonial-content">
+                                <blockquote class="testimonial-description" itemprop="reviewBody">
+                                    <p>Layihəmizin inkişafı zamanı Webnova peşəkarlıq və yaradıcılıq nümayiş etdirdi.
+                                        Müasir həlləri və innovativ yanaşması ilə fərqlənirlər.</p>
+                                </blockquote>
+
+                                <footer class="commentator" itemprop="author" itemscope
+                                    itemtype="https://schema.org/Person">
+                                    <figure class="profile-image">
+                                        <img src="https://image.gala.de/22889352/t/wX/v15/w1440/r1/-/elon-musk.jpg"
+                                            alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
+                                    </figure>
+                                    <div class="fullname">
+                                        <h4 itemprop="name">Leyla Həsənova</h4>
+                                        <span itemprop="jobTitle">Marketinq Direktoru, BakuMall</span>
+                                    </div>
+                                </footer>
+                            </div>
+
+                            <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service">
+                            <meta itemprop="name" content="E-commerce Development">
+                            <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5">
+                            <meta itemprop="bestRating" content="5">
+                            <meta itemprop="datePublished" content="2024-09-20">
+                        </article>
+
+                        <!-- Testimonial 3 -->
+                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                            itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+                            <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="testimonial-content">
+                                <blockquote class="testimonial-description" itemprop="reviewBody">
+                                    <p>Saytımızın yenidən dizaynı və performans optimallaşdırılması böyük uğur
+                                        qazandırdı.
+                                        İstifadəçi təcrübəsi əhəmiyyətli dərəcədə yaxşılaşdı.</p>
+                                </blockquote>
+
+                                <footer class="commentator" itemprop="author" itemscope
+                                    itemtype="https://schema.org/Person">
+                                    <figure class="profile-image">
+                                        <img src="https://image.gala.de/22889352/t/wX/v15/w1440/r1/-/elon-musk.jpg"
+                                            alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
+                                    </figure>
+                                    <div class="fullname">
+                                        <h4 itemprop="name">Rəşad Əliyev</h4>
+                                        <span itemprop="jobTitle">Direktor, Digital Solutions</span>
+                                    </div>
+                                </footer>
+                            </div>
+
+                            <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service">
+                            <meta itemprop="name" content="Website Redesign">
+                            <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5">
+                            <meta itemprop="bestRating" content="5">
+                            <meta itemprop="datePublished" content="2024-08-10">
+                        </article>
+
+                        <!-- Testimonial 3 -->
+                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                            itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
+                            <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
+                            <div class="testimonial-content">
+                                <blockquote class="testimonial-description" itemprop="reviewBody">
+                                    <p>Saytımızın yenidən dizaynı və performans optimallaşdırılması böyük uğur
+                                        qazandırdı.
+                                        İstifadəçi təcrübəsi əhəmiyyətli dərəcədə yaxşılaşdı.</p>
+                                </blockquote>
+
+                                <footer class="commentator" itemprop="author" itemscope
+                                    itemtype="https://schema.org/Person">
+                                    <figure class="profile-image">
+                                        <img src="https://image.gala.de/22889352/t/wX/v15/w1440/r1/-/elon-musk.jpg"
+                                            alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
+                                    </figure>
+                                    <div class="fullname">
+                                        <h4 itemprop="name">Rəşad Əliyev</h4>
+                                        <span itemprop="jobTitle">Direktor, Digital Solutions</span>
+                                    </div>
+                                </footer>
+                            </div>
+
+                            <meta itemprop="itemReviewed" itemscope itemtype="https://schema.org/Service">
+                            <meta itemprop="name" content="Website Redesign">
+                            <meta itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5">
+                            <meta itemprop="bestRating" content="5">
+                            <meta itemprop="datePublished" content="2024-08-10">
+                        </article>
+
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+
+            </section>
+
+      <!-- Call to Action Section -->
+            <section class="section cta-section card-animation" id="cta" aria-labelledby="cta-heading" itemscope
+                itemtype="https://schema.org/OfferCatalog">
+
+                <div class="cta-container" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(1, 12, 49, 0.63)), 
+            url('./assets/images/settings/CTAbg.webp');">
+
+                    <!-- CTA Content -->
+                    <div class="cta-content">
+
+                        <!-- CTA Heading -->
+                        <h2 id="cta-heading" class="cta-heading" itemprop="name">
+                            Biznesinizi rəqəmsal dünyada böyütməyə hazırsınız?
+                        </h2>
+
+                        <!-- CTA Description -->
+                        <p class="cta-description" itemprop="description">
+                            Peşəkar komandamızla ideyalarınızı gerçəyə çevirək. İndi müraciət edin və
+                            uğura bir addım daha yaxınlaşın. Pulsuz konsultasiya üçün bizimlə əlaqə saxlayın.
+                        </p>
+
+                    </div>
+
+                    <!-- CTA Action -->
+                    <div class="cta-action">
+                        <a href="/contact" class="cta-button btn btn-medium "
+                            title="Pulsuz konsultasiya almaq üçün bizimlə əlaqə saxlayın"
+                            aria-label="Webnova Agency ilə pulsuz konsultasiya əldə edin" itemprop="url">
+                            Konsultasiya üçün müraciət et <i class="arrow fa-solid fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+            </section>
+
+            <!-- FAQs Section -->
+            <section class="section faqs-section card-animation" id="faqs" aria-labelledby="faqs-title" itemscope
+                itemtype="https://schema.org/FAQPage">
+
+                <header class="faqs-header section-header">
+                    <span class="section-prefix" aria-hidden="true">/</span>
+                    <h2 id="faqs-title" class="section-title">
+                        <a href="#faqs">Tez-tez verilən suallar</a>
+                    </h2>
+                </header>
+
+                <div class="section-container">
+
+                    <!-- FAQ Categories Navigation -->
+                    <nav class="faq-categories" aria-label="FAQ kateqoriyaları">
+                        <ul class="category-list" role="list">
+                            <li class="category-item active" role="listitem">
+                                <a href="#web-development" class="category-link active">Saytların hazırlanması</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#seo-services" class="category-link">SEO Xidmətləri</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#mobile-apps" class="category-link">Mobil Tətbiqlər</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#support" class="category-link">Dəstək və Xidmət</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#web-development" class="category-link active">Saytların hazırlanması</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#seo-services" class="category-link">SEO Xidmətləri</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#mobile-apps" class="category-link">Mobil Tətbiqlər</a>
+                            </li>
+                            <li class="category-item" role="listitem">
+                                <a href="#support" class="category-link">Dəstək və Xidmət</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- FAQ Accordion -->
+                    <div class="faq-accordion" role="list" aria-label="Tez-tez verilən suallar">
+
+                        <!-- FAQ Item 1 -->
+                        <article class="faq-item active" role="listitem" itemscope itemprop="mainEntity"
+                            itemtype="https://schema.org/Question">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                                <span class="faq-number" aria-hidden="true">01</span>
+                                <div class="question">
+                                    <h3 class="question-text" itemprop="name">
+                                        Mobil uyğunluq nədir və niyə vacibdir?
+                                    </h3>
+                                    <i class="faq-icon fa-solid fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </button>
+                            <div class="faq-answer" id="faq-answer-1" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer">
+                                <div class="answer-content">
+                                    <p itemprop="text">
+                                        Mobil uyğunluq, veb saytınızın mobil cihazlarda da düzgün işləməsi və gözəl
+                                        görünməsi deməkdir. Mobil uyğunluq, istifadəçi təcrübəsini artırır və saytın
+                                        daha geniş
+                                        auditoriyaya çatmasını təmin edir.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ Item 2 -->
+                        <article class="faq-item" role="listitem" itemscope itemprop="mainEntity"
+                            itemtype="https://schema.org/Question">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                                <span class="faq-number" aria-hidden="true">02</span>
+                                <div class="question">
+                                    <h3 class="question-text" itemprop="name">
+                                        SEO optimallaşdırması nə üçün lazımdır?
+                                    </h3>
+                                    <i class="faq-icon fa-solid fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </button>
+                            <div class="faq-answer" id="faq-answer-2" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer">
+                                <div class="answer-content">
+                                    <p itemprop="text">
+                                        SEO optimallaşdırması saytınızın axtarış sistemlərində daha yüksək sıralarda
+                                        görünməsini təmin edir. Bu, daha çox ziyarətçi cəlb etməyə və biznesinizin
+                                        onlayn
+                                        görünürlüyünü artırmağa kömək edir.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ Item 3 -->
+                        <article class="faq-item" role="listitem" itemscope itemprop="mainEntity"
+                            itemtype="https://schema.org/Question">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                                <span class="faq-number" aria-hidden="true">03</span>
+                                <div class="question">
+                                    <h3 class="question-text" itemprop="name">
+                                        Veb sayt hazırlanması nə qədər vaxt aparır?
+                                    </h3>
+                                    <i class="faq-icon fa-solid fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </button>
+                            <div class="faq-answer" id="faq-answer-3" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer">
+                                <div class="answer-content">
+                                    <p itemprop="text">
+                                        Veb saytın hazırlanma müddəti layihənin mürəkkəbliyindən asılıdır. Sadə bir
+                                        korporativ sayt 2-4 həftə, daha mürəkkəb e-ticarət platforması isə 6-12 həftə
+                                        ərzində hazırlana bilər.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ Item 4 -->
+                        <article class="faq-item" role="listitem" itemscope itemprop="mainEntity"
+                            itemtype="https://schema.org/Question">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                                <span class="faq-number" aria-hidden="true">04</span>
+                                <div class="question">
+                                    <h3 class="question-text" itemprop="name">
+                                        Sayt hazırlandıqdan sonra dəstək xidməti təqdim edilirmi?
+                                    </h3>
+                                    <i class="faq-icon fa-solid fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </button>
+                            <div class="faq-answer" id="faq-answer-4" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer">
+                                <div class="answer-content">
+                                    <p itemprop="text">
+                                        Bəli, sayt təhvil verildikdən sonra texniki dəstək və təlim xidmətləri təqdim
+                                        edirik. Bundan əlavə, saytın yenilənməsi və saxlanması üçün müxtəlif paketlər
+                                        mövcuddur.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- FAQ Item 5 -->
+                        <article class="faq-item" role="listitem" itemscope itemprop="mainEntity"
+                            itemtype="https://schema.org/Question">
+                            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                                <span class="faq-number" aria-hidden="true">05</span>
+                                <div class="question">
+                                    <h3 class="question-text" itemprop="name">
+                                        E-ticarət saytı üçün ödəniş sistemləri necə inteqrasiya olunur?
+                                    </h3>
+                                    <i class="faq-icon fa-solid fa-plus" aria-hidden="true"></i>
+                                </div>
+                            </button>
+                            <div class="faq-answer" id="faq-answer-5" itemscope itemprop="acceptedAnswer"
+                                itemtype="https://schema.org/Answer">
+                                <div class="answer-content">
+                                    <p itemprop="text">
+                                        E-ticarət saytlarına Azərbaycanın məşhur ödəniş sistemləri (Millikart, E-Manat,
+                                        PayTR və s.) inteqrasiya edilir. Təhlükəsiz ödəniş prosesi və SSL sertifikatı
+                                        ilə
+                                        müştəri məlumatlarının qorunması təmin olunur.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+    
+
+            </section>
+
+        </div>
+    </main>
+
+
+
+
+
+    <footer class="site-footer" role="contentinfo">
+
+        <div class="footer-container">
+
+            <a href="/" class="logo" aria-label="Webnova Homepage">
+                <img src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
+            </a>
+
+            <div class="container-grid">
+
+                <!-- Brand and Description -->
+                <section class="footer-brand" aria-labelledby="footer-brand-title">
+
                     <p>
-                        .NET + React ilə sürətli, təhlükəsiz, SEO-optimallaşdırılmış veb həllər. 
-                        Biznesinizi rəqəmsal dünyada zirvələrə daşıyırıq.
+                        Crafting intuitive, user-centric designs that bring ideas to life.
+                        With a passion for innovation and creativity, I help businesses and individuals.
                     </p>
-                </div>
-                
-                <nav class="footer-nav" aria-label="Footer naviqasiya">
-                    <h4>Xidmətlər</h4>
+
+                    <!-- Social Media Links -->
+                    <nav class="social-links" aria-label="Social Media">
+                        <ul>
+                            <li><a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Connect with us on LinkedIn"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li><a href="#" aria-label="Explore our X (Twitter) profile"><i
+                                        class="fab fa-x-twitter"></i></a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+                <!-- Contact Information -->
+                <address class="contact-info" aria-labelledby="footer-contact-title">
+                    <p><span>Phone</span> <a href="tel:+994993779787">(+994) 99 377 97 87</a></p>
+                    <p><span>Email</span> <a href="mailto:info@webnovaaz.netlify.app">info@webnovaaz.netlify.app</a></p>
+                </address>
+
+                <!-- Navigation Links -->
+                <nav class="footer-nav" aria-label="Footer Navigation">
                     <ul>
-                        <li><a href="#xidmetler/korporativ-veb-sayt">Korporativ Veb Sayt</a></li>
-                        <li><a href="#xidmetler/e-ticaret-saytlari">E-ticarət Saytları</a></li>
-                        <li><a href="#xidmetler/xususi-tetbiqler">Xüsusi Tətbiqlər</a></li>
-                        <li><a href="#xidmetler/seo-optimizasiya">SEO Optimizasiya</a></li>
+                        <li><a href="/" title="Go to homepage">Home</a></li>
+                        <li><a href="/about" title="Learn more about us">About</a></li>
+                        <li><a href="/projects" title="View our projects">Projects</a></li>
+                        <li><a href="/services" title="Explore our services">Services</a></li>
+                        <li><a href="/contact" title="Get in touch with us">Contact</a></li>
                     </ul>
                 </nav>
-                
-                <nav class="footer-nav" aria-label="Footer naviqasiya 2">
-                    <h4>Şirkət</h4>
-                    <ul>
-                        <li><a href="#haqqimizda">Haqqımızda</a></li>
-                        <li><a href="#layiheler">Layihələr</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/karyera">Karyera</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="footer-contact">
-                    <h4>Əlaqə</h4>
-                    <address>
-                        <p><a href="tel:+994XXXXXXXXX">+994 (XX) XXX XX XX</a></p>
-                        <p><a href="mailto:hello@webnova.az">hello@webnova.az</a></p>
-                        <p>Bakı, Azərbaycan</p>
-                    </address>
-                </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Webnova. Bütün hüquqlar qorunur.</p>
-                <nav class="footer-legal" aria-label="Hüquqi naviqasiya">
-                    <a href="/gizlilik-siyaseti">Gizlilik Siyasəti</a>
-                    <a href="/istifade-sertleri">İstifadə Şərtləri</a>
-                    <a href="/kvkk">KVKK</a>
-                </nav>
-            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>© 2025 Webnova. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Deferred CSS -->
-    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all';this.onload=null;">
-    
-    <!-- Deferred JS -->
-    <script defer>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
 
-        // Form submission handler
-        const form = document.querySelector('.contact-form');
-        if (form) {
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData);
-                
-                // Add your form submission logic here
-                console.log('Form data:', data);
-                alert('Mesajınız göndərildi. Qısa zamanda sizinlə əlaqə saxlayacağıq.');
-                form.reset();
-            });
-        }
-
-        // Intersection Observer for animations
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.service-card, .project-card').forEach(el => {
-                observer.observe(el);
-            });
-        }
-    </script>
-
-    <!-- Full Stylesheet -->
-    <style>
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .service-card {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .service-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .service-card:hover {
-            border-color: #0066FF;
-            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.1);
-            transform: translateY(-4px);
-        }
-        
-        .service-icon {
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .service-title a {
-            color: inherit;
-            transition: color 0.2s;
-        }
-        
-        .service-title a:hover {
-            color: #0066FF;
-        }
-        
-        .service-description {
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-cta {
-            color: #0066FF;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.2s;
-        }
-        
-        .service-cta:hover {
-            gap: 0.75rem;
-        }
-        
-        /* Projects Grid */
-        .section-alt {
-            background: #f8faff;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .project-card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .project-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .project-card:hover {
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-            transform: translateY(-8px);
-        }
-        
-        .project-image {
-            width: 100%;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            background: #f3f4f6;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-        
-        .project-content {
-            padding: 2rem;
-        }
-        
-        .project-tag {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0066FF;
-            font-size: 0.875rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-        
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .project-title a {
-            color: inherit;
-            transition: color 0.2s;
-        }
-        
-        .project-title a:hover {
-            color: #0066FF;
-        }
-        
-        .project-description {
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-meta {
-            font-size: 0.875rem;
-            color: #6b7280;
-            line-height: 1.8;
-        }
-        
-        .btn-secondary {
-            display: inline-block;
-            border: 2px solid #0066FF;
-            color: #0066FF;
-            padding: 0.875rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-secondary:hover {
-            background: #0066FF;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        
-        /* About Section */
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .value-proposition,
-        .differentiators {
-            margin-bottom: 3rem;
-        }
-        
-        .value-proposition h3,
-        .differentiators h3,
-        .client-logos h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-        }
-        
-        .value-proposition p {
-            font-size: 1.125rem;
-            color: #4b5563;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .feature-list li {
-            padding: 1rem 0 1rem 2rem;
-            border-left: 3px solid #0066FF;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .feature-list li::before {
-            content: '✓';
-            position: absolute;
-            left: -0.5rem;
-            top: 0.9rem;
-            width: 1.5rem;
-            height: 1.5rem;
-            background: #0066FF;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.875rem;
-        }
-        
-        .logo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 2rem;
-            align-items: center;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-        
-        .logo-grid img {
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-        
-        .logo-grid img:hover {
-            filter: grayscale(0%);
-        }
-        
-        /* Contact Section */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-        
-        .contact-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group-full {
-            grid-column: 1 / -1;
-        }
-        
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            padding: 0.875rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0066FF;
-        }
-        
-        .privacy-note {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        .privacy-note a {
-            color: #0066FF;
-            text-decoration: underline;
-        }
-        
-        .contact-info-box {
-            background: #f8faff;
-            padding: 2rem;
-            border-radius: 12px;
-            height: fit-content;
-        }
-        
-        .contact-info-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-        }
-        
-        .contact-info-box address {
-            font-style: normal;
-            line-height: 1.8;
-            color: #4b5563;
-        }
-        
-        .contact-info-box p {
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info-box a {
-            color: #0066FF;
-            transition: opacity 0.2s;
-        }
-        
-        .contact-info-box a:hover {
-            opacity: 0.7;
-        }
-        
-        .social-links h4 {
-            font-size: 1rem;
-            margin: 2rem 0 1rem;
-            color: #1a1a1a;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-icons a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            border-radius: 8px;
-            color: #4b5563;
-            transition: all 0.2s;
-        }
-        
-        .social-icons a:hover {
-            background: #0066FF;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: #d1d5db;
-            padding: 4rem 1.5rem 2rem;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0066FF;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        
-        .footer-brand p {
-            color: #9ca3af;
-            line-height: 1.7;
-        }
-        
-        .footer-nav h4,
-        .footer-contact h4 {
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .footer-nav li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-nav a {
-            color: #9ca3af;
-            transition: color 0.2s;
-        }
-        
-        .footer-nav a:hover {
-            color: #0066FF;
-        }
-        
-        .footer-contact address {
-            font-style: normal;
-            line-height: 1.8;
-        }
-        
-        .footer-contact a {
-            color: #0066FF;
-            transition: opacity 0.2s;
-        }
-        
-        .footer-contact a:hover {
-            opacity: 0.7;
-        }
-        
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-legal {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .footer-legal a {
-            color: #9ca3af;
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
-        
-        .footer-legal a:hover {
-            color: #0066FF;
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-        
-        /* Focus styles for accessibility */
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible {
-            outline: 2px solid #0066FF;
-            outline-offset: 2px;
-        }
-    </style>
 </body>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+<!-- Initialize Swiper -->
+<script src="./assets/scripts/home.js"> </script>
+
+<script src="./assets/scripts/layout.js"></script>
+
+
 </html>
-
-<!-- 
-═══════════════════════════════════════════════════════════════
-LIGHTHOUSE / CORE WEB VITALS YOXLAMA SİYAHISI
-═══════════════════════════════════════════════════════════════
-
-✅ PERFORMANS (Hədəf: ≥90)
-  □ LCP ≤ 2.5s - Hero image fetchpriority="high", width/height, WebP
-  □ CLS ≤ 0.1 - Bütün elementlərdə width/height rezerv ölçülər
-  □ INP ≤ 200ms - Minimal JS, event handler optimizasiyası
-  □ Critical CSS inline (~3.5KB) - Hero + header stilləri
-  □ Font preload - Inter font preconnect və preload
-  □ Lazy loading - Hero xaric bütün şəkillər loading="lazy"
-  □ Deferred CSS/JS - Print media trick və defer atributu
-  □ Image optimization - WebP format, srcset (əlavə edilməli)
-
-✅ SEO (Hədəf: ≥90)
-  □ <title> ≤ 60 simvol, birincil KW başda ✓
-  □ <meta description> ≤ 155 simvol ✓
-  □ Tək <h1> - "Biznesinizi rəqəmsal dünyada zirvələrə daşıyırıq" ✓
-  □ H2/H3 iyerarxiyası düzgün ✓
-  □ Canonical tag ✓
-  □ OpenGraph + Twitter Card ✓
-  □ JSON-LD: Organization, WebSite, BreadcrumbList, Service ✓
-  □ Semantik HTML - header, nav, main, section, article, footer ✓
-  □ Daxili linkləmə - açıq anchor mətnləri ✓
-  □ Alt text bütün şəkillərdə (placeholder-lər əlavə edilməli)
-  □ robots.txt, sitemap.xml istinadı (server tərəfində)
-
-✅ ERİŞİLƏBİLİRLİK (Hədəf: ≥90)
-  □ ARIA etiketləri - aria-label, aria-labelledby, role ✓
-  □ Form label-ları - hər input üçün <label> ✓
-  □ Kontrast nisbəti ≥ 4.5:1 ✓
-  □ Focus görünürlüyü - outline 2px solid #0066FF ✓
-  □ Klaviatura naviqasiyası - Tab order məntiqi ✓
-  □ Alt mətnləri ✓
-  □ WCAG 2.2 AA uyğunluğu ✓
-
-✅ BEST PRACTICES (Hədəf: ≥95)
-  □ HTTPS (deployment zamanı)
-  □ Valid HTML5
-  □ Console xətaları yoxdur
-  □ Deprecated API-lər yoxdur
-  □ Secure headers (CSP, HSTS - server konfiqurasiyası)
-  □ No mixed content
-  □ Efficient cache policy (server konfiqurasiyası)
-
-⚠️ ƏLAVƏ OPTİMİZASİYA TÖVSİYƏLƏRİ
-  □ Responsive images - srcset/sizes əlavə et
-  □ Hero image üçün real WebP fayl hazırla
-  □ Placeholder images yerinə real layihə şəkilləri
-  □ Form submission backend inteqrasiyası
-  □ Google Analytics/Search Console əlavə et (GDPR-uyğun)
-  □ Service Worker / PWA (opsional)
-  □ Brotli/Gzip compression (server)
-  □ CDN konfiqurasiyası
-  □ HTTP/2 və ya HTTP/3
-  □ Preload/Prefetch kritik resurslar üçün
-  □ CSS/JS minification production build zamanı
-
-📊 TEST ALƏTLƏR
-  - PageSpeed Insights: https://pagespeed.web.dev/
-  - Lighthouse (Chrome DevTools)
-  - WebPageTest: https://www.webpagetest.org/
-  - WAVE: https://wave.webaim.org/ (accessibility)
-  - Schema Markup Validator: https://validator.schema.org/
-
-🎯 MOBİL-ÖNCƏLİKLİ YOXLAMA
-  - Chrome DevTools Mobile Emulator
-  - Real device testing (iOS Safari, Android Chrome)
-  - Touch target ölçüləri ≥ 48x48px
-  - Viewport tənzimləmələri
-  - Text ölçüsü responsive
-
--->
