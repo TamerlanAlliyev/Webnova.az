@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     transition: background-color 0.3s linear, color 0.3s linear;
-    font-family: "Raleway", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -11,6 +11,17 @@ body {
     grid-template-rows: auto auto 1fr auto;
     min-height: 100vh;
     background-color: var(--color-bg);
+
+    
+    background-size: cover;
+    /* şəkil bütün sahəni doldurur */
+    background-repeat: no-repeat;
+    /* təkrar olmasın */
+    background-position: center center;
+    /* sənin istədiyin mövqe */
+    background-attachment: fixed;
+    /* parallax effekti üçün (isteğe bağlı) */
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .badge {
@@ -119,10 +130,10 @@ body {
 :root {
     /* Brand */
     --color-primary: #014EFF;
-    --color-primary-dark: #01194B;
+    --color-primary-dark: #002983;
     --color-primary-light: rgba(1, 78, 255, 0.10);
     --color-primary-white: #FFFFFF;
-    --gradient-primary: linear-gradient(90deg, #004EFF 0%, #01194B 100%);
+    --gradient-primary: linear-gradient(90deg, #004EFF 0%, #002983 100%);
 
     /* Neutrals */
     --color-neutral-900: #000000;
@@ -300,7 +311,7 @@ body {
         --font-size-md: 18px;
         --font-size-lg: 20px;
         --font-size-xl: 24px;
-        --font-size-2xl: 28px;
+        --font-size-2xl: 32px;
         --font-size-3xl: 32px;
         --font-size-4xl: 40px;
         --font-size-5xl: 48px;
