@@ -57,7 +57,7 @@
     <meta name="keywords" content="veb sayt hazırlanması, sayt hazırlanması Bakı, veb dizayn, korporativ veb sayt, e-ticarət saytı, .NET web development, React developer Bakı, SEO xidməti, sürətli sayt, Bakı veb studiya">
     <link rel="canonical" href="https://webnovaaz.netlify.app/">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <meta name="language" content="Azerbaijani">
+    <meta name="language" content="az">
     
     <!-- Alternate Languages -->
     <link rel="alternate" hreflang="az" href="https://webnovaaz.netlify.app/">
@@ -129,11 +129,6 @@
     
     <!-- Stylesheets (Non-critical, loaded with media queries) -->
     <link rel="stylesheet" href="./assets/styles/root/root.css">
-    <link rel="stylesheet" href="./assets/styles/root/DesktopRoot.css" media="(min-width: 1200px)">
-    <link rel="stylesheet" href="./assets/styles/root/MiniDesktopRoot.css" media="(min-width: 992px) and (max-width: 1199px)">
-    <link rel="stylesheet" href="./assets/styles/root/LaptopRoot.css" media="(min-width: 768px) and (max-width: 991px)">
-    <link rel="stylesheet" href="./assets/styles/root/TabletRoot.css" media="(min-width: 576px) and (max-width: 767px)">
-    <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css" media="(max-width: 575px)">
     <link rel="stylesheet" href="./assets/styles/pages/layout.css">
     <link rel="stylesheet" href="./assets/styles/pages/home.css">
     
@@ -297,9 +292,9 @@
         },
         "areaServed": [
             {
-                "@type": "City",
-                "name": "Bakı"
-            },
+            "@type": "City",
+            "name": "Bakı"
+        },
             {
                 "@type": "Country",
                 "name": "Azerbaijan"
@@ -316,10 +311,10 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
             {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Ana Səhifə",
-                "item": "https://webnovaaz.netlify.app/"
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Ana Səhifə",
+            "item": "https://webnovaaz.netlify.app/"
             },
             {
                 "@type": "ListItem",
@@ -351,10 +346,12 @@
         <!-- Menu Header -->
         <header class="menu-header">
             <a href="/" class="logo" aria-label="Webnova Homepage">
-                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo light">
-                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo dark">
+                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40">
+                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
             </a>
-            <a class="mobile-menu-btn-close"> <i class="bi bi-x-circle"></i> </a>
+            <button class="mobile-menu-btn-close" aria-label="Menyunu bağla"> 
+                <i class="bi bi-x-circle" aria-hidden="true"></i> 
+            </button>
         </header>
 
         <!-- Main Content Wrapper -->
@@ -414,11 +411,11 @@
             <!-- Tema dəyişmə -->
 
             <div class="themebutton">
-                <input type="checkbox" class="checkbox" id="checkbox">
-                <label for="checkbox" class="checkbox-label">
-                    <i class="bi bi-moon-fill"></i>
-                    <i class="bi bi-sun-fill"></i>
-                    <span class="ball"></span>
+                <input type="checkbox" class="checkbox" id="checkbox" aria-label="Qaranlıq/İşıqlı rejim dəyişdirici">
+                <label for="checkbox" class="checkbox-label" aria-label="Tema dəyişdirici">
+                    <i class="bi bi-moon-fill" aria-hidden="true"></i>
+                    <i class="bi bi-sun-fill" aria-hidden="true"></i>
+                    <span class="ball" aria-hidden="true"></span>
                 </label>
             </div>
 
@@ -524,8 +521,7 @@
                     <figure class="hero-image" aria-label="Webnova rəqəmsal həllər illustrasiyası">
                         <dotlottie-wc class="hero-animation"
                             src="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie" 
-                            speed="1" autoplay loop
-                            aria-label="Animasiyalı robot - rəqəmsal innovasiya simvolu">
+                            speed="1" autoplay loop>
                         </dotlottie-wc>
                     </figure>
 
@@ -938,11 +934,11 @@
             </section>
 
             <!-- Projects Section -->
-            <section class="section projects-section card-animation" id="projects" aria-labelledby="projects-title">
+            <section class="section projects-section card-animation" id="projects" aria-labelledby="projects-heading">
 
                 <header class="project-header section-header">
                     <span class="section-prefix" aria-hidden="true">/</span>
-                    <h2 id="projects-title" class="section-title">
+                    <h2 id="projects-heading" class="section-title">
                         <a href="#projects">Layihələrimiz</a>
                     </h2>
                     <p class="section-description">
@@ -956,7 +952,7 @@
 
                         <!-- Project 1: SKN Group Portal -->
                         <article class="project-item card-animation" role="listitem" 
-                                 itemscope itemtype="https://schema.org/CreativeWork">
+                            itemscope itemtype="https://schema.org/CreativeWork">
                             <figure class="project-image">
                                 <img src="./assets/images/clients/SKNGroup.webp"
                                     alt="SKN Group korporativ portalı - ekran görüntüsü" 
@@ -989,7 +985,7 @@
 
                         <!-- Project 2: Buta Group ERP/CRM -->
                         <article class="project-item card-animation" role="listitem" 
-                                 itemscope itemtype="https://schema.org/CreativeWork">
+                            itemscope itemtype="https://schema.org/CreativeWork">
                             <figure class="project-image">
                                 <img src="./assets/images/projects/image.png"
                                     alt="Buta Group ERP/CRM sistemi dashboard" 
@@ -1021,7 +1017,7 @@
 
                         <!-- Project 3: Mont-Royal Canada -->
                         <article class="project-item card-animation" role="listitem" 
-                                 itemscope itemtype="https://schema.org/CreativeWork">
+                            itemscope itemtype="https://schema.org/CreativeWork">
                             <figure class="project-image">
                                 <img src="./assets/images/clients/Mont-Royal Canada.webp"
                                     alt="Mont-Royal Canada vitrini - veb sayt" 
@@ -1054,7 +1050,7 @@
 
                         <!-- Project 4: Modern Solutions -->
                         <article class="project-item card-animation" role="listitem" 
-                                 itemscope itemtype="https://schema.org/CreativeWork">
+                            itemscope itemtype="https://schema.org/CreativeWork">
                             <figure class="project-image">
                                 <img src="./assets/images/clients/Modern Solutions.webp"
                                     alt="Modern Solutions korporativ saytı" 
@@ -1086,7 +1082,7 @@
 
                         <!-- Project 5: Modern Leasing -->
                         <article class="project-item card-animation" role="listitem" 
-                                 itemscope itemtype="https://schema.org/CreativeWork">
+                            itemscope itemtype="https://schema.org/CreativeWork">
                             <figure class="project-image">
                                 <img src="./assets/images/clients/Modern Leasing.webp"
                                     alt="Modern Leasing platforması" 
@@ -1118,7 +1114,7 @@
 
                         <!-- Project 6: NextGEN Growth -->
                         <article class="project-item card-animation" role="listitem" 
-                                 itemscope itemtype="https://schema.org/CreativeWork">
+                            itemscope itemtype="https://schema.org/CreativeWork">
                             <figure class="project-image">
                                 <img src="./assets/images/clients/NextGEN Growth.webp"
                                     alt="NextGEN Growth məsləhət portalı" 
@@ -1162,9 +1158,9 @@
     </main>
 
     <!-- Promo Section -->
-    <section class="section promo-slider card-animation" id="promo" aria-labelledby="promo-title">
+    <section class="section promo-slider card-animation" id="promo" aria-label="Xidmətlər siyahısı">
 
-        <ul class="wrapper" role="list">
+        <ul class="wrapper">
             <li class="slide" role="group" aria-roledescription="slayd" aria-label="01 — Veb saytların hazırlanması">
                 <span class="promo-index" aria-hidden="true">01</span>
                 <span class="promo-title" role="text">VEB SAYTLARIN HAZIRLANMASI</span>
@@ -1242,11 +1238,10 @@
                 </header>
 
                 <div class="section-container swiper mySwiper">
-                    <div class="swiper-wrapper" role="list" aria-label="Webnova müştəri rəyləri"
-                        itemprop="itemListElement">
+                    <div class="swiper-wrapper" aria-label="Webnova müştəri rəyləri">
 
                         <!-- Testimonial 1 -->
-                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                        <article class="swiper-slide testimonial-item card-animation"
                             itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
                             <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
                             <div class="testimonial-content">
@@ -1262,7 +1257,7 @@
                                             alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
                                     </figure>
                                     <div class="fullname">
-                                        <h4 itemprop="name">Əli Məmmədov</h4>
+                                        <h3 itemprop="name" style="font-size: 1.125rem; font-weight: 600; margin: 0;">Əli Məmmədov</h3>
                                         <span itemprop="jobTitle">CEO, TechStart Azerbaijan</span>
                                     </div>
                                 </footer>
@@ -1277,7 +1272,7 @@
                         </article>
 
                         <!-- Testimonial 2 -->
-                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                        <article class="swiper-slide testimonial-item card-animation"
                             itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
                             <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
                             <div class="testimonial-content">
@@ -1293,7 +1288,7 @@
                                             alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
                                     </figure>
                                     <div class="fullname">
-                                        <h4 itemprop="name">Leyla Həsənova</h4>
+                                        <h3 itemprop="name" style="font-size: 1.125rem; font-weight: 600; margin: 0;">Leyla Həsənova</h3>
                                         <span itemprop="jobTitle">Marketinq Direktoru, BakuMall</span>
                                     </div>
                                 </footer>
@@ -1308,7 +1303,7 @@
                         </article>
 
                         <!-- Testimonial 3 -->
-                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                        <article class="swiper-slide testimonial-item card-animation"
                             itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
                             <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
                             <div class="testimonial-content">
@@ -1325,7 +1320,7 @@
                                             alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
                                     </figure>
                                     <div class="fullname">
-                                        <h4 itemprop="name">Rəşad Əliyev</h4>
+                                        <h3 itemprop="name" style="font-size: 1.125rem; font-weight: 600; margin: 0;">Rəşad Əliyev</h3>
                                         <span itemprop="jobTitle">Direktor, Digital Solutions</span>
                                     </div>
                                 </footer>
@@ -1339,8 +1334,8 @@
                             <meta itemprop="datePublished" content="2024-08-10">
                         </article>
 
-                        <!-- Testimonial 3 -->
-                        <article class="swiper-slide testimonial-item card-animation" role="listitem"
+                        <!-- Testimonial 4 -->
+                        <article class="swiper-slide testimonial-item card-animation"
                             itemprop="itemListElement" itemscope itemtype="https://schema.org/Review">
                             <div class="comment-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></div>
                             <div class="testimonial-content">
@@ -1357,7 +1352,7 @@
                                             alt="Müştəri profil şəkli" loading="lazy" itemprop="image">
                                     </figure>
                                     <div class="fullname">
-                                        <h4 itemprop="name">Rəşad Əliyev</h4>
+                                        <h3 itemprop="name" style="font-size: 1.125rem; font-weight: 600; margin: 0;">Rəşad Əliyev</h3>
                                         <span itemprop="jobTitle">Direktor, Digital Solutions</span>
                                     </div>
                                 </footer>
@@ -1788,8 +1783,8 @@
         <!-- Copyright -->
         <div class="footer-bottom">
             <p>© 2025 Webnova. Bütün hüquqlar qorunur. 
-               <a href="/sitemap.xml" style="margin-left: 1rem; color: #666;">Sitemap</a> | 
-               <a href="/robots.txt" style="margin-left: 0.5rem; color: #666;">Robots.txt</a>
+               <a href="/sitemap.xml" style="margin-left: 1rem; color: #0066cc;">Sitemap</a> | 
+               <a href="/robots.txt" style="margin-left: 0.5rem; color: #0066cc;">Robots.txt</a>
             </p>
         </div>
     </footer>
