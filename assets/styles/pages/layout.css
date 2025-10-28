@@ -1,17 +1,24 @@
 @charset "UTF-8";
 @import url(../root/root.css);
+@import url(../root/DesktopRoot.css);
+@import url(../root/MiniDesktopRoot.css);
+@import url(../root/LaptopRoot.css);
+@import url(../root/TabletRoot.css);
+@import url(../root/MobileRoot.css);
 body {
   position: relative;
   color: var(--color-neutral-900);
   min-height: 100vh;
   height: 100%;
+  /* CSS */
 }
-.topbar {
+body .topbar {
   border-bottom: 1px solid var(--color-neutral-300);
   display: flex;
+  /*flex*/
   justify-content: center;
 }
-.topbar .container {
+body .topbar .container {
   max-width: 1440px;
   width: 100%;
   display: flex;
@@ -131,7 +138,7 @@ body .topbar .container .language-picker .dropdown .option:hover {
   background: var(--color-primary-light);
   color: var(--color-primary);
 }
-.logo {
+body .logo {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -145,7 +152,7 @@ body .logo .logo-dark {
 [data-theme=dark] body .logo .logo-light {
   display: none;
 }
-header.header {
+body header.header {
   display: flex;
   justify-content: center;
   position: sticky;
@@ -212,7 +219,7 @@ body header.header .container .cta {
   display: none;
   justify-content: end;
 }
-.mobile-menu {
+body .mobile-menu {
   background: var(--color-surface);
   position: fixed;
   top: 0;
@@ -352,7 +359,7 @@ body .mobile-menu .menu-content .menu-extra section.social-links ul li a:hover {
 body .logo img {
   height: 20px;
 }
-.site-footer {
+body .site-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -498,7 +505,7 @@ body .site-footer .footer-bottom p {
     display: flex;
     justify-content: end;
   }
-  .mobile-menu {
+  body .mobile-menu {
     width: 45%;
     max-width: 100%;
   }

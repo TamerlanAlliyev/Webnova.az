@@ -1,39 +1,39 @@
 @charset "UTF-8";
-.promo-slider {
+body .promo-slider {
   overflow: hidden;
   --marquee-duration: 10s;
   margin: var(--spacing-10) 0;
-  contain: layout style paint;
 }
-.promo-slider .wrapper {
+body .promo-slider .wrapper {
   display: flex;
   align-items: center;
   gap: var(--spacing-10);
   list-style: none;
   padding: var(--spacing-4) 0;
+  width: -moz-max-content;
   width: max-content;
   will-change: transform;
   animation: scroll-marquee var(--marquee-duration) linear infinite;
   transform: translate3d(0, 0, 0);
   background: var(--color-primary);
-  contain: layout style paint;
 }
-.promo-slider .wrapper .slide {
+body .promo-slider .wrapper .slide {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-3);
   flex-shrink: 0;
   white-space: nowrap;
 }
-.promo-slider .wrapper .slide .promo-index {
+body .promo-slider .wrapper .slide .promo-index {
   font-size: var(--font-size-md);
   font-weight: 900;
   color: var(--color-primary-dark);
   min-width: 2ch;
   text-align: right;
 }
-.promo-slider .wrapper .slide .promo-title {
+body .promo-slider .wrapper .slide .promo-title {
   display: inline-flex;
+  width: -moz-max-content;
   width: max-content;
   font-size: var(--font-size-3xl);
   font-weight: 600;
@@ -49,7 +49,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .promo-slider .wrapper {
+  body .promo-slider .wrapper {
     animation: none !important;
     transform: none !important;
   }

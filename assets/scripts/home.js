@@ -1,61 +1,32 @@
-// Initialize Swiper with performance optimizations
-const initSwiper = () => {
-  if (typeof Swiper === 'undefined') return;
-  
-  new Swiper(".mySwiper", {
-    slidesPerView: 2,
-    spaceBetween: 18,
-    lazy: {
-      loadPrevNext: true,
-      loadPrevNextAmount: 2
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 2,
+  spaceBetween: 18,
+  lazy: true,
+  autoplay: {
+    delay: 1500,
+    loop: true,
+  },
+  breakpoints: {
+    580: {
+      slidesPerView: 3,
+      spaceBetween: 18,
     },
-    autoplay: {
-      delay: 1500,
-      loop: true,
-      pauseOnMouseEnter: true,
-      disableOnInteraction: false
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 22,
     },
-    breakpoints: {
-      580: {
-        slidesPerView: 3,
-        spaceBetween: 18,
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 22,
-      },
-      1080: {
-        slidesPerView: 5,
-        spaceBetween: 24,
-      },
+    1080: {
+      slidesPerView: 5,
+      spaceBetween: 24,
     },
-    watchSlidesProgress: true,
-    watchSlidesVisibility: true,
-    preloadImages: false,
-    updateOnImagesReady: true
-  });
-};
+  },
+});
 
 
 
 
-// Optimized scroll animation with performance improvements
 (() => {
   const SELECTOR = '.card-animation';
-  let isInitialized = false;
-
-  // Debounced resize handler
-  const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
 
   // İlk render + sonradan DOM-a əlavə olunanlar üçün MutationObserver dəstəyi
   const observeCards = (root = document) => {
@@ -122,41 +93,28 @@ const initSwiper = () => {
     return Math.max(0, Math.min(1, v));
   }
 
-  // Initialize only once
-  const init = () => {
-    if (isInitialized) return;
-    isInitialized = true;
+  // İlk yükləmə
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: animasiyasız göstər
+    document.querySelectorAll(SELECTOR).forEach(el => el.classList.add('sa-active'));
+  } else {
+    observeCards();
 
-    // İlk yükləmə
-    if (!('IntersectionObserver' in window)) {
-      // Fallback: animasiyasız göstər
-      document.querySelectorAll(SELECTOR).forEach(el => el.classList.add('sa-active'));
-    } else {
-      observeCards();
-
-      // Dinamik kontent üçün MutationObserver
-      const mo = new MutationObserver(muts => {
-        muts.forEach(m => {
-          m.addedNodes.forEach(node => {
-            if (!(node instanceof Element)) return;
-            if (node.matches?.(SELECTOR)) setupObserverForEl(node);
-            // iç-içə yeni kartlar
-            node.querySelectorAll?.(SELECTOR).forEach(setupObserverForEl);
-          });
+    // Dinamik kontent üçün MutationObserver
+    const mo = new MutationObserver(muts => {
+      muts.forEach(m => {
+        m.addedNodes.forEach(node => {
+          if (!(node instanceof Element)) return;
+          if (node.matches?.(SELECTOR)) setupObserverForEl(node);
+          // iç-içə yeni kartlar
+          node.querySelectorAll?.(SELECTOR).forEach(setupObserverForEl);
         });
       });
-      mo.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-    }
-  };
-
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+    });
+    mo.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
   }
 })();
 
@@ -168,8 +126,7 @@ const initSwiper = () => {
 =============================== */
 
 
-// Optimized marquee slider with performance improvements
-const initMarqueeSlider = () => {
+document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".promo-slider");
   const wrapper = container?.querySelector(".wrapper");
   if (!container || !wrapper) return;
@@ -190,86 +147,97 @@ const initMarqueeSlider = () => {
   }
 
   // 3) Marquee sürətini dinamik hesabla:
-  const PX_PER_SEC = 80;
+  //    Piksel/saniyə sabiti -> nə qədər böyükdürsə, o qədər sürətli hərəkət.
+  const PX_PER_SEC = 80; // İstəyə görə 60–120 arası oynada bilərsən
+  // Hədəf məsafə: [-50%] hərəkət edəcəyik (çünki 2x content var)
   const distancePx = wrapper.scrollWidth / 2;
-  const durationSec = Math.max(12, distancePx / PX_PER_SEC);
+  const durationSec = Math.max(12, distancePx / PX_PER_SEC); // min 12s
   container.style.setProperty("--marquee-duration", `${durationSec}s`);
 
-  // 4) Optimized resize handler with debouncing
+  // 4) Resize zamanı yenidən ölç (responsivlik)
   let rAF;
-  const onResize = debounce(() => {
+  const onResize = () => {
     cancelAnimationFrame(rAF);
     rAF = requestAnimationFrame(() => {
+      // content artıq ikiqatdır; yenidən hesablamaq üçün yalnız duration güncəlləyirik
       const newDistance = wrapper.scrollWidth / 2;
       const newDuration = Math.max(12, newDistance / PX_PER_SEC);
       container.style.setProperty("--marquee-duration", `${newDuration}s`);
     });
-  }, 100);
-
-  window.addEventListener("resize", onResize, { passive: true });
-};
-
-// Initialize marquee when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener("DOMContentLoaded", initMarqueeSlider);
-} else {
-  initMarqueeSlider();
-}
+  };
+  window.addEventListener("resize", onResize, {
+    passive: true
+  });
+});
 
 
 /* =============================
 🎬 SLIDER — Testimoniols
 =============================== */
-// Initialize testimonials swiper with performance optimizations
-const initTestimonialsSwiper = () => {
-  if (typeof Swiper === 'undefined') return;
-  
-  new Swiper(".testimonials-section .mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 22,
-    lazy: {
-      loadPrevNext: true,
-      loadPrevNextAmount: 1
-    },
-    autoplay: {
-      delay: 2500,
-      loop: true,
-      pauseOnMouseEnter: true,
-      disableOnInteraction: false
-    },
+var swiper = new Swiper(".testimonials-section  .mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 22,
+  lazy: true,
+  autoplay: {
+    delay: 2500,
+    loop: true,
+  },
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 26,
+        el: ".swiper-pagination",
+        clickable: true,
       },
-      1080: {
-        slidesPerView: 3,
-        spaceBetween: 32,
-      },
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 26,
     },
-    watchSlidesProgress: true,
-    watchSlidesVisibility: true,
-    preloadImages: false,
-    updateOnImagesReady: true
-  });
-};
+    1080: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+  },
+});
 
 /* =============================
 🎬 FAQ Accordion Functionality
 =============================== */
-// Optimized FAQ accordion with performance improvements
-const initFAQAccordion = () => {
+document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item');
     
     if (faqItems.length === 0) return;
     
+    faqItems.forEach((item, index) => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        if (!question || !answer) return;
+        
+        question.addEventListener('click', function() {
+            const isActive = item.classList.contains('active');
+            
+            // Bütün FAQ itemləri bağla (accordion mode - yalnız biri açıq qalar)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    closeItem(otherItem);
+                }
+            });
+            
+            // Cari item-i toggle et
+            if (isActive) {
+                closeItem(item);
+            } else {
+                openItem(item);
+            }
+        });
+        
+        // İlk FAQ item-i avtomatik aç
+        if (index === 0) {
+            openItem(item);
+        }
+    });
+    
     // FAQ item-i açan funksiya
-    const openItem = (item) => {
+    function openItem(item) {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
         
@@ -277,10 +245,10 @@ const initFAQAccordion = () => {
         
         item.classList.add('active');
         question.setAttribute('aria-expanded', 'true');
-    };
+    }
     
     // FAQ item-i bağlayan funksiya
-    const closeItem = (item) => {
+    function closeItem(item) {
         const question = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
         
@@ -288,60 +256,7 @@ const initFAQAccordion = () => {
         
         item.classList.remove('active');
         question.setAttribute('aria-expanded', 'false');
-    };
-    
-    // Event delegation for better performance
-    const faqContainer = document.querySelector('.faq-accordion');
-    if (!faqContainer) return;
-    
-    faqContainer.addEventListener('click', (e) => {
-        const question = e.target.closest('.faq-question');
-        if (!question) return;
-        
-        const item = question.closest('.faq-item');
-        if (!item) return;
-        
-        const isActive = item.classList.contains('active');
-        
-        // Bütün FAQ itemləri bağla (accordion mode - yalnız biri açıq qalar)
-        faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                closeItem(otherItem);
-            }
-        });
-        
-        // Cari item-i toggle et
-        if (isActive) {
-            closeItem(item);
-        } else {
-            openItem(item);
-        }
-    });
-    
-    // İlk FAQ item-i avtomatik aç
-    if (faqItems[0]) {
-        openItem(faqItems[0]);
     }
-};
+});
 
-// Initialize FAQ accordion when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFAQAccordion);
-} else {
-    initFAQAccordion();
-}
 
-// Initialize all components when DOM is ready
-const initializeAll = () => {
-    initSwiper();
-    initTestimonialsSwiper();
-    initMarqueeSlider();
-    initFAQAccordion();
-};
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeAll);
-} else {
-    initializeAll();
-}
