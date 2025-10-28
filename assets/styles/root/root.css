@@ -2,8 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+*:not(.no-transition) {
     transition: background-color 0.3s linear, color 0.3s linear;
-    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
@@ -13,14 +19,11 @@ body {
     background-color: var(--color-bg);
     background-image: var(--bg-image);
     background-size: cover;
-    /* şəkil bütün sahəni doldurur */
     background-repeat: no-repeat;
-    /* təkrar olmasın */
     background-position: center center;
-    /* sənin istədiyin mövqe */
     background-attachment: fixed;
-    /* parallax effekti üçün (isteğe bağlı) */
     image-rendering: -webkit-optimize-contrast;
+    will-change: auto;
 }
 
 .badge {

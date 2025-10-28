@@ -132,9 +132,13 @@
          PRELOAD CRITICAL RESOURCES (LCP Optimization)
     ========================================= -->
     <link rel="preload" href="./assets/styles/root/root.css" as="style">
+    <link rel="preload" href="./assets/styles/pages/layout.css" as="style">
+    <link rel="preload" href="./assets/styles/pages/home.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
     <link rel="preload" href="./assets/scripts/layout.js" as="script">
+    <link rel="preload" href="./assets/scripts/home.js" as="script">
     <link rel="preload" href="./assets/images/logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="./assets/images/logo-dark.svg" as="image" type="image/svg+xml">
     
     <!-- ========================================
          CRITICAL CSS (Above the Fold)
@@ -164,6 +168,88 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     </noscript>
+    
+    <!-- ========================================
+         PERFORMANCE OPTIMIZATION
+    ========================================= -->
+    <script>
+        // Critical performance optimizations
+        (function() {
+            // Preload critical images
+            const criticalImages = [
+                './assets/images/logo.svg',
+                './assets/images/logo-dark.svg',
+                './assets/images/clients/NextGEN Growth.webp',
+                './assets/images/clients/Modern Leasing.webp',
+                './assets/images/clients/Modern Solutions.webp'
+            ];
+            
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+            
+            // Optimize font loading
+            if ('fonts' in document) {
+                document.fonts.ready.then(() => {
+                    document.documentElement.classList.add('fonts-loaded');
+                });
+            }
+            
+            // Performance monitoring
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    if (perfData) {
+                        console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+                    }
+                });
+            }
+        })();
+    </script>
+    
+    <!-- ========================================
+         ADDITIONAL PERFORMANCE META TAGS
+    ========================================= -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Webnova">
+    <meta name="application-name" content="Webnova Agency">
+    <meta name="msapplication-TileColor" content="#014EFF">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- ========================================
+         PERFORMANCE HINTS
+    ========================================= -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- ========================================
+         IMAGE OPTIMIZATION
+    ========================================= -->
+    <style>
+        /* Optimize image rendering */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: optimize-contrast;
+        }
+        
+        /* Prevent layout shift for images */
+        img[width][height] {
+            aspect-ratio: attr(width) / attr(height);
+        }
+        
+        /* Optimize WebP images */
+        img[src$=".webp"] {
+            image-rendering: -webkit-optimize-contrast;
+        }
+    </style>
     
     <!-- Reduce unused CSS hint -->
     <script>
@@ -574,8 +660,8 @@
         <!-- Menu Header -->
         <header class="menu-header">
             <a href="/" class="logo" aria-label="Webnova Homepage">
-                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo light" width="150" height="40">
-                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo dark" width="150" height="40">
+                <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo light" width="150" height="40" loading="eager" fetchpriority="high">
+                <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo dark" width="150" height="40" loading="eager" fetchpriority="high">
             </a>
             <a class="mobile-menu-btn-close" href="#" aria-label="Close mobile menu"> <i class="bi bi-x-circle"></i> </a>
         </header>
@@ -691,8 +777,8 @@
 
             <div class="logo-image">
                 <a class="logo" href="/" aria-label="Webnova Main Page">
-                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
-                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
+                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40" loading="eager" fetchpriority="high">
+                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" loading="eager" fetchpriority="high">
                 </a>
             </div>
 
@@ -1772,9 +1858,43 @@
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module" defer></script>
+
+<!-- Critical JavaScript - Load immediately -->
+<script>
+    // Critical performance optimizations
+    (function() {
+        // Preload critical resources
+        const criticalResources = [
+            './assets/scripts/layout.js',
+            './assets/scripts/home.js'
+        ];
+        
+        criticalResources.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'script';
+            link.href = src;
+            document.head.appendChild(link);
+        });
+        
+        // Optimize scroll performance
+        let scrollTimeout;
+        const optimizedScroll = () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(() => {
+                // Scroll handling will be done by the main scripts
+            }, 16); // ~60fps
+        };
+        
+        window.addEventListener('scroll', optimizedScroll, { passive: true });
+    })();
+</script>
+
 <!-- Initialize Swiper -->
-<script src="./assets/scripts/home.js" defer></script>
 <script src="./assets/scripts/layout.js" defer></script>
+<script src="./assets/scripts/home.js" defer></script>
 
 <!-- ========================================
      LAZY LOAD OPTIMIZATION
@@ -1805,6 +1925,19 @@
         link.href = src;
         document.head.appendChild(link);
     });
+    
+    // Register service worker for caching
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
 </script>
 
 </html>

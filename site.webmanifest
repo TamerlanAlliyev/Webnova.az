@@ -1,0 +1,101 @@
+{
+    "name": "Webnova Agency - Peşəkar Veb Sayt Hazırlanması",
+    "short_name": "Webnova",
+    "description": "Azərbaycanda peşəkar veb sayt hazırlanması, SEO optimizasiyası, digital marketinq və UI/UX dizayn xidmətləri təqdim edən lider agentlik.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F3F3F3",
+    "theme_color": "#014EFF",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "az",
+    "dir": "ltr",
+    "categories": ["business", "productivity", "utilities"],
+    "icons": [
+        {
+            "src": "./assets/images/settings/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/images/settings/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/images/settings/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/images/settings/mstile-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./assets/images/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "./assets/images/settings/og-image-1200x630.jpg",
+            "sizes": "1200x630",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Webnova Agency Ana Səhifə"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Xidmətlər",
+            "short_name": "Xidmətlər",
+            "description": "Veb sayt hazırlanması xidmətlərimizi görün",
+            "url": "/xidmetlerimiz",
+            "icons": [
+                {
+                    "src": "./assets/images/logo.svg",
+                    "sizes": "any"
+                }
+            ]
+        },
+        {
+            "name": "Layihələr",
+            "short_name": "Layihələr",
+            "description": "Hazırladığımız layihələri görün",
+            "url": "/lahiyeler",
+            "icons": [
+                {
+                    "src": "./assets/images/logo.svg",
+                    "sizes": "any"
+                }
+            ]
+        },
+        {
+            "name": "Əlaqə",
+            "short_name": "Əlaqə",
+            "description": "Bizimlə əlaqə saxlayın",
+            "url": "/elaqe",
+            "icons": [
+                {
+                    "src": "./assets/images/logo.svg",
+                    "sizes": "any"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "launch_handler": {
+        "client_mode": "focus-existing"
+    }
+}
