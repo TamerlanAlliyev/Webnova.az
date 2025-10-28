@@ -11,8 +11,7 @@ body {
     grid-template-rows: auto auto 1fr auto;
     min-height: 100vh;
     background-color: var(--color-bg);
-
-    
+    background-image: var(--bg-image);
     background-size: cover;
     /* şəkil bütün sahəni doldurur */
     background-repeat: no-repeat;
@@ -145,8 +144,10 @@ body {
     /* Light mode surfaces */
     --color-bg: #F3F3F3;
     --color-glass: #f3f3f350;
-
     --color-surface: #FFFFFF;
+    
+    /* Background images */
+    --bg-image: url('./assets/images/settings/Light-bg.svg');
 
     --bg-glass: linear-gradient(116deg,
             rgba(var(--color-bg-rgb, 243, 243, 243), 0.60) 10.92%,
@@ -236,6 +237,10 @@ body {
     --color-bg: #0B0E1B;
     --color-glass: #0b0e1b50;
     --color-surface: #14172B;
+    
+    /* Background images */
+    --bg-image: url('./assets/images/settings/Dark-bg.svg');
+    
     --bg-glass: linear-gradient(116deg,
             rgba(11, 14, 27, 0.75) 10.92%,
             rgba(20, 23, 43, 0.35) 96.4%);
