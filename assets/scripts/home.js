@@ -1,54 +1,85 @@
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 2,
-  spaceBetween: 18,
-  lazy: true,
-  autoplay: {
-    delay: 1500,
-    loop: true,
-  },
-  breakpoints: {
-    580: {
-      slidesPerView: 3,
-      spaceBetween: 18,
+// Optimized Swiper - Lazy initialization
+let swiperInstance = null;
+
+function initSwiper() {
+  if (swiperInstance) return swiperInstance;
+  
+  const swiperEl = document.querySelector(".mySwiper");
+  if (!swiperEl) return null;
+  
+  swiperInstance = new Swiper(swiperEl, {
+    slidesPerView: 2,
+    spaceBetween: 18,
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 2
     },
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 22,
+    autoplay: {
+      delay: 1500,
+      loop: true,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: false
     },
-    1080: {
-      slidesPerView: 5,
-      spaceBetween: 24,
+    breakpoints: {
+      580: {
+        slidesPerView: 3,
+        spaceBetween: 18,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 22,
+      },
+      1080: {
+        slidesPerView: 5,
+        spaceBetween: 24,
+      },
     },
-  },
-});
+    // Performance optimizations
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    preloadImages: false,
+    updateOnWindowResize: true
+  });
+  
+  return swiperInstance;
+}
 
 
 
 
+// Optimized Card Animation - Performance focused
 (() => {
   const SELECTOR = '.card-animation';
+  const groupIndex = new WeakMap();
+  let observer = null;
+  let mutationObserver = null;
 
-  // İlk render + sonradan DOM-a əlavə olunanlar üçün MutationObserver dəstəyi
-  const observeCards = (root = document) => {
-    const cards = Array.from(root.querySelectorAll(SELECTOR));
-    cards.forEach(setupObserverForEl);
+  // Throttled function for better performance
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function() {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    }
   };
 
-  // parent üzrə index xəritəsi (stagger üçün)
-  const groupIndex = new WeakMap();
-
-  function setupObserverForEl(el) {
-    if (el.__saObserved) return; // təkrarı önlə
+  const setupObserverForEl = (el) => {
+    if (el.__saObserved) return;
     el.__saObserved = true;
 
     const thr = parseFloat(el.getAttribute('data-sa-threshold'));
     const margin = el.getAttribute('data-sa-margin');
     const opts = {
-      threshold: Number.isFinite(thr) ? clamp01(thr) : 0.15,
+      threshold: Number.isFinite(thr) ? Math.max(0, Math.min(1, thr)) : 0.15,
       rootMargin: margin || '0px 0px -5% 0px'
     };
 
-    const io = new IntersectionObserver((entries, observer) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.target !== el) return;
 
@@ -65,21 +96,18 @@ var swiper = new Swiper(".mySwiper", {
           el.style.transitionDelay = totalDelay ? `${totalDelay}ms` : '';
           el.classList.add('sa-active');
 
-          if (once) observer.unobserve(el);
-        } else {
-          // repeat mode
-          if ((el.getAttribute('data-sa-once') ?? 'true') === 'false') {
-            el.classList.remove('sa-active');
-            el.style.transitionDelay = '';
-          }
+          if (once) io.unobserve(el);
+        } else if ((el.getAttribute('data-sa-once') ?? 'true') === 'false') {
+          el.classList.remove('sa-active');
+          el.style.transitionDelay = '';
         }
       });
     }, opts);
 
     io.observe(el);
-  }
+  };
 
-  function getIndexInGroup(parent, el) {
+  const getIndexInGroup = (parent, el) => {
     if (!parent) return 0;
     if (!groupIndex.has(parent)) {
       const children = Array.from(parent.querySelectorAll(SELECTOR));
@@ -87,31 +115,37 @@ var swiper = new Swiper(".mySwiper", {
       groupIndex.set(parent, map);
     }
     return groupIndex.get(parent).get(el) ?? 0;
-  }
+  };
 
-  function clamp01(v) {
-    return Math.max(0, Math.min(1, v));
-  }
+  const observeCards = (root = document) => {
+    const cards = Array.from(root.querySelectorAll(SELECTOR));
+    cards.forEach(setupObserverForEl);
+  };
 
-  // İlk yükləmə
+  // Initialize with performance check
   if (!('IntersectionObserver' in window)) {
-    // Fallback: animasiyasız göstər
+    // Fallback for older browsers
     document.querySelectorAll(SELECTOR).forEach(el => el.classList.add('sa-active'));
   } else {
-    observeCards();
+    // Use requestIdleCallback for better performance
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => observeCards());
+    } else {
+      setTimeout(() => observeCards(), 0);
+    }
 
-    // Dinamik kontent üçün MutationObserver
-    const mo = new MutationObserver(muts => {
-      muts.forEach(m => {
-        m.addedNodes.forEach(node => {
+    // Optimized MutationObserver
+    mutationObserver = new MutationObserver(throttle((mutations) => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
           if (!(node instanceof Element)) return;
           if (node.matches?.(SELECTOR)) setupObserverForEl(node);
-          // iç-içə yeni kartlar
           node.querySelectorAll?.(SELECTOR).forEach(setupObserverForEl);
         });
       });
-    });
-    mo.observe(document.body, {
+    }, 100));
+
+    mutationObserver.observe(document.body, {
       childList: true,
       subtree: true
     });
@@ -126,137 +160,218 @@ var swiper = new Swiper(".mySwiper", {
 =============================== */
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".promo-slider");
-  const wrapper = container?.querySelector(".wrapper");
-  if (!container || !wrapper) return;
+// Optimized Marquee Slider - Performance focused
+(() => {
+  let container = null;
+  let wrapper = null;
+  let resizeRAF = null;
+  const PX_PER_SEC = 80;
 
-  // 1) Indexləri avtomatik 01, 02, ... formatla (HTML-də yazmağa ehtiyac qalmasın)
-  const slides = Array.from(wrapper.querySelectorAll(".slide"));
-  slides.forEach((li, i) => {
-    const idxEl = li.querySelector(".promo-index");
-    if (idxEl) idxEl.textContent = String(i + 1).padStart(2, "0");
-  });
+  const initMarquee = () => {
+    container = document.querySelector(".promo-slider");
+    wrapper = container?.querySelector(".wrapper");
+    if (!container || !wrapper) return;
 
-  // 2) Sonsuz axın üçün kontenti ən azı 2x genişliyə çatana qədər klonla
-  const initialHTML = wrapper.innerHTML;
-  let safety = 0;
-  while (wrapper.scrollWidth < container.clientWidth * 2 && safety < 10) {
-    wrapper.insertAdjacentHTML("beforeend", initialHTML);
-    safety++;
-  }
-
-  // 3) Marquee sürətini dinamik hesabla:
-  //    Piksel/saniyə sabiti -> nə qədər böyükdürsə, o qədər sürətli hərəkət.
-  const PX_PER_SEC = 80; // İstəyə görə 60–120 arası oynada bilərsən
-  // Hədəf məsafə: [-50%] hərəkət edəcəyik (çünki 2x content var)
-  const distancePx = wrapper.scrollWidth / 2;
-  const durationSec = Math.max(12, distancePx / PX_PER_SEC); // min 12s
-  container.style.setProperty("--marquee-duration", `${durationSec}s`);
-
-  // 4) Resize zamanı yenidən ölç (responsivlik)
-  let rAF;
-  const onResize = () => {
-    cancelAnimationFrame(rAF);
-    rAF = requestAnimationFrame(() => {
-      // content artıq ikiqatdır; yenidən hesablamaq üçün yalnız duration güncəlləyirik
-      const newDistance = wrapper.scrollWidth / 2;
-      const newDuration = Math.max(12, newDistance / PX_PER_SEC);
-      container.style.setProperty("--marquee-duration", `${newDuration}s`);
+    // 1) Index numbers with performance optimization
+    const slides = Array.from(wrapper.querySelectorAll(".slide"));
+    slides.forEach((li, i) => {
+      const idxEl = li.querySelector(".promo-index");
+      if (idxEl) idxEl.textContent = String(i + 1).padStart(2, "0");
     });
+
+    // 2) Clone content for infinite scroll
+    const initialHTML = wrapper.innerHTML;
+    let safety = 0;
+    while (wrapper.scrollWidth < container.clientWidth * 2 && safety < 10) {
+      wrapper.insertAdjacentHTML("beforeend", initialHTML);
+      safety++;
+    }
+
+    // 3) Calculate marquee speed
+    updateMarqueeSpeed();
+
+    // 4) Throttled resize handler
+    const onResize = () => {
+      cancelAnimationFrame(resizeRAF);
+      resizeRAF = requestAnimationFrame(updateMarqueeSpeed);
+    };
+
+    window.addEventListener("resize", onResize, { passive: true });
   };
-  window.addEventListener("resize", onResize, {
-    passive: true
-  });
-});
+
+  const updateMarqueeSpeed = () => {
+    if (!container || !wrapper) return;
+    const distancePx = wrapper.scrollWidth / 2;
+    const durationSec = Math.max(12, distancePx / PX_PER_SEC);
+    container.style.setProperty("--marquee-duration", `${durationSec}s`);
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMarquee);
+  } else {
+    initMarquee();
+  }
+})();
 
 
 /* =============================
 🎬 SLIDER — Testimoniols
 =============================== */
-var swiper = new Swiper(".testimonials-section  .mySwiper", {
-  slidesPerView: 1,
-  spaceBetween: 22,
-  lazy: true,
-  autoplay: {
-    delay: 2500,
-    loop: true,
-  },
+// Optimized Testimonials Swiper - Lazy initialization
+let testimonialsSwiper = null;
+
+function initTestimonialsSwiper() {
+  if (testimonialsSwiper) return testimonialsSwiper;
+  
+  const swiperEl = document.querySelector(".testimonials-section .mySwiper");
+  if (!swiperEl) return null;
+  
+  testimonialsSwiper = new Swiper(swiperEl, {
+    slidesPerView: 1,
+    spaceBetween: 22,
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 1
+    },
+    autoplay: {
+      delay: 2500,
+      loop: true,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: false
+    },
     pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 26,
       },
-  breakpoints: {
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 26,
+      1080: {
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
     },
-    1080: {
-      slidesPerView: 3,
-      spaceBetween: 32,
-    },
-  },
-});
+    // Performance optimizations
+    watchSlidesProgress: true,
+    watchSlidesVisibility: true,
+    preloadImages: false,
+    updateOnWindowResize: true
+  });
+  
+  return testimonialsSwiper;
+}
 
 /* =============================
 🎬 FAQ Accordion Functionality
 =============================== */
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
+// Optimized FAQ Accordion - Performance focused
+(() => {
+  let faqItems = [];
+  let isInitialized = false;
+
+  const initFAQ = () => {
+    if (isInitialized) return;
     
+    faqItems = Array.from(document.querySelectorAll('.faq-item'));
     if (faqItems.length === 0) return;
-    
+
     faqItems.forEach((item, index) => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        
-        if (!question || !answer) return;
-        
-        question.addEventListener('click', function() {
-            const isActive = item.classList.contains('active');
-            
-            // Bütün FAQ itemləri bağla (accordion mode - yalnız biri açıq qalar)
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    closeItem(otherItem);
-                }
-            });
-            
-            // Cari item-i toggle et
-            if (isActive) {
-                closeItem(item);
-            } else {
-                openItem(item);
-            }
-        });
-        
-        // İlk FAQ item-i avtomatik aç
-        if (index === 0) {
-            openItem(item);
-        }
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      
+      if (!question || !answer) return;
+      
+      // Use event delegation for better performance
+      question.addEventListener('click', handleFAQClick.bind(null, item), { passive: true });
+      
+      // Open first item by default
+      if (index === 0) {
+        openItem(item);
+      }
     });
     
-    // FAQ item-i açan funksiya
-    function openItem(item) {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        
-        if (!question || !answer) return;
-        
-        item.classList.add('active');
-        question.setAttribute('aria-expanded', 'true');
-    }
+    isInitialized = true;
+  };
+
+  const handleFAQClick = (item) => {
+    const isActive = item.classList.contains('active');
     
-    // FAQ item-i bağlayan funksiya
-    function closeItem(item) {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        
-        if (!question || !answer) return;
-        
-        item.classList.remove('active');
-        question.setAttribute('aria-expanded', 'false');
+    // Close all other items (accordion mode)
+    faqItems.forEach(otherItem => {
+      if (otherItem !== item && otherItem.classList.contains('active')) {
+        closeItem(otherItem);
+      }
+    });
+    
+    // Toggle current item
+    if (isActive) {
+      closeItem(item);
+    } else {
+      openItem(item);
     }
+  };
+
+  const openItem = (item) => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    
+    if (!question || !answer) return;
+    
+    item.classList.add('active');
+    question.setAttribute('aria-expanded', 'true');
+  };
+
+  const closeItem = (item) => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    
+    if (!question || !answer) return;
+    
+    item.classList.remove('active');
+    question.setAttribute('aria-expanded', 'false');
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  } else {
+    initFAQ();
+  }
+})();
+
+/* =============================
+🚀 LAZY INITIALIZATION
+=============================== */
+
+// Initialize all components when needed
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Swipers when they come into view
+  const swiperObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains('mySwiper') && !entry.target.classList.contains('testimonials-section')) {
+          initSwiper();
+        } else if (entry.target.closest('.testimonials-section')) {
+          initTestimonialsSwiper();
+        }
+        swiperObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '50px' });
+
+  // Observe swiper containers
+  const swiperContainers = document.querySelectorAll('.mySwiper, .testimonials-section');
+  swiperContainers.forEach(container => {
+    swiperObserver.observe(container);
+  });
 });
 
-
+// Export functions for external use
+window.WebnovaComponents = {
+  initSwiper,
+  initTestimonialsSwiper
+};

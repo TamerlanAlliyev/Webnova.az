@@ -1,118 +1,214 @@
 /* ======================== THEME MODE ======================== */ 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const checkbox = document.getElementById("checkbox");
+// Optimized Theme Handler - Performance focused
+(() => {
+  let checkbox = null;
+  let isInitialized = false;
 
-  // localStorage-dan mövzu götür
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    document.documentElement.setAttribute("data-theme", savedTheme);
-    if (savedTheme === "dark") checkbox.checked = true;
-  } else {
-    // cihazın sistem mövzusuna bax
+  const initTheme = () => {
+    if (isInitialized) return;
+    
+    checkbox = document.getElementById("checkbox");
+    if (!checkbox) return;
+
+    // Get saved theme or system preference
+    const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
-    localStorage.setItem("theme", prefersDark ? "dark" : "light");
-    checkbox.checked = prefersDark;
-  }
+    const theme = savedTheme || (prefersDark ? "dark" : "light");
 
-  // dəyişdiriləndə
-  checkbox.addEventListener("change", () => {
-    if (checkbox.checked) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
+    // Apply theme immediately to prevent flash
+    document.documentElement.setAttribute("data-theme", theme);
+    checkbox.checked = theme === "dark";
+
+    // Save theme if not already saved
+    if (!savedTheme) {
+      localStorage.setItem("theme", theme);
     }
-  });
-});
+
+    // Add change listener
+    checkbox.addEventListener("change", handleThemeChange, { passive: true });
+    
+    isInitialized = true;
+  };
+
+  const handleThemeChange = () => {
+    const theme = checkbox.checked ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  };
+
+  // Initialize immediately if DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTheme);
+  } else {
+    initTheme();
+  }
+})();
 
 /* ================================================================= */
 
 
 /* ======================== LANGUAGE PICKER ======================== */ 
 
-function toggleDropdown() {
-  const dropdown = document.querySelector('.dropdown');
-  const button = document.querySelector('.selected-language');
-  const picker = document.querySelector('.language-picker');
-  const isOpen = dropdown.style.display === 'block';
+// Optimized Language Picker - Performance focused
+(() => {
+  let dropdown = null;
+  let button = null;
+  let picker = null;
+  let isInitialized = false;
 
-  // Toggle açılıb-bağlanma
-  dropdown.style.display = isOpen ? 'none' : 'block';
-  button.setAttribute('aria-expanded', !isOpen);
+  const initLanguagePicker = () => {
+    if (isInitialized) return;
+    
+    dropdown = document.querySelector('.dropdown');
+    button = document.querySelector('.selected-language');
+    picker = document.querySelector('.language-picker');
+    
+    if (!dropdown || !button || !picker) return;
 
-  // "active" class-ını toggle elə
-  picker.classList.toggle('active', !isOpen);
-}
+    // Add click listener to button
+    button.addEventListener('click', toggleDropdown, { passive: true });
+    
+    // Add global click listener for outside clicks
+    document.addEventListener('click', handleOutsideClick, { passive: true });
+    
+    isInitialized = true;
+  };
 
-// Çöldə klik ediləndə bağlansın
-document.addEventListener('click', function(event) {
-  const picker = document.querySelector('.language-picker');
-  const dropdown = document.querySelector('.dropdown');
-  const button = document.querySelector('.selected-language');
+  const toggleDropdown = (e) => {
+    e.preventDefault();
+    const isOpen = dropdown.style.display === 'block';
 
-  if (!picker.contains(event.target)) {
-    dropdown.style.display = 'none';
-    button.setAttribute('aria-expanded', 'false');
-    picker.classList.remove('active');
+    // Toggle dropdown visibility
+    dropdown.style.display = isOpen ? 'none' : 'block';
+    button.setAttribute('aria-expanded', !isOpen);
+    picker.classList.toggle('active', !isOpen);
+  };
+
+  const handleOutsideClick = (event) => {
+    if (!picker.contains(event.target)) {
+      dropdown.style.display = 'none';
+      button.setAttribute('aria-expanded', 'false');
+      picker.classList.remove('active');
+    }
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguagePicker);
+  } else {
+    initLanguagePicker();
   }
-});
+
+  // Export function for external use
+  window.toggleDropdown = toggleDropdown;
+})();
 
 /* ================================================================= */
 
 
 /* ======================== HEADER SCROLL ======================== */ 
 
-let lastScroll = 0;
-const header = document.querySelector("header.header");
+// Optimized Header Scroll - Performance focused
+(() => {
+  let lastScroll = 0;
+  let header = null;
+  let ticking = false;
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
+  const initHeaderScroll = () => {
+    header = document.querySelector("header.header");
+    if (!header) return;
 
-  if (currentScroll > lastScroll) {
-    // aşağı scroll → header gizlənir
-    header.classList.add("hide");
+    // Throttled scroll handler
+    window.addEventListener("scroll", handleScroll, { passive: true });
+  };
+
+  const handleScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  };
+
+  const updateHeader = () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      // Scroll down - hide header
+      header.classList.add("hide");
+    } else {
+      // Scroll up - show header
+      header.classList.remove("hide");
+    }
+
+    lastScroll = currentScroll;
+    ticking = false;
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderScroll);
   } else {
-    // yuxarı scroll → header çıxır
-    header.classList.remove("hide");
+    initHeaderScroll();
   }
-
-  lastScroll = currentScroll;
-});
+})();
 /* ================================================================= */
 
 
 /* ======================== MOBILE MENU ========================= */ 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const menu = document.querySelector(".mobile-menu");
-  const openBtn = document.querySelector(".mobile-menu-btn-open");
-  const closeBtn = document.querySelector(".mobile-menu-btn-close");
+// Optimized Mobile Menu - Performance focused
+(() => {
+  let menu = null;
+  let openBtn = null;
+  let closeBtn = null;
+  let isInitialized = false;
 
-  // Açma düyməsi
-  openBtn.addEventListener("click", (e) => {
+  const initMobileMenu = () => {
+    if (isInitialized) return;
+    
+    menu = document.querySelector(".mobile-menu");
+    openBtn = document.querySelector(".mobile-menu-btn-open");
+    closeBtn = document.querySelector(".mobile-menu-btn-close");
+
+    if (!menu || !openBtn || !closeBtn) return;
+
+    // Add event listeners
+    openBtn.addEventListener("click", openMenu, { passive: true });
+    closeBtn.addEventListener("click", closeMenu, { passive: true });
+    document.addEventListener("click", handleOutsideClick, { passive: true });
+    
+    isInitialized = true;
+  };
+
+  const openMenu = (e) => {
     e.preventDefault();
     menu.classList.add("active");
-  });
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  };
 
-  // Bağlama düyməsi
-  closeBtn.addEventListener("click", (e) => {
+  const closeMenu = (e) => {
     e.preventDefault();
     menu.classList.remove("active");
-  });
+    document.body.style.overflow = ''; // Restore scroll
+  };
 
-  // Kənara kliklənəndə bağla
-  document.addEventListener("click", (e) => {
+  const handleOutsideClick = (e) => {
     if (
       menu.classList.contains("active") &&
       !menu.contains(e.target) &&
       !openBtn.contains(e.target)
     ) {
-      menu.classList.remove("active");
+      closeMenu(e);
     }
-  });
-});
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
+})();
 
 /* ================================================================= */

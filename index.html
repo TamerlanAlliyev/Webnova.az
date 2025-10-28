@@ -196,6 +196,21 @@
         
         /* Performance - GPU acceleration for animations */
         .card-animation,.hero-animation{will-change:transform;transform:translateZ(0)}
+        
+        /* Mobile Performance Optimizations */
+        @media (max-width: 768px) {
+          * { -webkit-tap-highlight-color: transparent; }
+          .swiper-slide { contain: layout style paint; }
+          .card-animation { contain: layout; }
+        }
+        
+        /* Reduce repaints on scroll */
+        .header { contain: layout style; }
+        .mobile-menu { contain: layout style; }
+        
+        /* Optimize text rendering */
+        body { text-rendering: optimizeSpeed; }
+        h1, h2, h3, h4, h5, h6 { text-rendering: optimizeLegibility; }
     </style>
     
     <!-- ========================================
@@ -1767,14 +1782,60 @@
 </body>
 
 <!-- ========================================
-     DEFERRED JAVASCRIPT (Performance)
+     OPTIMIZED JAVASCRIPT LOADING (Performance)
 ========================================= -->
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module" defer></script>
-<!-- Initialize Swiper -->
-<script src="./assets/scripts/home.js" defer></script>
+<!-- Critical: Load Swiper only when needed -->
+<script>
+  // Lazy load Swiper when needed
+  function loadSwiper() {
+    return new Promise((resolve) => {
+      if (window.Swiper) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+      script.onload = resolve;
+      script.onerror = resolve; // Continue even if Swiper fails
+      document.head.appendChild(script);
+    });
+  }
+
+  // Lazy load Lottie when needed
+  function loadLottie() {
+    return new Promise((resolve) => {
+      if (window.customElements.get('dotlottie-wc')) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js';
+      script.type = 'module';
+      script.onload = resolve;
+      script.onerror = resolve;
+      document.head.appendChild(script);
+    });
+  }
+
+  // Load scripts when components are needed
+  window.addEventListener('load', async () => {
+    // Load Swiper for sliders
+    await loadSwiper();
+    
+    // Load Lottie for animations
+    await loadLottie();
+    
+    // Initialize components
+    if (window.WebnovaComponents) {
+      window.WebnovaComponents.initSwiper();
+      window.WebnovaComponents.initTestimonialsSwiper();
+    }
+  });
+</script>
+
+<!-- Core scripts - Load immediately -->
 <script src="./assets/scripts/layout.js" defer></script>
+<script src="./assets/scripts/home.js" defer></script>
 
 <!-- ========================================
      LAZY LOAD OPTIMIZATION
