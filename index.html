@@ -117,14 +117,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <!-- Lottie removed for performance -->
+    <link rel="preconnect" href="https://lottie.host" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-    <!-- Lottie removed for performance -->
+    <link rel="dns-prefetch" href="//lottie.host">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     
@@ -134,19 +134,13 @@
     <link rel="preload" href="./assets/styles/root/root.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
     <link rel="preload" href="./assets/scripts/layout.js" as="script">
-    <link rel="preload" href="./assets/images/logo.svg" as="image" type="image/svg+xml">
     
     <!-- ========================================
-         NON-CRITICAL CSS (Async Load for LCP)
+         CRITICAL CSS (Above the Fold)
     ========================================= -->
-    <link rel="preload" href="./assets/styles/root/root.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="./assets/styles/pages/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="./assets/styles/pages/home.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="./assets/styles/root/root.css">
-        <link rel="stylesheet" href="./assets/styles/pages/layout.css">
-        <link rel="stylesheet" href="./assets/styles/pages/home.css">
-    </noscript>
+    <link rel="stylesheet" href="./assets/styles/root/root.css">
+    <link rel="stylesheet" href="./assets/styles/pages/layout.css">
+    <link rel="stylesheet" href="./assets/styles/pages/home.css">
     
     <!-- ========================================
          RESPONSIVE CSS (Media Query Optimized)
@@ -159,100 +153,24 @@
     <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css" media="(max-width: 575px)"> -->
     
     <!-- ========================================
-         CRITICAL ICONS ONLY (Performance Optimized)
+         DEFERRED STYLESHEETS (Non-Critical)
     ========================================= -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     </noscript>
     
-    <!-- Reduce unused CSS hint -->
-    <script>
-        // Remove unused CSS after page load
-        window.addEventListener('load', function() {
-            // This is a placeholder for future CSS tree-shaking
-            console.log('Page loaded - CSS optimization ready');
-        });
-    </script>
-    
     <!-- ========================================
-         CRITICAL CSS (Inline for LCP)
-    ========================================= -->
-    <style>
-        /* Critical Above-the-Fold Styles - LCP Optimization */
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:#333;background:#fff;min-height:100vh}
-        
-        /* Critical Header Styles */
-        .header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 10px rgba(0,0,0,0.1);contain:layout style}
-        .header .container{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1rem 2rem;max-width:1440px;margin:0 auto}
-        .logo{display:flex;align-items:center;justify-content:start}
-        .logo img{width:150px;height:40px;object-fit:contain}
-        
-        /* Critical Hero Styles */
-        .main-hero{min-height:100vh;display:flex;align-items:center;padding:2rem 1rem;position:relative}
-        .hero-content{max-width:600px;z-index:2;position:relative}
-        .hero-content h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
-        .hero-content p{font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.6;margin-bottom:2rem;color:#666}
-        
-        /* Critical Button Styles */
-        .btn{display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 2rem;text-decoration:none;border-radius:9999px;font-weight:500;transition:all 0.3s ease;background:#014EFF;color:#fff;border:none;cursor:pointer}
-        .btn:hover{background:#002983;transform:translateY(-2px)}
-        
-        /* Critical Image Styles */
-        img{max-width:100%;height:auto;display:block}
-        img[width][height]{aspect-ratio:attr(width)/attr(height)}
-        
-        /* Accessibility */
-        .visually-hidden{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
-        .skip-link{position:absolute;top:-40px;left:0;background:#010C31;color:#fff;padding:8px 16px;text-decoration:none;z-index:100000;border-radius:0 0 4px 0}
-        .skip-link:focus{top:0;outline:3px solid #FFD700}
-        
-        /* Performance Optimizations */
-        .card-animation,.hero-animation{will-change:transform;transform:translateZ(0)}
-        .mobile-menu{contain:layout style}
-        
-        /* Mobile Critical Styles */
-        @media (max-width: 768px) {
-          *{-webkit-tap-highlight-color:transparent}
-          .swiper-slide{contain:layout style paint}
-          .card-animation{contain:layout}
-          .header .container{padding:0.75rem 1rem}
-          .main-hero{padding:1rem}
-        }
-        
-        /* Text Rendering */
-        body{text-rendering:optimizeSpeed}
-        h1,h2,h3,h4,h5,h6{text-rendering:optimizeLegibility}
-        
-        /* LCP Image Optimization */
-        .hero-image{position:absolute;top:50%;right:0;transform:translateY(-50%);z-index:1;opacity:0.9}
-        .hero-image dotlottie-wc{width:100%;max-width:500px;height:auto}
-    </style>
-    
-    <!-- ========================================
-         WEB FONTS (Async Load with Display Swap)
+         WEB FONTS (Display Swap for Performance)
     ========================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Optimized font loading with font-display: swap -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
-    </noscript>
-    
-    <!-- Font display optimization for icons -->
-    <style>
-        /* Font display optimization */
-        .fa, .fas, .far, .fal, .fab {
-            font-display: swap;
-        }
-        .bi {
-            font-display: swap;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- ========================================
          STRUCTURED DATA - ORGANIZATION (Schema.org)
@@ -542,61 +460,98 @@
     </script>
     
     <!-- ========================================
-         DEFER ALL ANALYTICS & TRACKING (Performance Boost)
+         GOOGLE TAG MANAGER (GTM)
+         Replace GTM-XXXXXXX with your actual GTM ID
     ========================================= -->
     <script>
-        // Load analytics after page load
-        window.addEventListener('load', function() {
-            // Google Tag Manager
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');
-            
-            // Google Analytics 4
-            var ga = document.createElement('script');
-            ga.async = true;
-            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-            document.head.appendChild(ga);
-            
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
-                'anonymize_ip': true,
-                'cookie_flags': 'SameSite=None;Secure'
-            });
-            // Google Ads - Removed for performance (46KB savings)
-            
-            // Microsoft Clarity
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "XXXXXXXXXX");
-            
-            // Facebook Pixel - Removed for performance (98KB savings)
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX');
+    </script>
+    
+    <!-- ========================================
+         GOOGLE ANALYTICS 4 (GA4)
+         Replace G-XXXXXXXXXX with your actual GA4 ID
+    ========================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
         });
     </script>
+    
+    <!-- ========================================
+         GOOGLE ADS CONVERSION TRACKING (Optional)
+         Replace AW-XXXXXXXXXX with your actual Conversion ID
+    ========================================= -->
+    <script>
+        gtag('config', 'AW-XXXXXXXXXX');
+    </script>
+    
+    <!-- ========================================
+         MICROSOFT CLARITY (Optional - User Behavior Analytics)
+         Replace 'XXXXXXXXXX' with your Clarity project ID
+    ========================================= -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "XXXXXXXXXX");
+    </script>
+    
+    <!-- ========================================
+         FACEBOOK PIXEL (Optional - for retargeting)
+         Replace XXXXXXXXXX with your Facebook Pixel ID
+    ========================================= -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'XXXXXXXXXX');
+        fbq('track', 'PageView');
+    </script>
     <noscript>
-        <img height="1" width="1" style="display:none" alt="" 
+        <img height="1" width="1" style="display:none" 
         src="https://www.facebook.com/tr?id=XXXXXXXXXX&ev=PageView&noscript=1"/>
     </noscript>
+    
+    <!-- ========================================
+         PERFORMANCE MONITORING
+    ========================================= -->
+    <script>
+        // Web Vitals Monitoring
+        if ('PerformanceObserver' in window) {
+            // Core Web Vitals monitoring code
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    // Log performance metrics
+                    console.log(entry.name, entry.startTime);
+                }
+            });
+            observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+        }
+    </script>
 </head>
 
 <body>
-    <!-- ========================================
-         SKIP TO MAIN CONTENT (Accessibility)
-    ========================================= -->
-    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
-    
     <!-- ========================================
          GOOGLE TAG MANAGER (noscript)
     ========================================= -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-        height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true" title="Google Tag Manager"></iframe>
+        height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe>
     </noscript>
 
     <!-- ========================================
@@ -670,12 +625,11 @@
             <!-- Tema dəyişmə -->
 
             <div class="themebutton">
-                <input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle dark mode">
-                <label for="checkbox" class="checkbox-label" aria-label="Theme toggle switch">
-                    <i class="bi bi-moon-fill" aria-hidden="true"></i>
-                    <i class="bi bi-sun-fill" aria-hidden="true"></i>
-                    <span class="ball" aria-hidden="true"></span>
-                    <span class="visually-hidden">Dark mode açıb-söndür</span>
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="bi bi-moon-fill"></i>
+                    <i class="bi bi-sun-fill"></i>
+                    <span class="ball"></span>
                 </label>
             </div>
 
@@ -724,8 +678,8 @@
 
             <div class="logo-image">
                 <a class="logo" href="/" aria-label="Webnova Main Page">
-                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
-                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
+                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40">
+                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
                 </a>
             </div>
 
@@ -786,14 +740,12 @@
                         </a>
                     </div>
 
-                    <!-- Hero Illustration - Optimized for LCP -->
-                    <figure class="hero-image" role="img" aria-label="Digital innovation illustration">
-                        <div class="hero-placeholder" style="width:100%;max-width:500px;height:400px;background:linear-gradient(135deg,#014EFF 0%,#002983 100%);border-radius:20px;display:flex;align-items:center;justify-content:center;color:white;font-size:3rem;font-weight:bold;text-align:center;box-shadow:0 20px 40px rgba(1,78,255,0.3)">
-                            <div>
-                                <div style="font-size:4rem;margin-bottom:1rem;">🚀</div>
-                                <div style="font-size:1.2rem;opacity:0.9;">Digital Innovation</div>
-                            </div>
-                        </div>
+                    <!-- Hero Illustration -->
+                    <figure class="hero-image">
+                        <dotlottie-wc class="hero-animation"
+                            src="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie" speed="1"
+                            autoplay loop aria-label="Animated robot representing digital innovation">
+                        </dotlottie-wc>
                     </figure>
 
 
@@ -806,8 +758,8 @@
                  CLIENT LOGOS SECTION
             ========================================= -->
             <section class="swiper mySwiper client-list card-animation" aria-label="Bizim Müştərilərimiz">
-                <h2 class="visually-hidden">Bizə Etibar Edən Şirkətlər</h2>
-                <div class="swiper-wrapper">
+                <h2 style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Bizə Etibar Edən Şirkətlər</h2>
+                <div class="swiper-wrapper" role="list">
                     <div class="swiper-slide" role="listitem">
                         <img src="./assets/images/clients/NextGEN Growth.webp" alt="NextGEN Growth - Webnova Müştərisi" width="180" height="80" loading="lazy">
                     </div>
@@ -857,9 +809,9 @@
                     <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
                         itemtype="https://schema.org/OfferCatalog">
                         <figure class="advantage-icon">
-                            <div class="anime-icon" style="width:80px;height:80px;background:linear-gradient(135deg,#014EFF 0%,#002983 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;box-shadow:0 10px 30px rgba(1,78,255,0.3)">
-                                ⚡
-                            </div>
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/ce005638-8a35-4702-9ca0-c42db2ce543d/dJWSBjdB0C.lottie"
+                                autoplay loop></dotlottie-wc>
                         </figure>
                         <div class="advantage-content">
                             <h3 itemprop="name">Dürüst kommunikasiya</h3>
@@ -872,9 +824,9 @@
                     <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
                         itemtype="https://schema.org/OfferCatalog">
                         <figure class="advantage-icon">
-                            <div class="anime-icon" style="width:80px;height:80px;background:linear-gradient(135deg,#014EFF 0%,#002983 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;box-shadow:0 10px 30px rgba(1,78,255,0.3)">
-                                🎯
-                            </div>
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/fce6a98c-6e17-41cc-99a8-43f8f1b6dc7f/Yp8W9vZ9yG.lottie"
+                                autoplay loop></dotlottie-wc>
                         </figure>
                         <div class="advantage-content">
                             <h3 itemprop="name">Operativ xidmət</h3>
@@ -887,9 +839,9 @@
                     <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
                         itemtype="https://schema.org/OfferCatalog">
                         <figure class="advantage-icon">
-                            <div class="anime-icon" style="width:80px;height:80px;background:linear-gradient(135deg,#014EFF 0%,#002983 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;box-shadow:0 10px 30px rgba(1,78,255,0.3)">
-                                💡
-                            </div>
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/44f463f8-2df9-4c65-8b6a-15d7392a4e03/0W1HUMuR6O.lottie"
+                                autoplay loop></dotlottie-wc>
                         </figure>
                         <div class="advantage-content">
                             <h3 itemprop="name">Peşəkar komanda</h3>
@@ -902,9 +854,9 @@
                     <article class="advantage-item card-animation" itemprop="hasOfferCatalog" itemscope
                         itemtype="https://schema.org/OfferCatalog">
                         <figure class="advantage-icon">
-                            <div class="anime-icon" style="width:80px;height:80px;background:linear-gradient(135deg,#014EFF 0%,#002983 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;box-shadow:0 10px 30px rgba(1,78,255,0.3)">
-                                🚀
-                            </div>
+                            <dotlottie-wc class="anime-icon"
+                                src="https://lottie.host/184ec790-1cfb-4a1b-aef5-047e7b6c50cc/0qJ9Fplc1h.lottie"
+                                autoplay loop></dotlottie-wc>
                         </figure>
                         <div class="advantage-content">
                             <h3 itemprop="name">Davamlı inkişaf</h3>
@@ -939,13 +891,8 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/veb-sayt-hazirlanmasi" class="service-image" aria-hidden="true" tabindex="-1">
-                                    <div style="width:600px;height:400px;background:linear-gradient(135deg,#014EFF 0%,#002983 100%);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;font-weight:bold;text-align:center;box-shadow:0 10px 30px rgba(1,78,255,0.3)">
-                                        <div>
-                                            <div style="font-size:3rem;margin-bottom:0.5rem;">🌐</div>
-                                            <div style="font-size:1rem;opacity:0.9;">Web Development</div>
-                                        </div>
-                                    </div>
+                                <a href="/xidmetlerimiz/veb-sayt-hazirlanmasi" class="service-image" aria-hidden="true">
+                                    <img src="./assets/images/projects/image.png" alt="Veb Sayt Hazırlanması Xidməti" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
                                     <h3 class="service-title" itemprop="name">
@@ -977,7 +924,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/digital-marketing" class="service-image hidden" aria-hidden="true" tabindex="-1">
+                                <a href="/xidmetlerimiz/digital-marketing" class="service-image hidden" aria-hidden="true">
                                     <img src="./assets/images/projects/image.png" alt="Digital Marketing Xidmətləri" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -1006,7 +953,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/ui-ux-design" class="service-image hidden" aria-hidden="true" tabindex="-1">
+                                <a href="/xidmetlerimiz/ui-ux-design" class="service-image hidden" aria-hidden="true">
                                     <img src="./assets/images/projects/image.png" alt="UI/UX Design Xidmətləri" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -1036,7 +983,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/branding" class="service-image hidden" aria-hidden="true" tabindex="-1">
+                                <a href="/xidmetlerimiz/branding" class="service-image hidden" aria-hidden="true">
                                     <img src="./assets/images/projects/image.png" alt="Branding Xidmətləri" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -1520,9 +1467,8 @@
             <section class="section cta-section card-animation" id="cta" aria-labelledby="cta-heading" itemscope
                 itemtype="https://schema.org/OfferCatalog">
 
-                <div class="cta-container" style="background: linear-gradient(135deg, #014EFF 0%, #002983 100%); position: relative; overflow: hidden;">
-                    <!-- Optimized background pattern instead of 1.4MB image -->
-                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"><path d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"rgba(255,255,255,0.1)\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/></svg>'); opacity: 0.3;"></div>
+                <div class="cta-container" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(1, 12, 49, 0.63)), 
+            url('./assets/images/settings/CTAbg.webp');">
 
                     <!-- CTA Content -->
                     <div class="cta-content">
@@ -1807,74 +1753,13 @@
 
 </body>
 
-<!-- ========================================
-     OPTIMIZED JAVASCRIPT LOADING (Performance)
-========================================= -->
-<!-- Critical: Load Swiper only when needed -->
-<script>
-  // Lazy load Swiper when needed
-  function loadSwiper() {
-    return new Promise((resolve) => {
-      if (window.Swiper) {
-        resolve();
-        return;
-      }
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-      script.onload = resolve;
-      script.onerror = resolve; // Continue even if Swiper fails
-      document.head.appendChild(script);
-    });
-  }
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+<!-- Initialize Swiper -->
+<script src="./assets/scripts/home.js"> </script>
 
-  // Lottie removed for performance - using CSS placeholder instead
+<script src="./assets/scripts/layout.js"></script>
 
-  // Load scripts when components are needed
-  window.addEventListener('load', async () => {
-    // Load Swiper for sliders
-    await loadSwiper();
-    
-    // Initialize components
-    if (window.WebnovaComponents) {
-      window.WebnovaComponents.initSwiper();
-      window.WebnovaComponents.initTestimonialsSwiper();
-    }
-  });
-</script>
-
-<!-- Core scripts - Load immediately -->
-<script src="./assets/scripts/layout.js" defer></script>
-<script src="./assets/scripts/home.js" defer></script>
-
-<!-- ========================================
-     LAZY LOAD OPTIMIZATION
-========================================= -->
-<script>
-    // Native lazy loading fallback
-    if ('loading' in HTMLImageElement.prototype) {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            img.src = img.src;
-        });
-    } else {
-        // Fallback for older browsers
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-        document.body.appendChild(script);
-    }
-    
-    // Preload critical images
-    const criticalImages = [
-        './assets/images/logo.svg',
-        './assets/images/clients/NextGEN Growth.webp'
-    ];
-    criticalImages.forEach(src => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
-        document.head.appendChild(link);
-    });
-</script>
 
 </html>
