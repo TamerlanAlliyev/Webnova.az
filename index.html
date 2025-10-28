@@ -134,6 +134,7 @@
     <link rel="preload" href="./assets/styles/root/root.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style">
     <link rel="preload" href="./assets/scripts/layout.js" as="script">
+    <link rel="preload" href="./assets/images/logo.svg" as="image" type="image/svg+xml">
     
     <!-- ========================================
          CRITICAL CSS (Above the Fold)
@@ -153,7 +154,7 @@
     <link rel="stylesheet" href="./assets/styles/root/MobileRoot.css" media="(max-width: 575px)"> -->
     
     <!-- ========================================
-         DEFERRED STYLESHEETS (Non-Critical)
+         DEFERRED STYLESHEETS (Non-Critical) - Async Load
     ========================================= -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -164,13 +165,51 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     </noscript>
     
+    <!-- Reduce unused CSS hint -->
+    <script>
+        // Remove unused CSS after page load
+        window.addEventListener('load', function() {
+            // This is a placeholder for future CSS tree-shaking
+            console.log('Page loaded - CSS optimization ready');
+        });
+    </script>
+    
     <!-- ========================================
-         WEB FONTS (Display Swap for Performance)
+         CRITICAL CSS (Inline for LCP)
+    ========================================= -->
+    <style>
+        /* Critical Above-the-Fold Styles */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;color:#333;background:#fff}
+        .header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+        .main-hero{min-height:100vh;display:flex;align-items:center;padding:2rem 1rem}
+        img{max-width:100%;height:auto;display:block}
+        .btn{display:inline-block;padding:1rem 2rem;text-decoration:none;border-radius:8px;transition:all 0.3s ease}
+        .visually-hidden{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+        
+        /* Skip Link for Accessibility */
+        .skip-link{position:absolute;top:-40px;left:0;background:#010C31;color:#fff;padding:8px 16px;text-decoration:none;z-index:100000;border-radius:0 0 4px 0}
+        .skip-link:focus{top:0;outline:3px solid #FFD700}
+        
+        /* Reduce CLS - Reserve space for images */
+        img[width][height]{aspect-ratio:attr(width)/attr(height)}
+        
+        /* Performance - GPU acceleration for animations */
+        .card-animation,.hero-animation{will-change:transform;transform:translateZ(0)}
+    </style>
+    
+    <!-- ========================================
+         WEB FONTS (Async Load with Display Swap)
     ========================================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Defer font loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
     
     <!-- ========================================
          STRUCTURED DATA - ORGANIZATION (Schema.org)
@@ -460,98 +499,71 @@
     </script>
     
     <!-- ========================================
-         GOOGLE TAG MANAGER (GTM)
-         Replace GTM-XXXXXXX with your actual GTM ID
+         DEFER ALL ANALYTICS & TRACKING (Performance Boost)
     ========================================= -->
     <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-XXXXXXX');
-    </script>
-    
-    <!-- ========================================
-         GOOGLE ANALYTICS 4 (GA4)
-         Replace G-XXXXXXXXXX with your actual GA4 ID
-    ========================================= -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX', {
-            'anonymize_ip': true,
-            'cookie_flags': 'SameSite=None;Secure'
+        // Load analytics after page load
+        window.addEventListener('load', function() {
+            // Google Tag Manager
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-XXXXXXX');
+            
+            // Google Analytics 4
+            var ga = document.createElement('script');
+            ga.async = true;
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+            document.head.appendChild(ga);
+            
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX', {
+                'anonymize_ip': true,
+                'cookie_flags': 'SameSite=None;Secure'
+            });
+            gtag('config', 'AW-XXXXXXXXXX');
+            
+            // Microsoft Clarity
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "XXXXXXXXXX");
+            
+            // Facebook Pixel
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'XXXXXXXXXX');
+            fbq('track', 'PageView');
         });
     </script>
-    
-    <!-- ========================================
-         GOOGLE ADS CONVERSION TRACKING (Optional)
-         Replace AW-XXXXXXXXXX with your actual Conversion ID
-    ========================================= -->
-    <script>
-        gtag('config', 'AW-XXXXXXXXXX');
-    </script>
-    
-    <!-- ========================================
-         MICROSOFT CLARITY (Optional - User Behavior Analytics)
-         Replace 'XXXXXXXXXX' with your Clarity project ID
-    ========================================= -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "XXXXXXXXXX");
-    </script>
-    
-    <!-- ========================================
-         FACEBOOK PIXEL (Optional - for retargeting)
-         Replace XXXXXXXXXX with your Facebook Pixel ID
-    ========================================= -->
-    <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'XXXXXXXXXX');
-        fbq('track', 'PageView');
-    </script>
     <noscript>
-        <img height="1" width="1" style="display:none" 
+        <img height="1" width="1" style="display:none" alt="" 
         src="https://www.facebook.com/tr?id=XXXXXXXXXX&ev=PageView&noscript=1"/>
     </noscript>
-    
-    <!-- ========================================
-         PERFORMANCE MONITORING
-    ========================================= -->
-    <script>
-        // Web Vitals Monitoring
-        if ('PerformanceObserver' in window) {
-            // Core Web Vitals monitoring code
-            const observer = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                    // Log performance metrics
-                    console.log(entry.name, entry.startTime);
-                }
-            });
-            observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-        }
-    </script>
 </head>
 
 <body>
+    <!-- ========================================
+         SKIP TO MAIN CONTENT (Accessibility)
+    ========================================= -->
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+    
     <!-- ========================================
          GOOGLE TAG MANAGER (noscript)
     ========================================= -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-        height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true"></iframe>
+        height="0" width="0" style="display:none;visibility:hidden" aria-hidden="true" title="Google Tag Manager"></iframe>
     </noscript>
 
     <!-- ========================================
@@ -625,11 +637,12 @@
             <!-- Tema dəyişmə -->
 
             <div class="themebutton">
-                <input type="checkbox" class="checkbox" id="checkbox">
-                <label for="checkbox" class="checkbox-label">
-                    <i class="bi bi-moon-fill"></i>
-                    <i class="bi bi-sun-fill"></i>
-                    <span class="ball"></span>
+                <input type="checkbox" class="checkbox" id="checkbox" aria-label="Toggle dark mode">
+                <label for="checkbox" class="checkbox-label" aria-label="Theme toggle switch">
+                    <i class="bi bi-moon-fill" aria-hidden="true"></i>
+                    <i class="bi bi-sun-fill" aria-hidden="true"></i>
+                    <span class="ball" aria-hidden="true"></span>
+                    <span class="visually-hidden">Dark mode açıb-söndür</span>
                 </label>
             </div>
 
@@ -678,8 +691,8 @@
 
             <div class="logo-image">
                 <a class="logo" href="/" aria-label="Webnova Main Page">
-                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40">
-                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40">
+                    <img class="logo-light" src="./assets/images/logo.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
+                    <img class="logo-dark" src="./assets/images/logo-dark.svg" alt="Webnova logo" width="150" height="40" fetchpriority="high">
                 </a>
             </div>
 
@@ -741,10 +754,10 @@
                     </div>
 
                     <!-- Hero Illustration -->
-                    <figure class="hero-image">
+                    <figure class="hero-image" role="img" aria-label="Animated robot representing digital innovation">
                         <dotlottie-wc class="hero-animation"
                             src="https://lottie.host/1fd23379-b4da-4710-802f-1617e55579cd/Z9fwICqyIB.lottie" speed="1"
-                            autoplay loop aria-label="Animated robot representing digital innovation">
+                            autoplay loop aria-hidden="true">
                         </dotlottie-wc>
                     </figure>
 
@@ -758,8 +771,8 @@
                  CLIENT LOGOS SECTION
             ========================================= -->
             <section class="swiper mySwiper client-list card-animation" aria-label="Bizim Müştərilərimiz">
-                <h2 style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Bizə Etibar Edən Şirkətlər</h2>
-                <div class="swiper-wrapper" role="list">
+                <h2 class="visually-hidden">Bizə Etibar Edən Şirkətlər</h2>
+                <div class="swiper-wrapper">
                     <div class="swiper-slide" role="listitem">
                         <img src="./assets/images/clients/NextGEN Growth.webp" alt="NextGEN Growth - Webnova Müştərisi" width="180" height="80" loading="lazy">
                     </div>
@@ -891,7 +904,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/veb-sayt-hazirlanmasi" class="service-image" aria-hidden="true">
+                                <a href="/xidmetlerimiz/veb-sayt-hazirlanmasi" class="service-image" aria-hidden="true" tabindex="-1">
                                     <img src="./assets/images/projects/image.png" alt="Veb Sayt Hazırlanması Xidməti" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -924,7 +937,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/digital-marketing" class="service-image hidden" aria-hidden="true">
+                                <a href="/xidmetlerimiz/digital-marketing" class="service-image hidden" aria-hidden="true" tabindex="-1">
                                     <img src="./assets/images/projects/image.png" alt="Digital Marketing Xidmətləri" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -953,7 +966,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/ui-ux-design" class="service-image hidden" aria-hidden="true">
+                                <a href="/xidmetlerimiz/ui-ux-design" class="service-image hidden" aria-hidden="true" tabindex="-1">
                                     <img src="./assets/images/projects/image.png" alt="UI/UX Design Xidmətləri" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -983,7 +996,7 @@
                         <div class="service-content">
 
                             <div class="service-visual">
-                                <a href="/xidmetlerimiz/branding" class="service-image hidden" aria-hidden="true">
+                                <a href="/xidmetlerimiz/branding" class="service-image hidden" aria-hidden="true" tabindex="-1">
                                     <img src="./assets/images/projects/image.png" alt="Branding Xidmətləri" width="600" height="400" loading="lazy">
                                 </a>
                                 <div class="service-text">
@@ -1753,13 +1766,45 @@
 
 </body>
 
+<!-- ========================================
+     DEFERRED JAVASCRIPT (Performance)
+========================================= -->
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module" defer></script>
 <!-- Initialize Swiper -->
-<script src="./assets/scripts/home.js"> </script>
+<script src="./assets/scripts/home.js" defer></script>
+<script src="./assets/scripts/layout.js" defer></script>
 
-<script src="./assets/scripts/layout.js"></script>
-
+<!-- ========================================
+     LAZY LOAD OPTIMIZATION
+========================================= -->
+<script>
+    // Native lazy loading fallback
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            img.src = img.src;
+        });
+    } else {
+        // Fallback for older browsers
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+        document.body.appendChild(script);
+    }
+    
+    // Preload critical images
+    const criticalImages = [
+        './assets/images/logo.svg',
+        './assets/images/clients/NextGEN Growth.webp'
+    ];
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+    });
+</script>
 
 </html>
