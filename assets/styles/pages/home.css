@@ -558,12 +558,11 @@ body main .main-container .faqs-section .section-container .faq-accordion .faq-i
   line-height: 1;
   color: transparent;
   -webkit-text-stroke: 1.5px var(--color-neutral-900);
-  text-stroke: 1.5px var(--color-neutral-900);
   flex-shrink: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease, text-stroke-color 0.3s ease;
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
 }
 body main .main-container .faqs-section .section-container .faq-accordion .faq-item .faq-question .question {
   display: flex;
@@ -606,7 +605,6 @@ body main .main-container .faqs-section .section-container .faq-accordion .faq-i
 body main .main-container .faqs-section .section-container .faq-accordion .faq-item:hover:not(.active) .faq-number {
   color: var(--color-neutral-900);
   -webkit-text-stroke-color: var(--color-neutral-900);
-  text-stroke-color: var(--color-neutral-900);
 }
 body main .main-container .faqs-section .section-container .faq-accordion .faq-item.active .faq-question {
   border-color: var(--color-primary);
@@ -614,7 +612,6 @@ body main .main-container .faqs-section .section-container .faq-accordion .faq-i
 body main .main-container .faqs-section .section-container .faq-accordion .faq-item.active .faq-question .faq-number {
   color: var(--color-primary);
   -webkit-text-stroke-color: var(--color-primary);
-  text-stroke-color: var(--color-primary);
 }
 body main .main-container .faqs-section .section-container .faq-accordion .faq-item.active .faq-question .question .question-text {
   color: var(--color-primary);

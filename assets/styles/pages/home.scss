@@ -670,12 +670,10 @@ body {
                                     line-height: 1;
                                     color: transparent;
                                     -webkit-text-stroke: 1.5px var(--color-neutral-900);
-                                    text-stroke: 1.5px var(--color-neutral-900);
                                     flex-shrink: 0;
                                     user-select: none;
                                     transition: color 0.3s ease,
-                                        -webkit-text-stroke-color 0.3s ease,
-                                        text-stroke-color 0.3s ease;
+                                        -webkit-text-stroke-color 0.3s ease;
                                 }
 
                                 // Question Text & Icon Container
@@ -730,7 +728,6 @@ body {
                                 .faq-number {
                                     color: var(--color-neutral-900);
                                     -webkit-text-stroke-color: var(--color-neutral-900);
-                                    text-stroke-color: var(--color-neutral-900);
                                 }
 
                             }
@@ -743,7 +740,6 @@ body {
                                     .faq-number {
                                         color: var(--color-primary);
                                         -webkit-text-stroke-color: var(--color-primary);
-                                        text-stroke-color: var(--color-primary);
                                     }
 
                                     .question {
